@@ -19,7 +19,7 @@
         <a href="javascript:void(0)">Inventory Transactions</a>
         <div class="dropdown-content">
             <a href="<?=base_url('ims/stock_in')?>">Stock In</a>
-            <a href="#service2">Stock Out</a>
+            <a href="<?=base_url('ims/stock_out')?>">Stock Out</a>
             <a href="#service3">Purchase Orders</a>
             <a href="#service4">Sales Orders</a>
         </div>

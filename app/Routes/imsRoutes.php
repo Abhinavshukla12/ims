@@ -11,5 +11,6 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     $routes->get('home', 'Dashboard_controller::index');
 
     $routes->get('stock_in', 'Inventary_transaction::stock_in');
+    $routes->get('stock_out', 'Inventary_transaction::stock_out');
 });
 //routes end 
