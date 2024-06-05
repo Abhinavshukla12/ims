@@ -9,5 +9,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     
     //project by abhinav
     $routes->get('home', 'Dashboard_controller::index');
+
+    $routes->get('stock_in', 'Inventary_transaction::stock_in');
 });
 //routes end 

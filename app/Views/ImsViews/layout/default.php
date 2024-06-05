@@ -16,20 +16,20 @@
 <div class="sidebar">
     <a href="#home">Home</a>
     <div class="dropdown">
+        <a href="javascript:void(0)">Inventory Transactions</a>
+        <div class="dropdown-content">
+            <a href="<?=base_url('ims/stock_in')?>">Stock In</a>
+            <a href="#service2">Stock Out</a>
+            <a href="#service3">Purchase Orders</a>
+            <a href="#service4">Sales Orders</a>
+        </div>
+    </div>
+    <div class="dropdown">
         <a href="javascript:void(0)">Inventory Tracking</a>
         <div class="dropdown-content">
             <a href="#service1">Item Management</a>
             <a href="#service2">Stock Levels</a>
             <a href="#service3">Categories</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <a href="javascript:void(0)">Inventory Transactions</a>
-        <div class="dropdown-content">
-            <a href="#service1">Stock In</a>
-            <a href="#service2">Stock Out</a>
-            <a href="#service3">Purchase Orders</a>
-            <a href="#service4">Sales Orders</a>
         </div>
     </div>
     <div class="dropdown">
