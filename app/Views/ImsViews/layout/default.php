@@ -8,7 +8,6 @@
     <title>file-tracking-system</title>
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="<?=base_url('assets/css/layout/main.css')?>" rel="stylesheet">
 </head>
