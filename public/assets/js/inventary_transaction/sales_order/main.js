@@ -2,27 +2,32 @@ $(document).ready(function() {
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
     var columns = [{
-            label: 'ID',
-            name: 'id',
+            label: 'Order ID',
+            name: 'order_id',
             width: 80,
             key: true
         },
         {
-            label: 'Name',
-            name: 'name',
-            width: 250,
+            label: 'Customer ID',
+            name: 'customer_id',
+            width: 80,
             editable: true
         },
         {
-            label: 'Price',
-            name: 'price',
+            label: 'Order Date',
+            name: 'order_date',
+            width: 140
+        },
+        {
+            label: 'Total Amount',
+            name: 'total_amount',
             width: 100,
             editable: true
         },
         {
-            label: 'Amount of Product',
-            name: 'count',
-            width: 120,
+            label: 'Status',
+            name: 'status',
+            width: 100,
             editable: true
         },
         {
@@ -34,13 +39,13 @@ $(document).ready(function() {
             label: 'Updated At',
             name: 'updated_at',
             width: 130
-        } 
+        }
     ];
 
     // Initialize the jqGrid
     $("#grid").jqGrid({
         datatype: "json",
-        url: 'http://localhost/ims/public/ims/stocks/stocks_data',
+        url: 'http://localhost/ims/public/ims/sales_order/sales_order_data',
         colModel: columns,
         rowNum: 20,
         rowList: [20, 50, 100, 200],
@@ -48,8 +53,8 @@ $(document).ready(function() {
         sortname: 'id',
         viewrecords: true,
         sortorder: 'asc',
-        caption: 'Stocks Details',
-        editurl: 'http://localhost/ims/public/ims/stocks/crud_operations',
+        caption: 'Sales Order Details',
+        editurl: 'http://localhost/ims/public/ims/sales_order/crud_operations',
         ajaxGridOptions: {
             headers: {
                 'X-CSRF-TOKEN': csrfToken
@@ -65,7 +70,7 @@ $(document).ready(function() {
         refresh: false
     }, {
         // Edit options
-        url: 'http://localhost/ims/public/ims/stocks/edit_user',
+        url: 'http://localhost/ims/public/ims/sales_order/edit_user',
         closeAfterEdit: true,
         recreateForm: true,
         ajaxEditOptions: {
@@ -75,7 +80,7 @@ $(document).ready(function() {
         }
     }, {
         // Add options
-        url: 'http://localhost/ims/public/ims/stocks/add_user',
+        url: 'http://localhost/ims/public/ims/sales_order/add_user',
         closeAfterAdd: true,
         recreateForm: true,
         ajaxEditOptions: {
@@ -85,7 +90,7 @@ $(document).ready(function() {
         }
     }, {
         // Delete options
-        url: 'http://localhost/ims/public/ims/stocks/delete_user',
+        url: 'http://localhost/ims/public/ims/sales_order/delete_user',
         closeAfterDelete: true,
         recreateForm: true,
         ajaxDelOptions: {

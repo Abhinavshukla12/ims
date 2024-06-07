@@ -19,7 +19,14 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('delete_user', 'Inventary_transaction\stocks::delete_user');
     });
     //sales order page route
-    $routes->get('sales_order', 'Inventary_transaction\sales_order::index');
+    $routes->group('sales_order/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
+        $routes->get('', 'Inventary_transaction\sales_order::index');
+        $routes->get('sales_order_data', 'Inventary_transaction\sales_order::sales_order_data');
+        $routes->post('crud_operations', 'Inventary_transaction\sales_order::crud_operations');
+        $routes->post('add_user', 'Inventary_transaction\sales_order::add_user');
+        $routes->post('edit_user', 'Inventary_transaction\sales_order::edit_user');
+        $routes->post('delete_user', 'Inventary_transaction\sales_order::delete_user');
+    });
     //purchase order page route
     $routes->group('purchase_order/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'Inventary_transaction\purchase_order::index');

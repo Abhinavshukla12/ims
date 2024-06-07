@@ -12,6 +12,7 @@
     <link href="<?=base_url('assets/css/layout/main.css')?>" rel="stylesheet">
     <link href="<?=base_url('assets/css/inventary_transaction/stocks/main.css')?>" rel="stylesheet">
     <link href="<?=base_url('assets/css/inventary_transaction/purchase_order/main.css')?>" rel="stylesheet">
+    <link href="<?=base_url('assets/css/inventary_transaction/sales_order/main.css')?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/css/ui.jqgrid.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/plugins/css/ui.multiselect.min.css" />

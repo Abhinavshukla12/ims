@@ -4,13 +4,13 @@ $(document).ready(function() {
     var columns = [{
             label: 'ID',
             name: 'PurchaseOrderID',
-            width: 60,
+            width: 80,
             key: true
         },
         {
             label: 'Order Date',
             name: 'OrderDate',
-            width: 130
+            width: 140
         },
         {
             label: 'Supplier ID',
@@ -21,13 +21,13 @@ $(document).ready(function() {
         {
             label: 'Total Amount',
             name: 'TotalAmount',
-            width: 80,
+            width: 100,
             editable: true
         },
         {
             label: 'Status',
             name: 'Status',
-            width: 70,
+            width: 100,
             editable: true
         },
         {
