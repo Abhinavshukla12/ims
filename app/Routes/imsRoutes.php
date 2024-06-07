@@ -21,6 +21,13 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     //sales order page route
     $routes->get('sales_order', 'Inventary_transaction\sales_order::index');
     //purchase order page route
-    $routes->get('purchase_order', 'Inventary_transaction\purchase_order::index');
+    $routes->group('purchase_order/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
+        $routes->get('', 'Inventary_transaction\purchase_order::index');
+        $routes->get('purchase_order_data', 'Inventary_transaction\purchase_order::purchase_order_data');
+        $routes->post('crud_operations', 'Inventary_transaction\purchase_order::crud_operations');
+        $routes->post('add_user', 'Inventary_transaction\purchase_order::add_user');
+        $routes->post('edit_user', 'Inventary_transaction\purchase_order::edit_user');
+        $routes->post('delete_user', 'Inventary_transaction\purchase_order::delete_user');
+    });
 });
 //routes end
