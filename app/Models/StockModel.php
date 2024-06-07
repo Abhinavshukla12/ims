@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class StockModel extends Model
 {
-    protected $table = 'stock_in';
+    protected $table = 'stocks';
     protected $primaryKey = 'id';
     protected $allowedFields = ['name', 'price','count'];
 }

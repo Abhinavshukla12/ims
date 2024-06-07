@@ -7,9 +7,10 @@
     <meta name="csrf-token">
     <title>IMS</title>
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom CSS -->
     <link href="<?=base_url('assets/css/layout/main.css')?>" rel="stylesheet">
+    <link href="<?=base_url('assets/css/inventary_transaction/stocks/main.css')?>" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/css/ui.jqgrid.min.css" />
@@ -29,7 +30,7 @@
     <div class="dropdown">
         <a href="javascript:void(0)">Inventory Transactions</a>
         <div class="dropdown-content">
-            <a href="<?=base_url('ims/stock_in')?>">Stocks</a>
+            <a href="<?=base_url('ims/stocks')?>">Stocks</a>
             <a href="<?=base_url('ims/purchase_order')?>">Purchase Orders</a>
             <a href="<?=base_url('ims/sales_order')?>">Sales Orders</a>
         </div>
