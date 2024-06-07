@@ -10,7 +10,18 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?=base_url('assets/css/layout/main.css')?>" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/css/ui.jqgrid.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/plugins/css/ui.multiselect.min.css" />
     <!-- Bootstrap css  -->
+    <?php
+    if (isset($css)) {
+        foreach ($css as $style):
+            echo '<link href="' . base_url('' . $style) . '" rel="stylesheet">';
+        endforeach;
+    }
+    ?>
 </head>
 <body>
 <div class="sidebar">
@@ -18,8 +29,7 @@
     <div class="dropdown">
         <a href="javascript:void(0)">Inventory Transactions</a>
         <div class="dropdown-content">
-            <a href="<?=base_url('ims/stock_in')?>">Stock In</a>
-            <a href="<?=base_url('ims/stock_out')?>">Stock Out</a>
+            <a href="<?=base_url('ims/stock_in')?>">Stocks</a>
             <a href="<?=base_url('ims/purchase_order')?>">Purchase Orders</a>
             <a href="<?=base_url('ims/sales_order')?>">Sales Orders</a>
         </div>
@@ -77,10 +87,29 @@
 
 
   <!-- jQuery, Popper.js, and Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/jquery.jqgrid.min.js" ></script>
+  <script type="text/javascript">
+        $.ajaxPrefilter(function (options, originalData, xhr) {
+            var data = "<?php echo  csrf_token(). '=' . csrf_hash(); ?>" + "&random=" + Math.random();
+            if (options.data) {
+                options.data += "&" + data;
+            } else {
+                options.data = data;
+            }
+        });
+    </script>
 
+    <!-- Load custom JS -->
+    <?php
+    if (isset($js)) {
+        foreach ($js as $script):
+            echo '<script src="' . base_url('' . $script) . '"></script>';
+        endforeach;
+    }
+    ?>
 </body>
 
 </html>
