@@ -4,7 +4,7 @@
 <!-- Example content -->
 <div class="content">
     <div class="section">
-        <h1>Home</h1>
+        <h2>Stock In</h2>
     </div>
 </div>
 <?= $this->endSection() ?>
