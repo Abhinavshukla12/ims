@@ -8,6 +8,12 @@ $(document).ready(function() {
             key: true
         },
         {
+            label: 'Name',
+            name: 'name',
+            width: 130,
+            editable: true
+        },
+        {
             label: 'Order Date',
             name: 'OrderDate',
             width: 140

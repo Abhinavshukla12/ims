@@ -8,5 +8,5 @@ class SalesOrderModel extends Model
 {
     protected $table = 'sales_orders';
     protected $primaryKey = 'order_id ';
-    protected $allowedFields = ['customer_id', 'order_date','total_amount','status'];
+    protected $allowedFields = ['customer_id', 'name', 'order_date','total_amount','status'];
 }

@@ -14,6 +14,12 @@ $(document).ready(function() {
             editable: true
         },
         {
+            label: 'Name',
+            name: 'name',
+            width: 130,
+            editable: true
+        },
+        {
             label: 'Order Date',
             name: 'order_date',
             width: 140

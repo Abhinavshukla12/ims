@@ -8,5 +8,5 @@ class PurchaseModel extends Model
 {
     protected $table = 'purchaseorder';
     protected $primaryKey = 'PurchaseOrderID';
-    protected $allowedFields = ['OrderDate', 'SupplierID','TotalAmount','Status','CreatedAt','UpdatedAt'];
+    protected $allowedFields = ['name', 'OrderDate', 'SupplierID','TotalAmount','Status','CreatedAt','UpdatedAt'];
 }
