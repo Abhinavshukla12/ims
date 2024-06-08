@@ -10,18 +10,18 @@ $(document).ready(function() {
         {
             label: 'Name',
             name: 'name',
-            width: 130,
+            width: 140,
             editable: true
         },
         {
             label: 'Order Date',
             name: 'OrderDate',
-            width: 140
+            width: 130
         },
         {
             label: 'Supplier ID',
             name: 'SupplierID',
-            width: 80,
+            width: 90,
             editable: true
         },
         {
@@ -33,7 +33,7 @@ $(document).ready(function() {
         {
             label: 'Status',
             name: 'Status',
-            width: 100,
+            width: 90,
             editable: true
         },
         {

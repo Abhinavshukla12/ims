@@ -37,10 +37,6 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('delete_user', 'Inventary_transaction\purchase_order::delete_user');
     });
 
-    $routes->get('contact', 'ContactControllers\contact::index');
-    $routes->post('submit', 'ContactControllers\contact::submit');
-    $routes->get('success', 'ContactControllers\contact::success');
-
     $routes->get('about', 'AboutControllers\about::index');
 });
 //routes end

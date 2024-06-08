@@ -77,7 +77,6 @@
             <a href="#service3">Change Password</a>
         </div>
     </div>
-    <a href="<?=base_url('ims/contact')?>">Contact</a>
     <a href="<?=base_url('ims/about')?>">About</a>
     <a href="#contact">Logout</a>
 </div>

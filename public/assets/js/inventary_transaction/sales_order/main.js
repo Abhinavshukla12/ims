@@ -33,7 +33,7 @@ $(document).ready(function() {
         {
             label: 'Status',
             name: 'status',
-            width: 100,
+            width: 90,
             editable: true
         },
         {

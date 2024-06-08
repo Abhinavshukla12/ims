@@ -4,19 +4,19 @@ $(document).ready(function() {
     var columns = [{
             label: 'ID',
             name: 'id',
-            width: 80,
+            width: 100,
             key: true
         },
         {
             label: 'Name',
             name: 'name',
-            width: 250,
+            width: 260,
             editable: true
         },
         {
             label: 'Price',
             name: 'price',
-            width: 100,
+            width: 120,
             editable: true
         },
         {
@@ -28,12 +28,12 @@ $(document).ready(function() {
         {
             label: 'Created At',
             name: 'created_at',
-            width: 130
+            width: 140
         },
         {
             label: 'Updated At',
             name: 'updated_at',
-            width: 130
+            width: 140
         } 
     ];
 

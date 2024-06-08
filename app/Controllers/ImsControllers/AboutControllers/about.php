@@ -8,7 +8,9 @@ class about extends BaseController
 {
     public function index()
     {
-        $data = [];
+        $data['css'] = [
+            'assets/css/about/main.css'
+        ];
         return view('ImsViews/about/index', $data);
     }
 }
