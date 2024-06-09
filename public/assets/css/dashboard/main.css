@@ -1,236 +1,129 @@
-/* Include Font Awesome for icons */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
-
-/* General styles */
+/* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
 }
 
-/* Content section */
 .content {
-    padding: 20px;
     max-width: 1260px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Home section */
-.home-section {
-    text-align: center;
-    padding: 50px 0;
-    background: linear-gradient(135deg, #007bff 0%, #6f42c1 100%);
-    color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.home-section h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    animation: fadeInDown 1s ease;
-}
-
-.home-section p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    animation: fadeInUp 1s ease;
-}
-
-/* Search Bar */
-.search-bar {
-    display: flex;
-    justify-content: center;
+/* Section Styles */
+.section {
     margin-bottom: 30px;
-}
-
-.search-bar input {
-    padding: 10px;
-    font-size: 1em;
+    padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px 0 0 5px;
-    width: 300px;
-    outline: none;
+    border-radius: 5px;
+    background-color: #f9f9f9;
 }
 
-.search-bar button {
-    padding: 10px 15px;
-    font-size: 1em;
-    border: 1px solid #007bff;
-    border-left: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-    transition: background-color 0.3s ease;
+h1, h2 {
+    color: #333;
 }
 
-.search-bar button:hover {
-    background-color: #0056b3;
+/* Dashboard Overview Section */
+.dashboard-overview .stats {
+    display: flex;
+    justify-content: space-between;
 }
 
-/* Cards container */
-.cards {
+.stat-item {
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #555;
+}
+
+/* Quick Links Section */
+.quick-links .links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
+    gap: 10px;
 }
 
-/* Card styles */
-.card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 15px;
-    padding: 30px;
-    width: 300px;
+.link-item {
+    flex: 1 1 calc(33.333% - 20px);
+    margin: 10px 0;
+    padding: 15px;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.card .icon {
-    font-size: 3em;
-    margin-bottom: 15px;
-    color: #007bff;
-    transition: color 0.3s;
-}
-
-.card:hover .icon {
-    color: #6f42c1;
-}
-
-.card h2 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.card p {
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/* Button styles */
-.btn {
-    background-color: #007bff;
-    color: #fff;
     text-decoration: none;
-    padding: 10px 20px;
+    color: #fff;
+    background: #007bff;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #0056b3;
+.link-item:hover {
+    background: #0056b3;
 }
 
-/* Recent Activity Section */
-.recent-activity {
-    margin-top: 40px;
-    text-align: left;
-}
-
-.recent-activity h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.recent-activity ul {
-    list-style-type: none;
+/* Recent Stock Items Section */
+.recent-stocks .stock-list {
+    list-style: none;
     padding: 0;
 }
 
-.recent-activity li {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+.stock-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Notifications Section */
+.notifications .notification-list {
+    list-style: none;
+    padding: 0;
+}
+
+.notification-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* User Profile and Settings Section */
+.user-profile-settings .profile {
     display: flex;
     align-items: center;
 }
 
-.recent-activity li i {
-    margin-right: 10px;
-    color: #007bff;
-}
-
-/* User Profile Section */
-.user-profile {
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-}
-
-.user-profile img {
-    border-radius: 50%;
+.profile-pic {
     width: 100px;
     height: 100px;
+    border-radius: 50%;
     margin-right: 20px;
+    object-fit: cover;
 }
 
-.user-profile .user-info h3 {
-    margin: 0;
-    font-size: 1.8em;
-}
-
-.user-profile .user-info p {
-    color: #666;
+.profile-details p {
     margin: 5px 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 500px;
-    }
-
-    .search-bar input {
-        width: 200px;
-    }
-
-    .user-profile {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .user-profile img {
-        margin-bottom: 15px;
-    }
+.profile-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    background: #28a745;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.profile-link:hover {
+    background: #218838;
 }

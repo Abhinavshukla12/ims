@@ -69,16 +69,10 @@
             <a href="#service3">Shipping Documents</a>
         </div>
     </div>
-    <div class="dropdown">
-        <a href="javascript:void(0)">Your Profile</a>
-        <div class="dropdown-content">
-            <a href="#service1">Sign Up</a>
-            <a href="#service2">Login</a>
-            <a href="#service3">Change Password</a>
-        </div>
-    </div>
+    
+    <a href="<?=base_url('ims/settings')?>">Settings</a>
+    <a href="<?=base_url('ims/logout')?>">Logout</a>
     <a href="<?=base_url('ims/about')?>">About</a>
-    <a href="#contact">Logout</a>
 </div>
 
   <!-- the main content goes here -->
