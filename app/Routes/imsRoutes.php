@@ -38,5 +38,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     });
 
     $routes->get('about', 'AboutControllers\about::index');
+
+    $routes->get('settings', 'SettingsControllers\settings::index');
 });
 //routes end
