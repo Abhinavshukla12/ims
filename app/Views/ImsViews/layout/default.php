@@ -42,7 +42,7 @@
         <div class="dropdown-content">
             <a href="<?=base_url('ims/item_management')?>">Item Management</a>
             <a href="<?=base_url('ims/stocks')?>">Stock Levels</a>
-            <a href="<?=base_url('ims/stocks')?>">Categories</a>
+            <a href="<?=base_url('ims/categories')?>">Categories</a>
         </div>
     </div>
     <div class="dropdown">
