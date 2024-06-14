@@ -25,15 +25,15 @@
             padding: 0;
         }
         .navbar {
-            background-color: #333;
-            color: #fff;
+            background-color: #0ac4f2;
+            color: black;
             padding: 15px 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .navbar .brand a{
-            color: #fff;
+            color: black;
             font-size: 1.5em;
             font-weight: bold;
             margin-right: 20px;
@@ -51,18 +51,19 @@
             margin-right: 0;
         }
         .navbar ul li a {
-            color: #fff;
+            color: black;
             text-decoration: none;
             padding: 5px 10px;
             border-radius: 5px;
+            font-weight: bold;
             transition: background-color 0.3s ease;
         }
         .navbar ul li a:hover {
-            background-color: #555;
+            background-color: #08596e;
         }
         /* Secondary Navbar Styles */
         .navbar-secondary {
-            background-color: #666;
+            background-color: #05f782;
             padding: 10px;
             display: flex;
             justify-content: center;
@@ -80,14 +81,15 @@
             margin-right: 0;
         }
         .navbar-secondary ul li a {
-            color: #fff;
+            color: black;
             text-decoration: none;
             padding: 8px 12px;
             border-radius: 5px;
+            font-weight: bold;
             transition: background-color 0.3s ease;
         }
         .navbar-secondary ul li a:hover {
-            background-color: #888;
+            background-color: #08a358;
         }
     </style>
     <!-- Bootstrap css  -->

@@ -74,7 +74,7 @@ body {
     max-width: 100%;
     /* margin: 20px auto; */
     padding: 20px;
-    background: #fff;
+    background: #757877;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
@@ -85,7 +85,7 @@ body {
     padding: 20px;
     border: 2px solid black;
     border-radius: 8px;
-    background-color: #f9fafc;
+    background-color: #dfe6e2;
 }
 
 h1, h2 {
@@ -211,7 +211,7 @@ h2 {
     padding: 10px 15px;
     text-decoration: none;
     color: #fff;
-    background: grey;
+    background: linear-gradient(115deg, #0056b3, #004080);
     border-radius: 5px;
     transition: background 0.3s ease, transform 0.5s ease;
 }
