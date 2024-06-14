@@ -9,7 +9,74 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom CSS -->
-    <link href="<?=base_url('assets/css/layout/main.css')?>" rel="stylesheet">
+     <style>
+        body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.navbar ul li {
+    margin-right: 20px;
+}
+.navbar ul li:last-child {
+    margin-right: 0;
+}
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.navbar ul li a:hover {
+    background-color: #555;
+}
+
+/* Secondary Navbar Styles */
+.navbar-secondary {
+    background-color: #666;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+.navbar-secondary ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.navbar-secondary ul li {
+    margin-right: 10px;
+}
+.navbar-secondary ul li:last-child {
+    margin-right: 0;
+}
+.navbar-secondary ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.navbar-secondary ul li a:hover {
+    background-color: #888;
+}
+     </style>
+    <!-- <link href="<?=base_url('assets/css/layout/main.css')?>" rel="stylesheet"> -->
     <link href="<?=base_url('assets/css/inventary_transaction/stocks/main.css')?>" rel="stylesheet">
     <link href="<?=base_url('assets/css/inventary_transaction/purchase_order/main.css')?>" rel="stylesheet">
     <link href="<?=base_url('assets/css/inventary_transaction/sales_order/main.css')?>" rel="stylesheet">
@@ -27,54 +94,33 @@
     ?>
 </head>
 <body>
-<div class="sidebar">
-    <a href="<?=base_url('ims/home')?>">Home</a>
-    <div class="dropdown">
-        <a href="javascript:void(0)">Inventory Transactions</a>
-        <div class="dropdown-content">
-            <a href="<?=base_url('ims/stocks')?>">Stocks</a>
-            <a href="<?=base_url('ims/purchase_order')?>">Purchase Orders</a>
-            <a href="<?=base_url('ims/sales_order')?>">Sales Orders</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <a href="javascript:void(0)">Inventory Tracking</a>
-        <div class="dropdown-content">
-            <a href="<?=base_url('ims/item_management')?>">Item Management</a>
-            <a href="<?=base_url('ims/stocks')?>">Stock Levels</a>
-            <a href="<?=base_url('ims/categories')?>">Categories</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <a href="javascript:void(0)">Supplier Management</a>
-        <div class="dropdown-content">
-            <a href="#service1">Supplier Database</a>
-            <a href="#service2">Supplier Performance</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <a href="javascript:void(0)">Warehouse Management</a>
-        <div class="dropdown-content">
-            <a href="#service1">location Management</a>
-            <a href="#service2">Picking Management</a>
-            <a href="#service2">Packing Management</a>
-            <a href="#service2">Shipping Management</a>
-            <a href="#service2">Receiving Management</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <a href="javascript:void(0)">Document Management</a>
-        <div class="dropdown-content">
-            <a href="#service1">Invoices</a>
-            <a href="#service2">Purchase Orders</a>
-            <a href="#service3">Shipping Documents</a>
+<!-- Primary Navbar -->
+<div class="navbar">
+        <div class="navbar-primary">
+            <ul>
+                <li><a href="<?=base_url('ims/home')?>">Home</a></li>
+                <li><a href="<?=base_url('ims/about')?>">About</a></li>
+                <li><a href="<?=base_url('ims/categoriess')?>">Features</a></li>
+                <li><a href="<?=base_url('ims/contact')?>">Contact</a></li>
+            </ul>
         </div>
     </div>
     
-    <a href="<?=base_url('ims/settings')?>">Settings</a>
-    <a href="<?=base_url('ims/logout')?>">Logout</a>
-    <a href="<?=base_url('ims/about')?>">About</a>
-</div>
+    <!-- Secondary Navbar -->
+    <div class="navbar-secondary">
+        <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Forgot Password</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Feedback</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
 
   <!-- the main content goes here -->
   <div class="container">

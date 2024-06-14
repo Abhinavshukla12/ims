@@ -83,7 +83,7 @@ body {
 }
 
 .content {
-    max-width: 1260px;
+    max-width: 100%;
     /* margin: 20px auto; */
     padding: 20px;
     background: #fff;
