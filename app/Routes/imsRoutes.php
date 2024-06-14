@@ -37,6 +37,16 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('delete_user', 'Inventary_transaction\purchase_order::delete_user');
     });
 
+    //item management page route
+    $routes->group('item_management/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
+        $routes->get('', 'Inventary_tracking\item_management::index');
+        $routes->get('item_management_data', 'Inventary_tracking\item_management::item_management_data');
+        $routes->post('crud_operations', 'Inventary_tracking\item_management::crud_operations');
+        $routes->post('add_user', 'Inventary_tracking\item_management::add_user');
+        $routes->post('edit_user', 'Inventary_tracking\item_management::edit_user');
+        $routes->post('delete_user', 'Inventary_tracking\item_management::delete_user');
+    });
+
     $routes->get('about', 'AboutControllers\about::index');
 
     $routes->get('settings', 'SettingsControllers\settings::index');

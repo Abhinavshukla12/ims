@@ -13,6 +13,7 @@
     <link href="<?=base_url('assets/css/inventary_transaction/stocks/main.css')?>" rel="stylesheet">
     <link href="<?=base_url('assets/css/inventary_transaction/purchase_order/main.css')?>" rel="stylesheet">
     <link href="<?=base_url('assets/css/inventary_transaction/sales_order/main.css')?>" rel="stylesheet">
+    <link href="<?=base_url('assets/css/inventary_tracking/item_management/main.css')?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/css/ui.jqgrid.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/plugins/css/ui.multiselect.min.css" />
@@ -39,9 +40,9 @@
     <div class="dropdown">
         <a href="javascript:void(0)">Inventory Tracking</a>
         <div class="dropdown-content">
-            <a href="#service1">Item Management</a>
-            <a href="#service2">Stock Levels</a>
-            <a href="#service3">Categories</a>
+            <a href="<?=base_url('ims/item_management')?>">Item Management</a>
+            <a href="<?=base_url('ims/stocks')?>">Stock Levels</a>
+            <a href="<?=base_url('ims/stocks')?>">Categories</a>
         </div>
     </div>
     <div class="dropdown">
