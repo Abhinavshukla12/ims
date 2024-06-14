@@ -66,6 +66,7 @@
 
 <style>
     .settings-container {
+        margin-top: 5px;
         display: flex;
         gap: 20px;
         flex-wrap: wrap;

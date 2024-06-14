@@ -76,7 +76,7 @@
     background-color: #888;
 }
      </style>
-    <!-- <link href="<?=base_url('assets/css/layout/main.css')?>" rel="stylesheet"> -->
+    <link href="<?=base_url('assets/css/about/main.css')?>" rel="stylesheet">
     <link href="<?=base_url('assets/css/inventary_transaction/stocks/main.css')?>" rel="stylesheet">
     <link href="<?=base_url('assets/css/inventary_transaction/purchase_order/main.css')?>" rel="stylesheet">
     <link href="<?=base_url('assets/css/inventary_transaction/sales_order/main.css')?>" rel="stylesheet">
@@ -100,7 +100,7 @@
             <ul>
                 <li><a href="<?=base_url('ims/home')?>">Home</a></li>
                 <li><a href="<?=base_url('ims/about')?>">About</a></li>
-                <li><a href="<?=base_url('ims/categoriess')?>">Features</a></li>
+                <li><a href="<?=base_url('ims/categories')?>">Categories</a></li>
                 <li><a href="<?=base_url('ims/contact')?>">Contact</a></li>
             </ul>
         </div>
@@ -109,16 +109,15 @@
     <!-- Secondary Navbar -->
     <div class="navbar-secondary">
         <ul>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Sign Up</a></li>
-            <li><a href="#">Forgot Password</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Help</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Feedback</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="<?=base_url('ims/stocks')?>">Stocks Management</a></li>
+            <li><a href="<?=base_url('ims/purchase_order')?>">Purchase Orders</a></li>
+            <li><a href="<?=base_url('ims/sales_order')?>">Sales Orders</a></li>
+            <li><a href="<?=base_url('ims/item_management')?>">Item Management</a></li>
+            <li><a href="#service1">Supplier Database</a></li>
+            <li><a href="#">Warehouse Management</a></li>
+            <li><a href="#">Document Management</a></li>
+            <li><a href="<?=base_url('ims/settings')?>">Settings</a></li>
+            <li><a href="<?=base_url('ims/logout')?>">Logout</a></li>
         </ul>
     </div>
 

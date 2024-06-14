@@ -2,49 +2,104 @@
 
 <?= $this->section('content') ?>
 <!-- About Page Content -->
-<div class="content about-page">
-    <div class="section">
-        <h1>About Us</h1>
-        <p class="lead">Welcome to our company! We are dedicated to delivering the best products and services to our customers.</p>
+<div class="about-page">
+    <h1>About Us</h1>
+    <p>Welcome to <strong>[Your Company Name]</strong>! We are passionate about delivering the best services and products to our customers. Our journey has been one of innovation, dedication, and customer satisfaction.</p>
+    
+    <section class="mission">
+        <h2>Our Mission</h2>
+        <p>Our mission is to deliver high-quality products that bring value to our clients and improve their daily lives. We strive to exceed customer expectations through continuous improvement and customer interaction.</p>
+    </section>
+    
+    <section class="team">
+        <h2>Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="/path/to/ceo.jpg" alt="CEO">
+                <h3>Jane Doe</h3>
+                <p>Chief Executive Officer</p>
+            </div>
+            <div class="team-member">
+                <img src="/path/to/cto.jpg" alt="CTO">
+                <h3>John Smith</h3>
+                <p>Chief Technology Officer</p>
+            </div>
 
-        <div class="mission">
-            <h2>Our Mission</h2>
-            <p>Our mission is to innovate and lead in our industry, providing top-quality solutions that meet our clients' needs.</p>
-        </div>
-        
-        <div class="history">
-            <h2>History</h2>
-            <p>Founded in [Year], our company has grown from a small startup to a leading player in the market, thanks to our commitment to excellence and customer satisfaction.</p>
-        </div>
-        
-        <div class="team">
-            <h2>Our Team</h2>
-            <div class="team-intro">
-                <p>We are proud to have a team of dedicated professionals who are experts in their respective fields, working tirelessly to achieve our company's goals.</p>
+            <div class="team-member">
+                <img src="/path/to/ceo.jpg" alt="CEO">
+                <h3>Jane Doe</h3>
+                <p>Chief Executive Officer</p>
             </div>
-            <div class="team-members">
-                <div class="team-member">
-                    <div class="team-member-inner">
-                        <img src="<?=base_url('assets/img/about/user/user1.avif')?>" alt="John Doe">
-                        <h3>John Doe</h3>
-                        <p>CEO</p>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-inner">
-                        <img src="<?=base_url('assets/img/about/user/user2.avif')?>" alt="Jane Smith">
-                        <h3>Jane Smith</h3>
-                        <p>CTO</p>
-                    </div>
-                </div>
-                <!-- Add more team members as needed -->
+            <div class="team-member">
+                <img src="/path/to/cto.jpg" alt="CTO">
+                <h3>John Smith</h3>
+                <p>Chief Technology Officer</p>
             </div>
+            <!-- Add more team members as needed -->
         </div>
-        
-        <div class="contact">
-            <h2>Contact Us</h2>
-            <p>If you have any questions or need more information, please don't hesitate to contact us at <a href="mailto:info@company.com">info@company.com</a> or call us at <a href="tel:+123456789">+123456789</a>.</p>
-        </div>
-    </div>
+    </section>
+    
+    <section class="history">
+        <h2>Our History</h2>
+        <p>Founded in <strong>[Year]</strong>, <strong>[Your Company Name]</strong> has grown from a small startup to a leading company in the industry. Our milestones include:</p>
+        <ul>
+            <li><strong>[Year]</strong> - Company founded</li>
+            <li><strong>[Year]</strong> - Launched our first product</li>
+            <li><strong>[Year]</strong> - Expanded to new markets</li>
+            <!-- Add more milestones as needed -->
+        </ul>
+    </section>
+    
+    <section class="values">
+        <h2>Our Values</h2>
+        <p>We uphold the following core values:</p>
+        <ul>
+            <li>Integrity</li>
+            <li>Innovation</li>
+            <li>Customer Focus</li>
+            <li>Teamwork</li>
+            <li>Excellence</li>
+        </ul>
+    </section>
+    
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to <a href="/contact">contact us</a>. We are always here to assist you.</p>
+    </section>
 </div>
+
+<style>
+    .about-page {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin-left: 0;
+        padding: 20px;
+        max-width: 100%;
+    }
+    .about-page h1, .about-page h2 {
+        color: #0056b3;
+    }
+    .about-page p {
+        margin-bottom: 20px;
+    }
+    .team-members {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .team-member {
+        margin: 10px;
+        text-align: center;
+    }
+    .team-member img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
+    .team-member h3 {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+</style>
+
 <?= $this->endSection() ?>

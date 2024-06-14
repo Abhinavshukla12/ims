@@ -4,7 +4,6 @@
 <!-- Example content -->
 <div class="content">
     <div class="section">
-        <h1>categories</h1>
         <main>
     <section class="category">
       <img src="https://picsum.photos/id/1015/400/200" alt="Category 1">

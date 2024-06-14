@@ -47,8 +47,10 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('delete_user', 'Inventary_tracking\item_management::delete_user');
     });
 
-    $routes->get('categories', 'Inventary_tracking\categories::index');
     $routes->get('about', 'AboutControllers\about::index');
+    $routes->get('categories', 'Inventary_tracking\categories::index');
+    $routes->get('contact', 'ContactControllers\contact::index');
+    $routes->post('submit', 'ContactControllers\contact::submit');
 
     $routes->get('settings', 'SettingsControllers\settings::index');
 });
