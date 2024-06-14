@@ -5,7 +5,7 @@
 <div class="content">
     <!-- Dashboard Overview Section -->
     <div class="section dashboard-overview">
-        <h1>Welcome to the ---- Company</h1>
+        <h1>Welcome to the Management System</h1>
         <div class="stats">
             <div class="stat-item">
                 <h2>Total Products</h2>
@@ -19,18 +19,6 @@
                 <h2>Total Stock Value</h2>
                 <p>₹<?= number_format($totalStockValue, 2) ?></p>
             </div>
-        </div>
-    </div>
-
-    <!-- Quick Links Section -->
-    <div class="section quick-links">
-        <h2>Quick Links</h2>
-        <div class="links">
-            <a href="/products" class="link-item">Manage Products</a>
-            <a href="/orders" class="link-item">View Orders</a>
-            <a href="/suppliers" class="link-item">Suppliers</a>
-            <a href="/reports" class="link-item">Reports</a>
-            <a href="/settings" class="link-item">Settings</a>
         </div>
     </div>
 
@@ -151,30 +139,6 @@ h2 {
     font-size: 1.2em;
     font-weight: bold;
     color: #007bff;
-}
-
-/* Quick Links Section */
-.quick-links .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.link-item {
-    flex: 1 1 calc(33.333% - 20px);
-    margin: 10px 0;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background: grey;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.5s ease;
-}
-
-.link-item:hover {
-    background: linear-gradient(135deg, #0056b3, #004080);
-    transform: translateY(-5px);
 }
 
 /* Recent Stock Items Section */
