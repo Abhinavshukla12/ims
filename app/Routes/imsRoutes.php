@@ -48,7 +48,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     });
 
     $routes->get('about', 'AboutControllers\about::index');
-    $routes->get('categories', 'Inventary_tracking\categories::index');
+    $routes->get('categories', 'CategoriesControllers\categories::index');
     $routes->get('contact', 'ContactControllers\contact::index');
     $routes->post('submit', 'ContactControllers\contact::submit');
 
