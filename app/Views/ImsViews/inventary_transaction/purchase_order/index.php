@@ -11,4 +11,10 @@
         </div>
     </div>
 </div>
+<style>
+.section{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+</style>
 <?= $this->endSection() ?>
