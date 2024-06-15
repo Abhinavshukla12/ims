@@ -47,6 +47,16 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('delete_user', 'Inventary_tracking\item_management::delete_user');
     });
 
+    //supplier management page route
+    $routes->group('supplier_database/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
+        $routes->get('', 'supplier_database::index');
+        $routes->get('supplier_database_data', 'supplier_database::supplier_database_data');
+        $routes->post('crud_operations', 'supplier_database::crud_operations');
+        $routes->post('add_user', 'supplier_database::add_user');
+        $routes->post('edit_user', 'supplier_database::edit_user');
+        $routes->post('delete_user', 'supplier_database::delete_user');
+    });
+
     $routes->get('about', 'AboutControllers\about::index');
     $routes->get('categories', 'CategoriesControllers\categories::index');
     $routes->get('contact', 'ContactControllers\contact::index');

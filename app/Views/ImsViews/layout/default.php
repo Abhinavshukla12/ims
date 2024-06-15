@@ -123,7 +123,7 @@
             <li><a href="<?=base_url('ims/purchase_order')?>">Purchase Orders</a></li>
             <li><a href="<?=base_url('ims/sales_order')?>">Sales Orders</a></li>
             <li><a href="<?=base_url('ims/item_management')?>">Item Management</a></li>
-            <li><a href="#service1">Supplier Database</a></li>
+            <li><a href="<?=base_url('ims/supplier_database')?>">Supplier Database</a></li>
             <li><a href="#">Warehouse Management</a></li>
             <li><a href="#">Document Management</a></li>
             <li><a href="<?=base_url('ims/settings')?>">Settings</a></li>
