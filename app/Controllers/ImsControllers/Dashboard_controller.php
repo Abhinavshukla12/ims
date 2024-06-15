@@ -4,12 +4,16 @@ namespace App\Controllers\ImsControllers;
 
 use App\Controllers\BaseController;
 use App\Models\StockModel;
+use App\Models\PurchaseModel;
+use App\Models\SalesOrderModel;
 
 class Dashboard_controller extends BaseController
 {
     public function index()
     {
         $stockModel = new StockModel();
+        $purchaseModel = new PurchaseModel();
+        $salesModel = new SalesOrderModel();
         
         // Fetch total number of products
         $totalProducts = $stockModel->countAllResults();
@@ -29,11 +33,31 @@ class Dashboard_controller extends BaseController
             $totalStockValue += $stock['price'] * $stock['count'];
         }
 
+        // Fetch total number of purchases and total purchase value
+        $totalPurchases = $purchaseModel->countAllResults();
+        $allPurchases = $purchaseModel->findAll();
+        $totalPurchaseValue = 0;
+        foreach ($allPurchases as $purchase) {
+            $totalPurchaseValue += $purchase['TotalAmount'];
+        }
+
+        // Fetch total number of sales and total sales value
+        $totalSales = $salesModel->countAllResults();
+        $allSales = $salesModel->findAll();
+        $totalSalesValue = 0;
+        foreach ($allSales as $sale) {
+            $totalSalesValue += $sale['total_amount'];
+        }
+
         $data = [
             'totalProducts' => $totalProducts,
             'lowStockCount' => $lowStockCount,
             'recentStocks' => $recentStocks,
             'totalStockValue' => $totalStockValue,
+            'totalPurchases' => $totalPurchases,
+            'totalPurchaseValue' => $totalPurchaseValue,
+            'totalSales' => $totalSales,
+            'totalSalesValue' => $totalSalesValue,
         ];
 
         return view('ImsViews/dashboard/index', $data);

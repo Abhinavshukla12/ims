@@ -22,6 +22,29 @@
         </div>
     </div>
 
+    <!-- Purchase and Sales Overview Section -->
+    <div class="section purchase-sales-overview">
+        <h2>Purchase and Sales Overview</h2>
+        <div class="stats">
+            <div class="stat-item">
+                <h2>Total Purchases</h2>
+                <p><?= $totalPurchases ?></p>
+            </div>
+            <div class="stat-item">
+                <h2>Total Purchase Value</h2>
+                <p>₹<?= number_format($totalPurchaseValue, 2) ?></p>
+            </div>
+            <div class="stat-item">
+                <h2>Total Sales</h2>
+                <p><?= $totalSales ?></p>
+            </div>
+            <div class="stat-item">
+                <h2>Total Sales Value</h2>
+                <p>₹<?= number_format($totalSalesValue, 2) ?></p>
+            </div>
+        </div>
+    </div>
+
     <!-- Recent Stock Items Section -->
     <div class="section recent-stocks">
         <h2>Recent Stock Items</h2>
@@ -58,8 +81,8 @@
         </div>
     </div>
 </div>
+
 <style>
-    /* General Styles */
 /* General Styles */
 body {
     font-family: sans-serif;
@@ -72,7 +95,6 @@ body {
 
 .content {
     max-width: 100%;
-    /* margin: 20px auto; */
     padding: 20px;
     background: #757877;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -105,8 +127,8 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Dashboard Overview Section */
-.dashboard-overview .stats {
+/* Stats Styles */
+.stats {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -142,32 +164,14 @@ h2 {
 }
 
 /* Recent Stock Items Section */
-.recent-stocks .stock-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.stock-list li {
-    padding: 10px 15px;
-    margin-bottom: 5px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.stock-list li:hover {
-    background: #f1f1f1;
-}
-
-/* Notifications Section */
+.recent-stocks .stock-list,
 .notifications .notification-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+.stock-list li,
 .notification-list li {
     padding: 10px 15px;
     margin-bottom: 5px;
@@ -177,6 +181,7 @@ h2 {
     transition: background 0.3s ease;
 }
 
+.stock-list li:hover,
 .notification-list li:hover {
     background: #f1f1f1;
 }
