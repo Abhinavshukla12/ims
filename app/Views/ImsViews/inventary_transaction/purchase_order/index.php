@@ -2,8 +2,9 @@
 
 <?= $this->section('content') ?>
 <!-- Example content -->
-<div class="content">
-    <div class="section">
+<body>
+ <div class="content">
+    <div class="grid">
         <!-- jqgrid code goes here  -->
         <div>
             <table id="grid"></table>
@@ -11,10 +12,14 @@
         </div>
     </div>
 </div>
+ </body>
 <style>
-.section{
-    margin-top: 20px;
-    margin-left: 20px;
+body{
+    background-color: grey;
+}
+.grid{
+    margin-top: 15px;
+    margin-left: 10px;
 }
 </style>
 <?= $this->endSection() ?>
