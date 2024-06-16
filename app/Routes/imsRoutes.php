@@ -67,6 +67,16 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('delete', 'WarehouseControllers\warehouse::delete');
     });
 
+    //document management page route
+    $routes->group('document/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
+        $routes->get('', 'DocumentController\document::index');
+        $routes->get('document_data', 'DocumentController\document::document_data');
+        $routes->post('crud_operations', 'DocumentController\document::crud_operations');
+        $routes->post('add', 'DocumentController\document::add');
+        $routes->post('edit', 'DocumentController\document::edit');
+        $routes->post('delete', 'DocumentController\document::delete');
+    });
+
     $routes->get('about', 'AboutControllers\about::index');
     $routes->get('categories', 'CategoriesControllers\categories::index');
     $routes->get('contact', 'ContactControllers\contact::index');
