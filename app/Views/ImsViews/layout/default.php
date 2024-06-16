@@ -112,6 +112,7 @@
                 <li><a href="<?=base_url('ims/about')?>">About</a></li>
                 <li><a href="<?=base_url('ims/categories')?>">Categories</a></li>
                 <li><a href="<?=base_url('ims/contact')?>">Contact</a></li>
+                <li><a href="<?=base_url('ims/profile')?>">Profile</a></li>
             </ul>
         </div>
     </div>
@@ -124,8 +125,8 @@
             <li><a href="<?=base_url('ims/sales_order')?>">Sales Orders</a></li>
             <li><a href="<?=base_url('ims/item_management')?>">Item Management</a></li>
             <li><a href="<?=base_url('ims/supplier_database')?>">Supplier Database</a></li>
-            <li><a href="#">Warehouse Management</a></li>
-            <li><a href="#">Document Management</a></li>
+            <li><a href="<?=base_url('ims/warehouse')?>">Warehouse Management</a></li>
+            <li><a href="<?=base_url('ims/document')?>">Document Management</a></li>
             <li><a href="<?=base_url('ims/settings')?>">Settings</a></li>
             <li><a href="<?=base_url('ims/logout')?>">Logout</a></li>
         </ul>

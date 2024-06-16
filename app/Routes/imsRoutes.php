@@ -57,6 +57,16 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('delete_user', 'supplier_database::delete_user');
     });
 
+    //warehouse management page route
+    $routes->group('warehouse/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
+        $routes->get('', 'WarehouseControllers\warehouse::index');
+        $routes->get('warehouse_data', 'WarehouseControllers\warehouse::warehouse_data');
+        $routes->post('crud_operations', 'WarehouseControllers\warehouse::crud_operations');
+        $routes->post('add', 'WarehouseControllers\warehouse::add');
+        $routes->post('edit', 'WarehouseControllers\warehouse::edit');
+        $routes->post('delete', 'WarehouseControllers\warehouse::delete');
+    });
+
     $routes->get('about', 'AboutControllers\about::index');
     $routes->get('categories', 'CategoriesControllers\categories::index');
     $routes->get('contact', 'ContactControllers\contact::index');
