@@ -2,14 +2,9 @@
 
 <?= $this->section('content') ?>
 <body>
-<ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="<?=base_url('ims/home')?>">Home</a></li>
-  <li class="breadcrumb-item"><a href="<?=base_url('ims/stock')?>">Stock</a></li>
-  <li class="breadcrumb-item active">Data</li>
-</ol>
 <div class="row mt-4">
     <div class="col-12">
-        <a href="<?=base_url('ims/stock/create')?>" class="btn btn-primary mb-3">Add New Stock</a>
+        <a href="<?=base_url('ims/stock/create')?>" class="btn btn-primary mb-3">Add Stock</a>
         <div class="table-responsive">
             <table id="stocksTable" class="table table-striped table-bordered" style="margin-left: 0;"> <!-- Apply inline style -->
                 <thead>
@@ -55,9 +50,4 @@
         });
     });
 </script>
-<style>
-    table{
-        margin-left: 0;
-    }
-</style>
 <?= $this->endSection() ?>
