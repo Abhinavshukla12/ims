@@ -9,52 +9,58 @@ class stocks extends BaseController
 {
     public function index()
     {
-        $data['js'] = [
-            'assets/js/inventary_transaction/stocks/main.js'
+        $model = new StockModel();
+        $data = [
+            'title' => 'Stock List',
+            'stocks' => $model->findAll()
         ];
-        return view('ImsViews/inventary_transaction/stocks/index',$data);
-    }
-    // Fetch all user data
-    public function stocks_data() {
-        $model = new StockModel();
-        $data = $model->findAll();
-        return $this->response->setJSON($data);
+        echo view('ImsViews/inventary_transaction/stocks/index', $data);
     }
 
-    // Handle CRUD operations
-    public function crud_operations() {
-        $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
-        if ($operation == 'PUT') {
-            return $this->edit_user();
-        } elseif ($operation == 'DELETE') {
-            return $this->delete_user();
-        } else {
-            return $this->add_user();
-        }
+    public function create()
+    {
+        $data = ['title' => 'Add Stock'];
+        echo view('ImsViews/inventary_transaction/stocks/create', $data);
     }
 
-    // Add a new user
-    public function add_user() {
+    public function store()
+    {
         $model = new StockModel();
-        $data = $this->request->getPost();
+        $data = [
+            'name'     => $this->request->getPost('name'),
+            'quantity' => $this->request->getPost('quantity'),
+            'price'    => $this->request->getPost('price')
+        ];
         $model->insert($data);
-        return $this->response->setJSON(['status' => 'success']);
+        return redirect()->to('ims/stock/');
     }
 
-    // Edit an existing user
-    public function edit_user() {
+    public function edit($id)
+    {
         $model = new StockModel();
-        $id = $this->request->getPost('id');
-        $data = $this->request->getPost();
+        $data = [
+            'title' => 'Edit Stock',
+            'stock' => $model->find($id)
+        ];
+        echo view('ImsViews/inventary_transaction/stocks/edit', $data);
+    }
+
+    public function update($id)
+    {
+        $model = new StockModel();
+        $data = [
+            'name'     => $this->request->getPost('name'),
+            'quantity' => $this->request->getPost('quantity'),
+            'price'    => $this->request->getPost('price')
+        ];
         $model->update($id, $data);
-        return $this->response->setJSON(['status' => 'success']);
+        return redirect()->to('ims/stock/');
     }
 
-    // Delete a user
-    public function delete_user() {
+    public function delete($id)
+    {
         $model = new StockModel();
-        $id = $this->request->getPost('id');
         $model->delete($id);
-        return $this->response->setJSON(['status' => 'success']);
+        return redirect()->to('ims/stock/');
     }
 }

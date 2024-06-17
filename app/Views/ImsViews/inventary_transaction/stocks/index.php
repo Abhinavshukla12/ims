@@ -1,64 +1,63 @@
 <?= $this->extend('ImsViews/layout/default') ?>
 
 <?= $this->section('content') ?>
-<!-- Example content -->
 <body>
- <div class="content">
-    <div class="container">
-        <div class="grid">
-            <!-- jqgrid code goes here  -->
-            <div>
-                <table id="grid"></table>
-                <div id="pager"></div>
-            </div>
-        </div>
-        <div class="right-column">
-            <div class="second">
-                <h1>second div</h1>
-            </div>
-            <div class="third">
-                <h1>third div</h1>
-            </div>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="<?=base_url('ims/home')?>">Home</a></li>
+  <li class="breadcrumb-item"><a href="<?=base_url('ims/stock')?>">Stock</a></li>
+  <li class="breadcrumb-item active">Data</li>
+</ol>
+<div class="row mt-4">
+    <div class="col-12">
+        <a href="<?=base_url('ims/stock/create')?>" class="btn btn-primary mb-3">Add New Stock</a>
+        <div class="table-responsive">
+            <table id="stocksTable" class="table table-striped table-bordered" style="margin-left: 0;"> <!-- Apply inline style -->
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($stocks as $stock): ?>
+                    <tr>
+                        <td><?= $stock['id'] ?></td>
+                        <td><?= $stock['name'] ?></td>
+                        <td><?= $stock['quantity'] ?></td>
+                        <td><?= $stock['price'] ?></td>
+                        <td><?= $stock['created_at'] ?></td>
+                        <td><?= $stock['updated_at'] ?></td>
+                        <td>
+                            <a href="<?=base_url('ims/stock/edit/')?><?= $stock['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="<?=base_url('ims/stock/delete/')?><?= $stock['id'] ?>" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 </body>
+<script>
+    $(document).ready(function() {
+        var table = $('#stocksTable').DataTable({
+            "pagingType": "full_numbers"
+        });
+
+        $('#searchBar').on('keyup', function() {
+            table.search(this.value).draw();
+        });
+    });
+</script>
 <style>
-body {
-    background-color: grey;
-    margin: 0; /* Ensure there is no margin on the body */
-    height: 100vh; /* Set the height of the body to full viewport height */
-    display: flex;
-    flex-direction: column;
-}
-.content {
-    flex: 1; /* Allow the content to grow and take available space */
-}
-.container {
-    display: flex;
-    justify-content: flex-start; /* Align items to the start */
-    gap: 20px; /* Add 20px gap between grid and right-column */
-    margin-top: 15px;
-}
-.grid {
-    margin-left: 10px;
-}
-.right-column {
-    display: flex;
-    flex-direction: column; /* Arrange second and third divs in a column */
-    width: 400px; /* Adjust width as needed */
-}
-.second, .third {
-    background-color: #f1f1f1;
-    margin-bottom: 10px; /* Add space between second and third divs */
-    height: 280px; /* Set height to 280px */
-    border: 2px solid #000; /* Add a solid border */
-    border-radius: 15px; /* Add a border-radius for curly borders */
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-    width: 608px;
-}
-.third {
-    background-color: #f1f1f1;
-}
+    table{
+        margin-left: 0;
+    }
 </style>
 <?= $this->endSection() ?>
