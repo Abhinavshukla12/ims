@@ -80,7 +80,7 @@
                 <a class="nav-link" href="<?=base_url('ims/item_management')?>">Item Management</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/supplier_database')?>">Supplier Database</a>
+                <a class="nav-link" href="<?=base_url('ims/suppliers')?>">Supplier Database</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('ims/warehouse')?>">Warehouse Management</a>

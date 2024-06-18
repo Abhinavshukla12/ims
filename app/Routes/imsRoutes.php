@@ -49,8 +49,13 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     });
 
     //supplier management page route
-    $routes->group('supplier_database/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'supplier_database::index');
+    $routes->group('suppliers/', ['namespace' => 'App\Controllers\ImsControllers\SupplierControllers'], static function ($routes) {
+        $routes->get('', 'SuppliersController::index');
+        $routes->get('create', 'SuppliersController::create');
+        $routes->post('store', 'SuppliersController::store');
+        $routes->get('edit/(:num)', 'SuppliersController::edit/$1');
+        $routes->post('update/(:num)', 'SuppliersController::update/$1');
+        $routes->get('delete/(:num)', 'SuppliersController::delete/$1');
     });
 
     //warehouse management page route
