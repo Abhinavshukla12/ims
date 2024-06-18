@@ -1232,3 +1232,742 @@ INFO - 2024-06-17 19:12:40 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-06-17 19:12:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-06-17 19:13:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-06-17 19:13:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:16:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:16:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:16:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:16:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:17:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:17:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:17:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:17:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:17:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:17:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-17 19:44:05 --> mysqli_sql_exception: Unknown column 'sales_orders.deleted_at' in 'where clause' in C:\xampp\htdocs\ims\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\ims\system\Database\MySQLi\Connection.php(308): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ims\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ims\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ims\system\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ims\system\Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ims\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ims\app\Controllers\ImsControllers\Inventary_transaction\sales_order.php(15): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ims\system\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+#8 C:\xampp\htdocs\ims\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+#9 C:\xampp\htdocs\ims\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ims\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ims\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ims\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-06-17 19:44:05 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'sales_orders.deleted_at' in 'where clause'
+[Method: GET, Route: ims/sales_order]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sales_orders`
+WHERE `sales_orders`.`deleted_at` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(15): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:44:05 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'sales_orders.deleted_at' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sales_orders`
+WHERE `sales_orders`.`deleted_at` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sales_orders`
+WHERE `sales_orders`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sales_orders`
+WHERE `sales_orders`.`deleted_at` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(15): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:44:05 --> [Caused by] mysqli_sql_exception: Unknown column 'sales_orders.deleted_at' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('SELECT *
+FROM `sales_orders`
+WHERE `sales_orders`.`deleted_at` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sales_orders`
+WHERE `sales_orders`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sales_orders`
+WHERE `sales_orders`.`deleted_at` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sales_orders`
+WHERE `sales_orders`.`deleted_at` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(15): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:47:00 --> ErrorException: Undefined variable $stock
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 26.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stock', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 26)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:47:02 --> ErrorException: Undefined variable $stock
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 26.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stock', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 26)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:48:09 --> ErrorException: Undefined variable $sales_orders
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_orders', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:49:09 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:49:10 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:49:11 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:49:23 --> ErrorException: Undefined variable $stock
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 26.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stock', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 26)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:50:11 --> ErrorException: Undefined variable $sales_orders
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_orders', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:50:29 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:50:30 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:51:00 --> ErrorException: Undefined array key "price"
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 31.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "price"', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 31)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:53:17 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:53:18 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:53:19 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:53:20 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:54:01 --> ErrorException: Undefined variable $sale_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:55:49 --> ErrorException: Undefined variable $sale_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:55:50 --> ErrorException: Undefined variable $sale_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-17 19:55:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:55:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:55:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 19:55:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 19:55:59 --> ErrorException: Undefined variable $sale_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:57:28 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:57:38 --> ErrorException: Undefined variable $sales_orders
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_orders', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:58:10 --> ErrorException: Undefined variable $sales_orders
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_orders', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:58:11 --> ErrorException: Undefined variable $sales_orders
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_orders', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:58:12 --> ErrorException: Undefined variable $sales_orders
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_orders', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:59:01 --> ErrorException: Undefined variable $sales_orders
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_orders', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 19:59:22 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:01:55 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:01:56 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:01:57 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:01:58 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:01:58 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:01:59 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:01:59 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:02:00 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:02:01 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:02:01 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:02:01 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:02:02 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:02:02 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-17 20:03:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 20:03:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 20:03:16 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:04:32 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:04:34 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:07:17 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:07:18 --> ErrorException: Undefined variable $sales_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-17 20:07:33 --> ErrorException: Undefined variable $sale_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-17 20:11:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 20:11:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 20:17:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 20:17:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 20:17:02 --> ErrorException: Undefined variable $sale_order
+[Method: GET, Route: ims/sales_order]
+in APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php on line 24.
+ 1 APPPATH\Views\ImsViews\inventary_transaction\sales_order\index.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale_order', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\inventary_transaction\\sales_order\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/inventary_transaction/sales_order/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Inventary_transaction\sales_order.php(17): view('ImsViews/inventary_transaction/sales_order/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Inventary_transaction\sales_order->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Inventary_transaction\sales_order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
