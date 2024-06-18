@@ -50,6 +50,10 @@
         $('#purchaseOrdersTable').DataTable({
             "pagingType": "full_numbers"
         });
+        
+        $('#searchBar').on('keyup', function() {
+            table.search(this.value).draw();
+        });
     });
 </script>
 <?= $this->endSection() ?>
