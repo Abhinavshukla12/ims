@@ -74,7 +74,7 @@
                 <a class="nav-link" href="<?=base_url('ims/purchase_order')?>">Purchase Orders</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/sales_order')?>">Sales Orders</a>
+                <a class="nav-link" href="<?=base_url('ims/sales')?>">Sales Orders</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('ims/item_management')?>">Item Management</a>

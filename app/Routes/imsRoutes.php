@@ -19,7 +19,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->get('delete/(:num)', 'stocks::delete/$1');
     });
     //sales order page route
-    $routes->group('sales_order/', ['namespace' => 'App\Controllers\ImsControllers\Inventary_transaction'], static function ($routes) {
+    $routes->group('sales/', ['namespace' => 'App\Controllers\ImsControllers\Inventary_transaction'], static function ($routes) {
         $routes->get('', 'sales_order::index');
         $routes->get('create', 'sales_order::create');
         $routes->post('store', 'sales_order::store');

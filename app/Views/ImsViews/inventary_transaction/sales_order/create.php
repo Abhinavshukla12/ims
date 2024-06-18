@@ -1,26 +1,36 @@
+<!-- app/Views/sales/create.php -->
+
 <?= $this->extend('ImsViews/layout/default') ?>
 
 <?= $this->section('content') ?>
-
-<div class="row mt-5">
+<body>
+<div class="row mt-4">
     <div class="col-12">
-        <h1 class="mb-4">Add Sales</h1>
-        <form action="<?=base_url('ims/sales_order/store')?>" method="post">
+        <h1>Create Sales Order</h1>
+        <form action="<?= base_url('ims/sales/store') ?>" method="post">
+            <div class="form-group">
+                <label for="customer_id">Customer ID:</label>
+                <input type="text" id="customer_id" name="customer_id" class="form-control" required>
+            </div>
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="order_date">Order Date:</label>
+                <input type="date" id="order_date" name="order_date" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="quantity">Quantity:</label>
-                <input type="number" class="form-control" id="quantity" name="quantity" required>
+                <input type="number" id="quantity" name="quantity" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="price">Price:</label>
-                <input type="number" step="0.01" class="form-control" id="price" name="price" required>
+                <input type="text" id="price" name="price" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Add Sales</button>
+            <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
 </div>
-
+</body>
 <?= $this->endSection() ?>

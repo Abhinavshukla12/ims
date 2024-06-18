@@ -1,12 +1,14 @@
+<!-- app/Views/sales/index.php -->
+
 <?= $this->extend('ImsViews/layout/default') ?>
 
 <?= $this->section('content') ?>
 <body>
 <div class="row mt-4">
     <div class="col-12">
-        <a href="<?=base_url('ims/sales_order/create')?>" class="btn btn-primary mb-3">Add Sales</a>
+        <a href="<?= base_url('ims/sales/create') ?>" class="btn btn-primary mb-3">Create New Order</a>
         <div class="table-responsive">
-            <table id="salesTable" class="table table-striped table-bordered" style="margin-left: 0;"> <!-- Apply inline style -->
+            <table id="salesTable" class="table table-striped table-bordered" style="margin-left: 0;">
                 <thead>
                     <tr>
                         <th>Order ID</th>
@@ -21,19 +23,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($sale_order as $sales_orders): ?>
+                    <?php foreach ($sales as $sale): ?>
                     <tr>
-                        <td><?= $sales_orders['order_id'] ?></td>
-                        <td><?= $sales_orders['customer_id'] ?></td>
-                        <td><?= $sales_orders['name'] ?></td>
-                        <td><?= $sales_orders['order_date'] ?></td>
-                        <td><?= $sales_orders['quantity'] ?></td>
-                        <td><?= $sales_orders['price'] ?></td>
-                        <td><?= $sales_orders['created_at'] ?></td>
-                        <td><?= $sales_orders['updated_at'] ?></td>
+                        <td><?= $sale['order_id'] ?></td>
+                        <td><?= $sale['customer_id'] ?></td>
+                        <td><?= $sale['name'] ?></td>
+                        <td><?= $sale['order_date'] ?></td>
+                        <td><?= $sale['quantity'] ?></td>
+                        <td><?= isset($sale['price']) ? $sale['price'] : 'N/A' ?></td>
+                        <td><?= $sale['created_at'] ?></td>
+                        <td><?= $sale['updated_at'] ?></td>
                         <td>
-                            <a href="<?=base_url('ims/sales_order/edit/')?><?= $sales_orders['order_id'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="<?=base_url('ims/sales_order/delete/')?><?= $sales_orders['order_id'] ?>" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="<?= base_url('ims/sales/edit/') . $sale['order_id'] ?>" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="<?= base_url('ims/sales/delete/') . $sale['order_id'] ?>" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

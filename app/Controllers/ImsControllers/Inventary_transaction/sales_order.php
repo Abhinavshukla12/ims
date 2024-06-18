@@ -10,57 +10,63 @@ class sales_order extends BaseController
     public function index()
     {
         $model = new SalesModel();
-        $data = [
-            'title' => 'Sales List',
-            'sales' => $model->findAll()
-        ];
-        echo view('ImsViews/inventary_transaction/sales_order/index', $data);
+        $data['sales'] = $model->findAll();
+
+        return view('ImsViews/Inventary_transaction/sales_order/index', $data);
     }
 
     public function create()
     {
-        $data = ['title' => 'Add Sales'];
-        echo view('ImsViews/inventary_transaction/sales_order/create', $data);
+        return view('ImsViews/Inventary_transaction/sales_order/create');
     }
 
     public function store()
     {
         $model = new SalesModel();
+
         $data = [
-            'name'     => $this->request->getPost('name'),
-            'quantity' => $this->request->getPost('quantity'),
-            'price'    => $this->request->getPost('price')
+            'customer_id' => $this->request->getPost('customer_id'),
+            'name'        => $this->request->getPost('name'),
+            'order_date'  => $this->request->getPost('order_date'),
+            'quantity'    => $this->request->getPost('quantity'),
+            'price'       => $this->request->getPost('price'),
         ];
-        $model->insert($data);
-        return redirect()->to('ims/sales_order/');
+
+        $model->save($data);
+
+        return redirect()->to('ims/sales');
     }
 
-    public function edit($order_id)
+    public function edit($id)
     {
         $model = new SalesModel();
-        $data = [
-            'title' => 'Edit Sales',
-            'sales' => $model->find($order_id)
-        ];
-        echo view('ImsViews/inventary_transaction/sales_order/edit', $data);
+        $data['sale'] = $model->find($id);
+
+        return view('ImsViews/Inventary_transaction/sales_order/edit', $data);
     }
 
-    public function update($order_id)
+    public function update($id)
     {
         $model = new SalesModel();
+
         $data = [
-            'name'     => $this->request->getPost('name'),
-            'quantity' => $this->request->getPost('quantity'),
-            'price'    => $this->request->getPost('price')
+            'customer_id' => $this->request->getPost('customer_id'),
+            'name'        => $this->request->getPost('name'),
+            'order_date'  => $this->request->getPost('order_date'),
+            'quantity'    => $this->request->getPost('quantity'),
+            'price'       => $this->request->getPost('price'),
         ];
-        $model->update($order_id, $data);
-        return redirect()->to('ims/sales_order/');
+
+        $model->update($id, $data);
+
+        return redirect()->to('ims/sales');
     }
 
-    public function delete($order_id)
+    public function delete($id)
     {
         $model = new SalesModel();
-        $model->delete($order_id);
-        return redirect()->to('ims/sales_order/');
+        $model->delete($id);
+
+        return redirect()->to('ims/sales');
     }
 }
