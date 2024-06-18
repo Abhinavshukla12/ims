@@ -6,7 +6,7 @@
 <body>
 <div class="row mt-4">
     <div class="col-12">
-        <a href="<?= base_url('ims/sales/create') ?>" class="btn btn-primary mb-3">Create New Order</a>
+        <a href="<?= base_url('ims/sales/create') ?>" class="btn btn-primary mb-3">Add Sales</a>
         <div class="table-responsive">
             <table id="salesTable" class="table table-striped table-bordered" style="margin-left: 0;">
                 <thead>

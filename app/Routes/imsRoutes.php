@@ -28,8 +28,13 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->get('delete/(:num)', 'sales_order::delete/$1');
     });
     //purchase order page route
-    $routes->group('purchase_order/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'Inventary_transaction\purchase_order::index');
+    $routes->group('purchase_order/', ['namespace' => 'App\Controllers\ImsControllers\Inventary_transaction'], static function ($routes) {
+        $routes->get('', 'PurchaseController::index');
+        $routes->get('create', 'PurchaseController::create');
+        $routes->post('store', 'PurchaseController::store');
+        $routes->get('edit/(:num)', 'PurchaseController::edit/$1');
+        $routes->post('update/(:num)', 'PurchaseController::update/$1');
+        $routes->get('delete/(:num)', 'PurchaseController::delete/$1');
     });
 
     //item management page route
