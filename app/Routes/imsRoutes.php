@@ -10,7 +10,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     //home route
     $routes->get('home', 'Dashboard_controller::index');
     //stock in page route
-    $routes->group('stock/', ['namespace' => 'App\Controllers\ImsControllers\Inventary_transaction'], static function ($routes) {
+    $routes->group('stock/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'stocks::index');
         $routes->get('create', 'stocks::create');
         $routes->post('store', 'stocks::store');
@@ -19,7 +19,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->get('delete/(:num)', 'stocks::delete/$1');
     });
     //sales order page route
-    $routes->group('sales/', ['namespace' => 'App\Controllers\ImsControllers\Inventary_transaction'], static function ($routes) {
+    $routes->group('sales/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'sales_order::index');
         $routes->get('create', 'sales_order::create');
         $routes->post('store', 'sales_order::store');
@@ -28,7 +28,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->get('delete/(:num)', 'sales_order::delete/$1');
     });
     //purchase order page route
-    $routes->group('purchase_order/', ['namespace' => 'App\Controllers\ImsControllers\Inventary_transaction'], static function ($routes) {
+    $routes->group('purchase_order/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'PurchaseController::index');
         $routes->get('create', 'PurchaseController::create');
         $routes->post('store', 'PurchaseController::store');
@@ -38,7 +38,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     });
 
     //item management page route
-    $routes->group('item_management/', ['namespace' => 'App\Controllers\ImsControllers\Inventary_tracking'], static function ($routes) {
+    $routes->group('item_management/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'ItemsController::index');
         $routes->get('create', 'ItemsController::create');
         $routes->post('store', 'ItemsController::store');
@@ -49,7 +49,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     });
 
     //supplier management page route
-    $routes->group('suppliers/', ['namespace' => 'App\Controllers\ImsControllers\SupplierControllers'], static function ($routes) {
+    $routes->group('suppliers/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'SuppliersController::index');
         $routes->get('create', 'SuppliersController::create');
         $routes->post('store', 'SuppliersController::store');
@@ -59,7 +59,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     });
 
     //warehouse management page route
-    $routes->group('warehouse/', ['namespace' => 'App\Controllers\ImsControllers\WarehouseControllers'], static function ($routes) {
+    $routes->group('warehouse/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'WarehousesController::index');
         $routes->get('create', 'WarehousesController::create');
         $routes->post('store', 'WarehousesController::store');
@@ -70,13 +70,18 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
 
     //document management page route
     $routes->group('document/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'DocumentController\document::index');
+        $routes->get('', 'DocumentsController::index');
+        $routes->get('create', 'DocumentsController::create');
+        $routes->post('store', 'DocumentsController::store');
+        $routes->get('edit/(:num)', 'DocumentsController::edit/$1');
+        $routes->post('update/(:num)', 'DocumentsController::update/$1');
+        $routes->get('delete/(:num)', 'DocumentsController::delete/$1');
     });
 
-    $routes->get('about', 'AboutControllers\about::index');
-    $routes->get('categories', 'CategoriesControllers\categories::index');
-    $routes->get('contact', 'ContactControllers\contact::index');
+    $routes->get('about', 'about::index');
+    $routes->get('categories', 'categories::index');
+    $routes->get('contact', 'contact::index');
 
-    $routes->get('settings', 'SettingsControllers\settings::index');
+    $routes->get('settings', 'settings::index');
 });
 //routes end
