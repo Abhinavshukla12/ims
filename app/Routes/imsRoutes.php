@@ -38,8 +38,14 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     });
 
     //item management page route
-    $routes->group('item_management/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'Inventary_tracking\item_management::index');
+    $routes->group('item_management/', ['namespace' => 'App\Controllers\ImsControllers\Inventary_tracking'], static function ($routes) {
+        $routes->get('', 'ItemsController::index');
+        $routes->get('create', 'ItemsController::create');
+        $routes->post('store', 'ItemsController::store');
+        $routes->get('edit/(:num)', 'ItemsController::edit/$1');
+        $routes->post('update/(:num)', 'ItemsController::update/$1');
+        $routes->get('delete/(:num)', 'ItemsController::delete/$1');
+
     });
 
     //supplier management page route
