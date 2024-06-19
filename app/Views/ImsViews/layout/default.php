@@ -18,13 +18,24 @@
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     
     <style>
+    .navbar{
+        height: 65px;
+    }
     .navbar-brand{
         color: white;
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 10px;
     }
     .navbar-brand:hover{
         color: white;
     }
     .navbar-nav .nav-link {
+        color: black;
+        font-size: 15px;
+        font-weight: bolder;
+    }
+    .navbar-nav .nav-link:hover{
         color: white;
     }
 </style>
@@ -41,27 +52,24 @@
 <body>
 <!-- Primary Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand" href="<?=base_url('ims/home')?>">Management System</a> <!-- Navbar Brand -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/home')?>">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/about')?>">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/categories')?>">Categories</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/contact')?>">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/profile')?>">Profile</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+        <a class="navbar-brand" href="<?=base_url('ims/home')?>">Management System</a> <!-- Navbar Brand -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('ims/home')?>">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('ims/about')?>">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('ims/contact')?>">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('ims/profile')?>">Profile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 <!-- Secondary Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-info">

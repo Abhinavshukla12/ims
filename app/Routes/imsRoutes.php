@@ -9,6 +9,10 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     
     //home route
     $routes->get('home', 'Dashboard_controller::index');
+    $routes->get('about', 'about::index');
+    $routes->get('contact', 'contact::index');
+    $routes->get('settings', 'settings::index');
+    
     //stock in page route
     $routes->group('stock/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'stocks::index');
@@ -18,6 +22,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('update/(:num)', 'stocks::update/$1');
         $routes->get('delete/(:num)', 'stocks::delete/$1');
     });
+
     //sales order page route
     $routes->group('sales/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'sales_order::index');
@@ -27,6 +32,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('update/(:num)', 'sales_order::update/$1');
         $routes->get('delete/(:num)', 'sales_order::delete/$1');
     });
+
     //purchase order page route
     $routes->group('purchase_order/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'PurchaseController::index');
@@ -45,7 +51,6 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->get('edit/(:num)', 'ItemsController::edit/$1');
         $routes->post('update/(:num)', 'ItemsController::update/$1');
         $routes->get('delete/(:num)', 'ItemsController::delete/$1');
-
     });
 
     //supplier management page route
@@ -77,11 +82,5 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('update/(:num)', 'DocumentsController::update/$1');
         $routes->get('delete/(:num)', 'DocumentsController::delete/$1');
     });
-
-    $routes->get('about', 'about::index');
-    $routes->get('categories', 'categories::index');
-    $routes->get('contact', 'contact::index');
-
-    $routes->get('settings', 'settings::index');
 });
 //routes end
