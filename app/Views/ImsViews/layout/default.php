@@ -79,10 +79,10 @@
                 <a class="nav-link" href="<?=base_url('ims/stock')?>">Stocks Management</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/purchase_order')?>">Purchase Orders</a>
+                <a class="nav-link" href="<?=base_url('ims/sales')?>">Sales Orders</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/sales')?>">Sales Orders</a>
+                <a class="nav-link" href="<?=base_url('ims/purchase_order')?>">Purchase Orders</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('ims/item_management')?>">Item Management</a>
@@ -91,10 +91,10 @@
                 <a class="nav-link" href="<?=base_url('ims/suppliers')?>">Supplier Database</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/warehouse')?>">Warehouse Management</a>
+                <a class="nav-link" href="<?=base_url('ims/document')?>">Document Management</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/document')?>">Document Management</a>
+                <a class="nav-link" href="<?=base_url('ims/warehouse')?>">Warehouse Management</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('ims/settings')?>">Settings</a>
