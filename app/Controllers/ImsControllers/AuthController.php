@@ -28,6 +28,8 @@ class AuthController extends Controller
             'username' => $this->request->getPost('username'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
             'email' => $this->request->getPost('email'),
+            'fullname' => $this->request->getPost('fullname'),
+            'dob' => $this->request->getPost('dob'),
         ];
 
         if ($model->addUser($data)) {

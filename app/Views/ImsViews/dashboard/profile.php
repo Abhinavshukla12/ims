@@ -25,6 +25,22 @@
                             <input type="email" id="email" class="form-control" value="<?= esc($user['email']) ?>" readonly>
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <label for="fullname" class="font-weight-bold">Full Name:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" id="fullname" class="form-control" value="<?= esc($user['fullname']) ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <label for="dob" class="font-weight-bold">Date of Birth:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" id="dob" class="form-control" value="<?= esc($user['dob']) ?>" readonly>
+                        </div>
+                    </div>
                     <!-- Add more fields as needed -->
                 </div>
             </div>

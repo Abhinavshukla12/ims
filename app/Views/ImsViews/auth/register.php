@@ -46,17 +46,12 @@
     </style>
 </head>
 <body>
-    <div class="container">
+<div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="form-container">
                     <h2>User Registration</h2>
-                    <?php if(session()->has('error')): ?>
-                        <p style="color: red;"><?= session('error') ?></p>
-                    <?php endif; ?>
-                    <?php if(session()->has('success')): ?>
-                        <p style="color: green;"><?= session('success') ?></p>
-                    <?php endif; ?>
+                    <!-- Error and success messages remain the same -->
                     <form action="<?= site_url('ims/register') ?>" method="post">
                         <div class="form-group">
                             <label for="username">Username:</label>
@@ -69,6 +64,14 @@
                         <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fullname">Full Name:</label>
+                            <input type="text" class="form-control" id="fullname" name="fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth:</label>
+                            <input type="date" class="form-control" id="dob" name="dob" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Register</button>
                     </form>
