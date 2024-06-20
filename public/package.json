@@ -1,0 +1,22 @@
+{
+  "name": "ci450",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootswatch": "^5.3.3",
+    "font-awesome": "*",
+    "free-jqgrid": "^4.15.5",
+    "jquery": "^3.6.0",
+    "jquery-ui": "^1.13.2"
+  }
+}
