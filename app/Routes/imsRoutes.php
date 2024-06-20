@@ -6,7 +6,14 @@ $routes = Services::routes();
 
 //routes start
 $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-    
+    $routes->get('register', 'AuthController::register');
+    $routes->post('register', 'AuthController::processRegister');
+    $routes->get('login', 'AuthController::login');
+    $routes->post('login', 'AuthController::processLogin');
+    $routes->get('logout', 'AuthController::logout');
+    $routes->get('profile', 'AuthController::profile');
+
+
     //home route
     $routes->get('home', 'Dashboard_controller::index');
     $routes->get('about', 'about::index');
