@@ -13,7 +13,6 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     $routes->get('logout', 'AuthController::logout');
     $routes->get('profile', 'AuthController::profile');
 
-
     //home route
     $routes->get('home', 'Dashboard_controller::index');
     $routes->get('about', 'about::index');
@@ -32,12 +31,12 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
 
     //sales order page route
     $routes->group('sales/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'sales_order::index');
-        $routes->get('create', 'sales_order::create');
-        $routes->post('store', 'sales_order::store');
-        $routes->get('edit/(:num)', 'sales_order::edit/$1');
-        $routes->post('update/(:num)', 'sales_order::update/$1');
-        $routes->get('delete/(:num)', 'sales_order::delete/$1');
+        $routes->get('', 'sales_order::jqgrid');
+        $routes->get('sales_data', 'sales_order::sales_data');
+        $routes->post('crud_operations', 'sales_order::crud_operations');
+        $routes->post('add', 'sales_order::add');
+        $routes->post('edit', 'sales_order::edit');
+        $routes->post('delete', 'sales_order::delete');
     });
 
     //purchase order page route

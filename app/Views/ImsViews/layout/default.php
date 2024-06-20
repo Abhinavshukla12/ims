@@ -116,6 +116,8 @@
     <script src="<?= base_url('node_modules/jquery/dist/jquery.min.js') ?>"></script>
   <!-- Bootstrap JS and dependencies -->
   <script src="<?= base_url('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.min.js"></script>
+
 
     <!-- jQuery, Popper.js, and Bootstrap JS -->
     <script type="text/javascript">

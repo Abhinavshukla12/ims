@@ -34,8 +34,10 @@ class sales_order extends BaseController
         $sord = $this->request->getVar('sord') ?: 'asc';
         $search = $this->request->getVar('_search') == 'true';
 
+        // Build the query with sorting
         $model->orderBy($sidx, $sord);
 
+        // Handle search filters
         if ($search) {
             $filters = json_decode($this->request->getVar('filters'), true);
             if (isset($filters['rules']) && is_array($filters['rules'])) {
@@ -45,14 +47,17 @@ class sales_order extends BaseController
             }
         }
 
+        // Get the count of all records (for pagination)
         $count = $model->countAllResults(false);
         $total_pages = $count > 0 ? ceil($count / $limit) : 0;
         $page = min($page, $total_pages);
         $start = max(0, ($page - 1) * $limit);
 
+        // Get the actual data
         $model->limit($limit, $start);
         $data = $model->findAll();
 
+        // Prepare the response
         $response = [
             'page' => $page,
             'total' => $total_pages,
@@ -67,12 +72,13 @@ class sales_order extends BaseController
     public function crud_operations()
     {
         $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
-        if ($operation == 'PUT') {
-            return $this->edit();
-        } elseif ($operation == 'DELETE') {
-            return $this->delete();
-        } else {
-            return $this->add();
+        switch ($operation) {
+            case 'PUT':
+                return $this->edit();
+            case 'DELETE':
+                return $this->delete();
+            default:
+                return $this->add();
         }
     }
 
@@ -81,8 +87,12 @@ class sales_order extends BaseController
     {
         $model = new SalesModel();
         $data = $this->request->getPost();
-        $model->insert($data);
-        return $this->response->setJSON(['status' => 'success']);
+        
+        if ($model->insert($data) === false) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
+        }
+
+        return $this->response->setJSON(['status' => 'success', 'id' => $model->insertID()]);
     }
 
     // Edit an existing sales order
@@ -91,7 +101,11 @@ class sales_order extends BaseController
         $model = new SalesModel();
         $id = $this->request->getVar('id');
         $data = $this->request->getPost();
-        $model->update($id, $data);
+        
+        if ($model->update($id, $data) === false) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
+        }
+
         return $this->response->setJSON(['status' => 'success']);
     }
 
@@ -100,7 +114,11 @@ class sales_order extends BaseController
     {
         $model = new SalesModel();
         $id = $this->request->getVar('id');
-        $model->delete($id);
+        
+        if ($model->delete($id) === false) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
+        }
+
         return $this->response->setJSON(['status' => 'success']);
     }
 }
