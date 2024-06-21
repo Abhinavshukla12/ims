@@ -61,12 +61,12 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
 
     //supplier management page route
     $routes->group('suppliers/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'SuppliersController::index');
-        $routes->get('create', 'SuppliersController::create');
-        $routes->post('store', 'SuppliersController::store');
-        $routes->get('edit/(:num)', 'SuppliersController::edit/$1');
-        $routes->post('update/(:num)', 'SuppliersController::update/$1');
-        $routes->get('delete/(:num)', 'SuppliersController::delete/$1');
+        $routes->get('', 'SuppliersController::jqgrid');
+        $routes->get('suppliers_data', 'SuppliersController::suppliers_data');
+        $routes->post('crud_operations', 'SuppliersController::crud_operations');
+        $routes->post('add', 'SuppliersController::add');
+        $routes->post('edit', 'SuppliersController::edit');
+        $routes->post('delete', 'SuppliersController::delete');
     });
 
     //warehouse management page route

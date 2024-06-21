@@ -2,17 +2,16 @@ $(document).ready(function() {
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
     var columns = [
-        { label: 'Item ID', name: 'item,_id', width: 90, key: true, cellattr: function () { return 'style="background-color: #FFDDC1"'; } },
+        { label: 'Supplier ID', name: 'supplier_id', width: 90, key: true, cellattr: function () { return 'style="background-color: #FFDDC1"'; } },
         { label: 'Name', name: 'name', width: 150, editable: true, cellattr: function () { return 'style="background-color: #FFECB3"'; } },
-        { label: 'Description', name: 'description', width: 150, editable: true, cellattr: function () { return 'style="background-color: #C5CAE9"'; } },
-        { label: 'Quantity', name: 'quantity', width: 180, editable: true, cellattr: function () { return 'style="background-color: #BBDEFB"'; } },
-        { label: 'Price', name: 'price', width: 180, editable: true, cellattr: function () { return 'style="background-color: #B3E5FC"'; } },
+        { label: 'Contact', name: 'contact', width: 200, editable: true, cellattr: function () { return 'style="background-color: #D1C4E9"'; } },
+        { label: 'Address', name: 'address', width: 180, editable: true, cellattr: function () { return 'style="background-color: #BBDEFB"'; } },
         { label: 'Created Date', name: 'created_at', width: 160, cellattr: function () { return 'style="background-color: #B2EBF2"'; } },
         { label: 'Updated Date', name: 'updated_at', width: 160, cellattr: function () { return 'style="background-color: #B2DFDB"'; } }
     ];
 
     $("#grid").jqGrid({
-        url: 'http://localhost/ims/public/ims/item_management/item_data',
+        url: 'http://localhost/ims/public/ims/suppliers/suppliers_data',
         datatype: "json",
         colModel: columns,
         viewrecords: true,
@@ -22,12 +21,12 @@ $(document).ready(function() {
         pager: '#pager',
         sortname: 'id',
         sortorder: 'asc',
-        caption: 'Item Details',
+        caption: 'Suppliers Details',
         autowidth: true,
         shrinkToFit: true,
         multiselect: true,
         toolbarfilter: true,
-        editurl: 'http://localhost/ims/public/ims/item_management/crud_operations',
+        editurl: 'http://localhost/ims/public/ims/suppliers/crud_operations',
         ajaxGridOptions: {
             headers: {
                 'X-CSRF-TOKEN': csrfToken
@@ -46,7 +45,7 @@ $(document).ready(function() {
         refresh: true
     }, {
         // Edit options
-        url: 'http://localhost/ims/public/ims/item_management/edit',
+        url: 'http://localhost/ims/public/ims/suppliers/edit',
         closeAfterEdit: true,
         recreateForm: true,
         ajaxEditOptions: {
@@ -56,7 +55,7 @@ $(document).ready(function() {
         }
     }, {
         // Add options
-        url: 'http://localhost/ims/public/ims/item_management/add',
+        url: 'http://localhost/ims/public/ims/suppliers/add',
         closeAfterAdd: true,
         recreateForm: true,
         ajaxEditOptions: {
@@ -66,7 +65,7 @@ $(document).ready(function() {
         }
     }, {
         // Delete options
-        url: 'http://localhost/ims/public/ims/item_management/delete',
+        url: 'http://localhost/ims/public/ims/suppliers/delete',
         closeAfterDelete: true,
         recreateForm: true,
         ajaxDelOptions: {
