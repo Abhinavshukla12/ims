@@ -7,66 +7,118 @@ use App\Controllers\BaseController;
 
 class PurchaseController extends BaseController
 {
-    public function index()
+    // View
+    public function jqgrid()
     {
-        $model = new PurchaseOrderModel();
-        $data['purchase_orders'] = $model->findAll();
-
-        return view('ImsViews/purchase_order/index', $data);
-    }
-
-    public function create()
-    {
-        return view('ImsViews/purchase_order/create');
-    }
-
-    public function store()
-    {
-        $model = new PurchaseOrderModel();
-
-        $data = [
-            'supplier_id' => $this->request->getPost('supplier_id'),
-            'name'        => $this->request->getPost('name'),
-            'order_date'  => $this->request->getPost('order_date'),
-            'quantity'    => $this->request->getPost('quantity'),
-            'price'       => $this->request->getPost('price'),
+        $data['css'] = [
+            'node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css',
+            'node_modules/free-jqgrid/dist/css/ui.jqgrid.min.css',
+            'node_modules/free-jqgrid/dist/plugins/css/ui.multiselect.min.css'
         ];
+        $data['js'] = [
+            'node_modules/free-jqgrid/dist/jquery.jqgrid.min.js',
+            'assets/js/purchase_order/main.js'
+        ];
+        return view('ImsViews/purchase_order/jqgrid', $data);
+    }
 
-        if (empty($data['supplier_id']) || empty($data['name']) || empty($data['order_date']) || empty($data['quantity']) || empty($data['price'])) {
-            return redirect()->back()->withInput()->with('error', 'All fields are required.');
+    // Fetch all sales data with support for jqGrid search
+    public function purchase_data()
+    {
+        $model = new PurchaseOrderModel();
+
+        // Get jqGrid parameters
+        $page = $this->request->getVar('page', FILTER_VALIDATE_INT) ?: 1;
+        $limit = $this->request->getVar('rows', FILTER_VALIDATE_INT) ?: 20;
+        $sidx = $this->request->getVar('sidx') ?: 'order_id';
+        $sord = $this->request->getVar('sord') ?: 'asc';
+        $search = $this->request->getVar('_search') == 'true';
+
+        // Build the query with sorting
+        $model->orderBy($sidx, $sord);
+
+        // Handle search filters
+        if ($search) {
+            $filters = json_decode($this->request->getVar('filters'), true);
+            if (isset($filters['rules']) && is_array($filters['rules'])) {
+                foreach ($filters['rules'] as $rule) {
+                    $model->like($rule['field'], $rule['data']);
+                }
+            }
         }
 
-        $model->save($data);
+        // Get the count of all records (for pagination)
+        $count = $model->countAllResults(false);
+        $total_pages = $count > 0 ? ceil($count / $limit) : 0;
+        $page = min($page, $total_pages);
+        $start = max(0, ($page - 1) * $limit);
 
-        return redirect()->to('ims/purchase_order/');
-    }
+        // Get the actual data
+        $model->limit($limit, $start);
+        $data = $model->findAll();
 
-    public function edit($id)
-    {
-        $model = new PurchaseOrderModel();
-        $data['purchase_order'] = $model->find($id);
-
-        return view('ImsViews/purchase_order/edit', $data);
-    }
-
-    public function update($id)
-    {
-        $model = new PurchaseOrderModel();
-
-        $data = [
-            'supplier_id' => $this->request->getPost('supplier_id'),
-            'name'        => $this->request->getPost('name'),
-            'order_date'  => $this->request->getPost('order_date'),
-            'quantity'    => $this->request->getPost('quantity'),
-            'price'       => $this->request->getPost('price'),
+        // Prepare the response
+        $response = [
+            'page' => $page,
+            'total' => $total_pages,
+            'records' => $count,
+            'rows' => $data
         ];
 
-        if (empty($data['supplier_id']) || empty($data['name']) || empty($data['order_date']) || empty($data['quantity']) || empty($data['price'])) {
-            return redirect()->back()->withInput()->with('error', 'All fields are required.');
+        return $this->response->setJSON($response);
+    }
+
+    // Handle CRUD operations
+    public function crud_operations()
+    {
+        $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
+        switch ($operation) {
+            case 'PUT':
+                return $this->edit();
+            case 'DELETE':
+                return $this->delete();
+            default:
+                return $this->add();
+        }
+    }
+
+    // Add a new sales order
+    public function add()
+    {
+        $model = new PurchaseOrderModel();
+        $data = $this->request->getPost();
+        
+        if ($model->insert($data) === false) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
         }
 
-        $model->update($id, $data);
+        return $this->response->setJSON(['status' => 'success', 'id' => $model->insertID()]);
+    }
 
-        return redirect()->to('ims/purchase_order/');
+    // Edit an existing sales order
+    public function edit()
+    {
+        $model = new PurchaseOrderModel();
+        $id = $this->request->getVar('id');
+        $data = $this->request->getPost();
+        
+        if ($model->update($id, $data) === false) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
+        }
+
+        return $this->response->setJSON(['status' => 'success']);
+    }
+
+    // Delete a sales order
+    public function delete()
+    {
+        $model = new PurchaseOrderModel();
+        $id = $this->request->getVar('id');
+        
+        if ($model->delete($id) === false) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
+        }
+
+        return $this->response->setJSON(['status' => 'success']);
     }
 }

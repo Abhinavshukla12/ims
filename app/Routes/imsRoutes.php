@@ -41,12 +41,12 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
 
     //purchase order page route
     $routes->group('purchase_order/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'PurchaseController::index');
-        $routes->get('create', 'PurchaseController::create');
-        $routes->post('store', 'PurchaseController::store');
-        $routes->get('edit/(:num)', 'PurchaseController::edit/$1');
-        $routes->post('update/(:num)', 'PurchaseController::update/$1');
-        $routes->get('delete/(:num)', 'PurchaseController::delete/$1');
+        $routes->get('', 'PurchaseController::jqgrid');
+        $routes->get('purchase_data', 'PurchaseController::purchase_data');
+        $routes->post('crud_operations', 'PurchaseController::crud_operations');
+        $routes->post('add', 'PurchaseController::add');
+        $routes->post('edit', 'PurchaseController::edit');
+        $routes->post('delete', 'PurchaseController::delete');
     });
 
     //item management page route
