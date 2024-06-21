@@ -51,12 +51,12 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
 
     //item management page route
     $routes->group('item_management/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'ItemsController::index');
-        $routes->get('create', 'ItemsController::create');
-        $routes->post('store', 'ItemsController::store');
-        $routes->get('edit/(:num)', 'ItemsController::edit/$1');
-        $routes->post('update/(:num)', 'ItemsController::update/$1');
-        $routes->get('delete/(:num)', 'ItemsController::delete/$1');
+        $routes->get('', 'ItemsController::jqgrid');
+        $routes->get('item_data', 'ItemsController::item_data');
+        $routes->post('crud_operations', 'ItemsController::crud_operations');
+        $routes->post('add', 'ItemsController::add');
+        $routes->post('edit', 'ItemsController::edit');
+        $routes->post('delete', 'ItemsController::delete');
     });
 
     //supplier management page route

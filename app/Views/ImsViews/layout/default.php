@@ -27,16 +27,16 @@
         margin-left: 10px;
     }
     .navbar-brand:hover{
-        color: white;
+        color: red;
     }
     .navbar-nav .nav-link {
-        color: black;
-        font-size: 15px;
+        color: white;
+        font-size: 14px;
         font-weight: bolder;
     }
-    .navbar-nav .nav-link:hover{
+    /* .navbar-nav .nav-link:hover{
         color: white;
-    }
+    } */
 </style>
     <!-- Bootstrap css -->
     <?php
@@ -51,7 +51,7 @@
 <body>
 <!-- Primary Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand" href="<?=base_url('ims/home')?>">Management System</a> <!-- Navbar Brand -->
+        <a class="navbar-brand" href="<?=base_url('ims/home')?>">Factory Management System</a> <!-- Navbar Brand -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -78,16 +78,16 @@
                 <a class="nav-link" href="<?=base_url('ims/stock')?>">Stocks Management</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/sales')?>">Sales Orders</a>
+                <a class="nav-link" href="<?=base_url('ims/sales')?>">Sales Management</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/purchase_order')?>">Purchase Orders</a>
+                <a class="nav-link" href="<?=base_url('ims/purchase_order')?>">Purchase Management</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('ims/item_management')?>">Item Management</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/suppliers')?>">Supplier Database</a>
+                <a class="nav-link" href="<?=base_url('ims/suppliers')?>">Supplier Management</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('ims/document')?>">Document Management</a>
