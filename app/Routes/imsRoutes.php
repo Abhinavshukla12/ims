@@ -21,12 +21,12 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     
     //stock in page route
     $routes->group('stock/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'stocks::index');
-        $routes->get('create', 'stocks::create');
-        $routes->post('store', 'stocks::store');
-        $routes->get('edit/(:num)', 'stocks::edit/$1');
-        $routes->post('update/(:num)', 'stocks::update/$1');
-        $routes->get('delete/(:num)', 'stocks::delete/$1');
+        $routes->get('', 'stocks::jqgrid');
+        $routes->get('stock_data', 'stocks::stock_data');
+        $routes->post('crud_operations', 'stocks::crud_operations');
+        $routes->post('add', 'stocks::add');
+        $routes->post('edit', 'stocks::edit');
+        $routes->post('delete', 'stocks::delete');
     });
 
     //sales order page route

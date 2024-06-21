@@ -7,60 +7,118 @@ use App\Controllers\BaseController;
 
 class stocks extends BaseController
 {
-    public function index()
+    // View
+    public function jqgrid()
     {
-        $model = new StockModel();
-        $data = [
-            'title' => 'Stock List',
-            'stocks' => $model->findAll()
+        $data['css'] = [
+            'node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css',
+            'node_modules/free-jqgrid/dist/css/ui.jqgrid.min.css',
+            'node_modules/free-jqgrid/dist/plugins/css/ui.multiselect.min.css'
         ];
-        echo view('ImsViews/stocks/index', $data);
-    }
-
-    public function create()
-    {
-        $data = ['title' => 'Add Stock'];
-        echo view('ImsViews/stocks/create', $data);
-    }
-
-    public function store()
-    {
-        $model = new StockModel();
-        $data = [
-            'name'     => $this->request->getPost('name'),
-            'quantity' => $this->request->getPost('quantity'),
-            'price'    => $this->request->getPost('price')
+        $data['js'] = [
+            'node_modules/free-jqgrid/dist/jquery.jqgrid.min.js',
+            'assets/js/stocks/main.js'
         ];
-        $model->insert($data);
-        return redirect()->to('ims/stock/');
+        return view('ImsViews/stocks/jqgrid', $data);
     }
 
-    public function edit($id)
+    // Fetch all sales data with support for jqGrid search
+    public function stock_data()
     {
         $model = new StockModel();
-        $data = [
-            'title' => 'Edit Stock',
-            'stock' => $model->find($id)
+
+        // Get jqGrid parameters
+        $page = $this->request->getVar('page', FILTER_VALIDATE_INT) ?: 1;
+        $limit = $this->request->getVar('rows', FILTER_VALIDATE_INT) ?: 20;
+        $sidx = $this->request->getVar('sidx') ?: 'id';
+        $sord = $this->request->getVar('sord') ?: 'asc';
+        $search = $this->request->getVar('_search') == 'true';
+
+        // Build the query with sorting
+        $model->orderBy($sidx, $sord);
+
+        // Handle search filters
+        if ($search) {
+            $filters = json_decode($this->request->getVar('filters'), true);
+            if (isset($filters['rules']) && is_array($filters['rules'])) {
+                foreach ($filters['rules'] as $rule) {
+                    $model->like($rule['field'], $rule['data']);
+                }
+            }
+        }
+
+        // Get the count of all records (for pagination)
+        $count = $model->countAllResults(false);
+        $total_pages = $count > 0 ? ceil($count / $limit) : 0;
+        $page = min($page, $total_pages);
+        $start = max(0, ($page - 1) * $limit);
+
+        // Get the actual data
+        $model->limit($limit, $start);
+        $data = $model->findAll();
+
+        // Prepare the response
+        $response = [
+            'page' => $page,
+            'total' => $total_pages,
+            'records' => $count,
+            'rows' => $data
         ];
-        echo view('ImsViews/stocks/edit', $data);
+
+        return $this->response->setJSON($response);
     }
 
-    public function update($id)
+    // Handle CRUD operations
+    public function crud_operations()
     {
-        $model = new StockModel();
-        $data = [
-            'name'     => $this->request->getPost('name'),
-            'quantity' => $this->request->getPost('quantity'),
-            'price'    => $this->request->getPost('price')
-        ];
-        $model->update($id, $data);
-        return redirect()->to('ims/stock/');
+        $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
+        switch ($operation) {
+            case 'PUT':
+                return $this->edit();
+            case 'DELETE':
+                return $this->delete();
+            default:
+                return $this->add();
+        }
     }
 
-    public function delete($id)
+    // Add a new sales order
+    public function add()
     {
         $model = new StockModel();
-        $model->delete($id);
-        return redirect()->to('ims/stock/');
+        $data = $this->request->getPost();
+        
+        if ($model->insert($data) === false) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
+        }
+
+        return $this->response->setJSON(['status' => 'success', 'id' => $model->insertID()]);
+    }
+
+    // Edit an existing sales order
+    public function edit()
+    {
+        $model = new StockModel();
+        $id = $this->request->getVar('id');
+        $data = $this->request->getPost();
+        
+        if ($model->update($id, $data) === false) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
+        }
+
+        return $this->response->setJSON(['status' => 'success']);
+    }
+
+    // Delete a sales order
+    public function delete()
+    {
+        $model = new StockModel();
+        $id = $this->request->getVar('id');
+        
+        if ($model->delete($id) === false) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
+        }
+
+        return $this->response->setJSON(['status' => 'success']);
     }
 }

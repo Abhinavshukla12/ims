@@ -8,7 +8,7 @@ class StockModel extends Model
 {
     protected $table = 'stock';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['name', 'quantity', 'price'];
+    protected $allowedFields = ['name', 'description', 'quantity', 'price'];
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
