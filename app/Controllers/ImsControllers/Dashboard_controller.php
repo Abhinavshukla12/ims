@@ -15,6 +15,12 @@ class Dashboard_controller extends BaseController
 {
     public function index()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access the dashboard.');
+        }
+
+        // If user is logged in, fetch dashboard data
         $stockModel = new StockModel();
         $salesModel = new SalesModel();
         $purchaseModel = new PurchaseOrderModel();

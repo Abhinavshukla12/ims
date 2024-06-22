@@ -10,6 +10,11 @@ class SuppliersController extends BaseController
     // View
     public function jqgrid()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access suppliers management.');
+        }
+
         $data['css'] = [
             'node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css',
             'node_modules/free-jqgrid/dist/css/ui.jqgrid.min.css',
@@ -22,9 +27,14 @@ class SuppliersController extends BaseController
         return view('ImsViews/suppliers/jqgrid', $data);
     }
 
-    // Fetch all sales data with support for jqGrid search
+    // Fetch all supplier data with support for jqGrid search
     public function suppliers_data()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to access supplier data.']);
+        }
+
         $model = new SupplierModel();
 
         // Get jqGrid parameters
@@ -71,6 +81,11 @@ class SuppliersController extends BaseController
     // Handle CRUD operations
     public function crud_operations()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to perform CRUD operations on suppliers.']);
+        }
+
         $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
         switch ($operation) {
             case 'PUT':
@@ -82,9 +97,14 @@ class SuppliersController extends BaseController
         }
     }
 
-    // Add a new sales order
+    // Add a new supplier
     public function add()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to add suppliers.']);
+        }
+
         $model = new SupplierModel();
         $data = $this->request->getPost();
         
@@ -95,9 +115,14 @@ class SuppliersController extends BaseController
         return $this->response->setJSON(['status' => 'success', 'id' => $model->insertID()]);
     }
 
-    // Edit an existing sales order
+    // Edit an existing supplier
     public function edit()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to edit suppliers.']);
+        }
+
         $model = new SupplierModel();
         $id = $this->request->getVar('id');
         $data = $this->request->getPost();
@@ -109,9 +134,14 @@ class SuppliersController extends BaseController
         return $this->response->setJSON(['status' => 'success']);
     }
 
-    // Delete a sales order
+    // Delete a supplier
     public function delete()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to delete suppliers.']);
+        }
+
         $model = new SupplierModel();
         $id = $this->request->getVar('id');
         

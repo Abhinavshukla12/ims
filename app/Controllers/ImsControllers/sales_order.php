@@ -10,6 +10,11 @@ class sales_order extends BaseController
     // View
     public function jqgrid()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access sales orders.');
+        }
+
         $data['css'] = [
             'node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css',
             'node_modules/free-jqgrid/dist/css/ui.jqgrid.min.css',
@@ -25,6 +30,11 @@ class sales_order extends BaseController
     // Fetch all sales data with support for jqGrid search
     public function sales_data()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to access sales data.']);
+        }
+
         $model = new SalesModel();
 
         // Get jqGrid parameters
@@ -71,6 +81,11 @@ class sales_order extends BaseController
     // Handle CRUD operations
     public function crud_operations()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to perform CRUD operations on sales orders.']);
+        }
+
         $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
         switch ($operation) {
             case 'PUT':
@@ -85,6 +100,11 @@ class sales_order extends BaseController
     // Add a new sales order
     public function add()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to add sales orders.']);
+        }
+
         $model = new SalesModel();
         $data = $this->request->getPost();
         
@@ -98,6 +118,11 @@ class sales_order extends BaseController
     // Edit an existing sales order
     public function edit()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to edit sales orders.']);
+        }
+
         $model = new SalesModel();
         $id = $this->request->getVar('id');
         $data = $this->request->getPost();
@@ -112,6 +137,11 @@ class sales_order extends BaseController
     // Delete a sales order
     public function delete()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to delete sales orders.']);
+        }
+
         $model = new SalesModel();
         $id = $this->request->getVar('id');
         

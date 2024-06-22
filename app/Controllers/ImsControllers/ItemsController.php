@@ -10,6 +10,11 @@ class ItemsController extends BaseController
     // View
     public function jqgrid()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access item management.');
+        }
+
         $data['css'] = [
             'node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css',
             'node_modules/free-jqgrid/dist/css/ui.jqgrid.min.css',
@@ -22,9 +27,14 @@ class ItemsController extends BaseController
         return view('ImsViews/item_management/jqgrid', $data);
     }
 
-    // Fetch all sales data with support for jqGrid search
+    // Fetch all item data with support for jqGrid search
     public function item_data()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to access item data.']);
+        }
+
         $model = new ItemModel();
 
         // Get jqGrid parameters
@@ -71,6 +81,11 @@ class ItemsController extends BaseController
     // Handle CRUD operations
     public function crud_operations()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to perform CRUD operations on items.']);
+        }
+
         $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
         switch ($operation) {
             case 'PUT':
@@ -82,9 +97,14 @@ class ItemsController extends BaseController
         }
     }
 
-    // Add a new sales order
+    // Add a new item
     public function add()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to add items.']);
+        }
+
         $model = new ItemModel();
         $data = $this->request->getPost();
         
@@ -95,9 +115,14 @@ class ItemsController extends BaseController
         return $this->response->setJSON(['status' => 'success', 'id' => $model->insertID()]);
     }
 
-    // Edit an existing sales order
+    // Edit an existing item
     public function edit()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to edit items.']);
+        }
+
         $model = new ItemModel();
         $id = $this->request->getVar('item_id');
         $data = $this->request->getPost();
@@ -109,9 +134,14 @@ class ItemsController extends BaseController
         return $this->response->setJSON(['status' => 'success']);
     }
 
-    // Delete a sales order
+    // Delete an item
     public function delete()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to delete items.']);
+        }
+
         $model = new ItemModel();
         $id = $this->request->getVar('item_id');
         

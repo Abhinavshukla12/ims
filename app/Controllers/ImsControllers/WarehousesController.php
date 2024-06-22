@@ -10,6 +10,11 @@ class WarehousesController extends Controller
     // View
     public function jqgrid()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access warehouses management.');
+        }
+
         $data['css'] = [
             'node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css',
             'node_modules/free-jqgrid/dist/css/ui.jqgrid.min.css',
@@ -22,9 +27,14 @@ class WarehousesController extends Controller
         return view('ImsViews/warehouses/jqgrid', $data);
     }
 
-    // Fetch all sales data with support for jqGrid search
+    // Fetch all warehouse data with support for jqGrid search
     public function warehouse_data()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to access warehouse data.']);
+        }
+
         $model = new WarehouseModel();
 
         // Get jqGrid parameters
@@ -71,6 +81,11 @@ class WarehousesController extends Controller
     // Handle CRUD operations
     public function crud_operations()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to perform CRUD operations on warehouses.']);
+        }
+
         $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
         switch ($operation) {
             case 'PUT':
@@ -82,9 +97,14 @@ class WarehousesController extends Controller
         }
     }
 
-    // Add a new sales order
+    // Add a new warehouse
     public function add()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to add warehouses.']);
+        }
+
         $model = new WarehouseModel();
         $data = $this->request->getPost();
         
@@ -95,9 +115,14 @@ class WarehousesController extends Controller
         return $this->response->setJSON(['status' => 'success', 'id' => $model->insertID()]);
     }
 
-    // Edit an existing sales order
+    // Edit an existing warehouse
     public function edit()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to edit warehouses.']);
+        }
+
         $model = new WarehouseModel();
         $id = $this->request->getVar('id');
         $data = $this->request->getPost();
@@ -109,9 +134,14 @@ class WarehousesController extends Controller
         return $this->response->setJSON(['status' => 'success']);
     }
 
-    // Delete a sales order
+    // Delete a warehouse
     public function delete()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to delete warehouses.']);
+        }
+
         $model = new WarehouseModel();
         $id = $this->request->getVar('id');
         

@@ -10,6 +10,11 @@ class DocumentsController extends Controller
     // View
     public function jqgrid()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access documents management.');
+        }
+
         $data['css'] = [
             'node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css',
             'node_modules/free-jqgrid/dist/css/ui.jqgrid.min.css',
@@ -22,9 +27,14 @@ class DocumentsController extends Controller
         return view('ImsViews/documents/jqgrid', $data);
     }
 
-    // Fetch all sales data with support for jqGrid search
+    // Fetch all document data with support for jqGrid search
     public function document_data()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to access document data.']);
+        }
+
         $model = new DocumentModel();
 
         // Get jqGrid parameters
@@ -71,6 +81,11 @@ class DocumentsController extends Controller
     // Handle CRUD operations
     public function crud_operations()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to perform CRUD operations on documents.']);
+        }
+
         $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
         switch ($operation) {
             case 'PUT':
@@ -82,9 +97,14 @@ class DocumentsController extends Controller
         }
     }
 
-    // Add a new sales order
+    // Add a new document
     public function add()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to add documents.']);
+        }
+
         $model = new DocumentModel();
         $data = $this->request->getPost();
         
@@ -95,9 +115,14 @@ class DocumentsController extends Controller
         return $this->response->setJSON(['status' => 'success', 'id' => $model->insertID()]);
     }
 
-    // Edit an existing sales order
+    // Edit an existing document
     public function edit()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to edit documents.']);
+        }
+
         $model = new DocumentModel();
         $id = $this->request->getVar('id');
         $data = $this->request->getPost();
@@ -109,9 +134,14 @@ class DocumentsController extends Controller
         return $this->response->setJSON(['status' => 'success']);
     }
 
-    // Delete a sales order
+    // Delete a document
     public function delete()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to delete documents.']);
+        }
+
         $model = new DocumentModel();
         $id = $this->request->getVar('id');
         

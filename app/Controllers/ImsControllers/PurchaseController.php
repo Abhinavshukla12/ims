@@ -10,6 +10,11 @@ class PurchaseController extends BaseController
     // View
     public function jqgrid()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access purchase orders.');
+        }
+
         $data['css'] = [
             'node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css',
             'node_modules/free-jqgrid/dist/css/ui.jqgrid.min.css',
@@ -25,6 +30,11 @@ class PurchaseController extends BaseController
     // Fetch all sales data with support for jqGrid search
     public function purchase_data()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to access purchase data.']);
+        }
+
         $model = new PurchaseOrderModel();
 
         // Get jqGrid parameters
@@ -71,6 +81,11 @@ class PurchaseController extends BaseController
     // Handle CRUD operations
     public function crud_operations()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to perform CRUD operations on purchase orders.']);
+        }
+
         $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
         switch ($operation) {
             case 'PUT':
@@ -85,6 +100,11 @@ class PurchaseController extends BaseController
     // Add a new sales order
     public function add()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to add purchase orders.']);
+        }
+
         $model = new PurchaseOrderModel();
         $data = $this->request->getPost();
         
@@ -98,6 +118,11 @@ class PurchaseController extends BaseController
     // Edit an existing sales order
     public function edit()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to edit purchase orders.']);
+        }
+
         $model = new PurchaseOrderModel();
         $id = $this->request->getVar('id');
         $data = $this->request->getPost();
@@ -112,6 +137,11 @@ class PurchaseController extends BaseController
     // Delete a sales order
     public function delete()
     {
+        // Check if user is logged in
+        if (!session()->has('user')) {
+            return $this->response->setJSON(['error' => 'Please login to delete purchase orders.']);
+        }
+
         $model = new PurchaseOrderModel();
         $id = $this->request->getVar('id');
         

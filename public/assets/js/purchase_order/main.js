@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     var columns = [
         { label: 'Order ID', name: 'order_id', width: 90, key: true, cellattr: function () { return 'style="background-color: #FFDDC1"'; } },
-        { label: 'Supplier ID', name: 'supplier_id', width: 90, cellattr: function () { return 'style="background-color: #FFDDC1"'; } },
+        { label: 'Supplier ID', name: 'supplier_id', width: 90, editable: true, cellattr: function () { return 'style="background-color: #FFDDC1"'; } },
         { label: 'Name', name: 'name', width: 150, editable: true, cellattr: function () { return 'style="background-color: #FFECB3"'; } },
         { label: 'Order Date', name: 'order_date', width: 150, editable: true, cellattr: function () { return 'style="background-color: #C5CAE9"'; } },
         { label: 'Quantity', name: 'quantity', width: 180, editable: true, cellattr: function () { return 'style="background-color: #BBDEFB"'; } },
