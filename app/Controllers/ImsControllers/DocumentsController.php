@@ -7,79 +7,118 @@ use CodeIgniter\Controller;
 
 class DocumentsController extends Controller
 {
-    public function index()
+    // View
+    public function jqgrid()
     {
-        $model = new DocumentModel();
-        $data['documents'] = $model->findAll();
-
-        return view('ImsViews/documents/index', $data);
-    }
-
-    public function create()
-    {
-        return view('ImsViews/documents/create');
-    }
-
-    public function store()
-    {
-        $model = new DocumentModel();
-        $file = $this->request->getFile('file');
-
-        $data = [
-            'title'       => $this->request->getPost('title'),
-            'description' => $this->request->getPost('description'),
-            'file_path'   => $file ? $file->store() : null,
+        $data['css'] = [
+            'node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css',
+            'node_modules/free-jqgrid/dist/css/ui.jqgrid.min.css',
+            'node_modules/free-jqgrid/dist/plugins/css/ui.multiselect.min.css'
         ];
+        $data['js'] = [
+            'node_modules/free-jqgrid/dist/jquery.jqgrid.min.js',
+            'assets/js/documents/main.js'
+        ];
+        return view('ImsViews/documents/jqgrid', $data);
+    }
 
-        if (empty($data['title'])) {
-            return redirect()->back()->withInput()->with('error', 'Title is required.');
+    // Fetch all sales data with support for jqGrid search
+    public function document_data()
+    {
+        $model = new DocumentModel();
+
+        // Get jqGrid parameters
+        $page = $this->request->getVar('page', FILTER_VALIDATE_INT) ?: 1;
+        $limit = $this->request->getVar('rows', FILTER_VALIDATE_INT) ?: 20;
+        $sidx = $this->request->getVar('sidx') ?: 'order_id';
+        $sord = $this->request->getVar('sord') ?: 'asc';
+        $search = $this->request->getVar('_search') == 'true';
+
+        // Build the query with sorting
+        $model->orderBy($sidx, $sord);
+
+        // Handle search filters
+        if ($search) {
+            $filters = json_decode($this->request->getVar('filters'), true);
+            if (isset($filters['rules']) && is_array($filters['rules'])) {
+                foreach ($filters['rules'] as $rule) {
+                    $model->like($rule['field'], $rule['data']);
+                }
+            }
         }
 
+        // Get the count of all records (for pagination)
+        $count = $model->countAllResults(false);
+        $total_pages = $count > 0 ? ceil($count / $limit) : 0;
+        $page = min($page, $total_pages);
+        $start = max(0, ($page - 1) * $limit);
+
+        // Get the actual data
+        $model->limit($limit, $start);
+        $data = $model->findAll();
+
+        // Prepare the response
+        $response = [
+            'page' => $page,
+            'total' => $total_pages,
+            'records' => $count,
+            'rows' => $data
+        ];
+
+        return $this->response->setJSON($response);
+    }
+
+    // Handle CRUD operations
+    public function crud_operations()
+    {
+        $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
+        switch ($operation) {
+            case 'PUT':
+                return $this->edit();
+            case 'DELETE':
+                return $this->delete();
+            default:
+                return $this->add();
+        }
+    }
+
+    // Add a new sales order
+    public function add()
+    {
+        $model = new DocumentModel();
+        $data = $this->request->getPost();
+        
         if ($model->insert($data) === false) {
-            return redirect()->back()->withInput()->with('error', 'Failed to save document.');
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
         }
 
-        return redirect()->to('ims/document/');
+        return $this->response->setJSON(['status' => 'success', 'id' => $model->insertID()]);
     }
 
-    public function edit($id)
+    // Edit an existing sales order
+    public function edit()
     {
         $model = new DocumentModel();
-        $data['document'] = $model->find($id);
-
-        return view('ImsViews/documents/edit', $data);
-    }
-
-    public function update($id)
-    {
-        $model = new DocumentModel();
-        $file = $this->request->getFile('file');
-
-        $data = [
-            'title'       => $this->request->getPost('title'),
-            'description' => $this->request->getPost('description'),
-        ];
-
-        if ($file && $file->isValid()) {
-            $data['file_path'] = $file->store();
-        }
-
-        if (empty($data['title'])) {
-            return redirect()->back()->withInput()->with('error', 'Title is required.');
-        }
-
+        $id = $this->request->getVar('id');
+        $data = $this->request->getPost();
+        
         if ($model->update($id, $data) === false) {
-            return redirect()->back()->withInput()->with('error', 'Failed to update document.');
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
         }
 
-        return redirect()->to('ims/document/');
+        return $this->response->setJSON(['status' => 'success']);
     }
 
-    public function delete($id)
+    // Delete a sales order
+    public function delete()
     {
         $model = new DocumentModel();
-        $model->delete($id);
+        $id = $this->request->getVar('id');
+        
+        if ($model->delete($id) === false) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $model->errors()]);
+        }
 
-        return redirect()->to('ims/document/');
+        return $this->response->setJSON(['status' => 'success']);
     }
 }

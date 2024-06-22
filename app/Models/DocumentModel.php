@@ -8,7 +8,7 @@ class DocumentModel extends Model
 {
     protected $table = 'documents';
     protected $primaryKey = 'document_id';
-    protected $allowedFields = ['title', 'description', 'file_path'];
+    protected $allowedFields = ['name', 'title', 'description', 'file_path'];
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

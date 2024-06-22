@@ -81,12 +81,12 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
 
     //document management page route
     $routes->group('document/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'DocumentsController::index');
-        $routes->get('create', 'DocumentsController::create');
-        $routes->post('store', 'DocumentsController::store');
-        $routes->get('edit/(:num)', 'DocumentsController::edit/$1');
-        $routes->post('update/(:num)', 'DocumentsController::update/$1');
-        $routes->get('delete/(:num)', 'DocumentsController::delete/$1');
+        $routes->get('', 'DocumentsController::jqgrid');
+        $routes->get('document_data', 'DocumentsController::document_data');
+        $routes->post('crud_operations', 'DocumentsController::crud_operations');
+        $routes->post('add', 'DocumentsController::add');
+        $routes->post('edit', 'DocumentsController::edit');
+        $routes->post('delete', 'DocumentsController::delete');
     });
 });
 //routes end
