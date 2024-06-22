@@ -19,7 +19,7 @@ $(document).ready(function() {
         rowNum: 20,
         rowList: [20, 50, 100, 150, 200],
         pager: '#pager',
-        sortname: 'id',
+        sortname: 'supplier_id',
         sortorder: 'asc',
         caption: 'Suppliers Details',
         autowidth: true,

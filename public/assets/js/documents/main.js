@@ -4,8 +4,8 @@ $(document).ready(function() {
     var columns = [
         { label: 'Document ID', name: 'document_id', width: 90, key: true, cellattr: function () { return 'style="background-color: #FFDDC1"'; } },
         { label: 'Name', name: 'name', width: 150, editable: true, cellattr: function () { return 'style="background-color: #FFECB3"'; } },
-        { label: 'Title', name: 'title', width: 180, editable: true, cellattr: function () { return 'style="background-color: #BBDEFB"'; } },
-        { label: 'Description', name: 'description', width: 150, editable: true, cellattr: function () { return 'style="background-color: #C5CAE9"'; } },
+        { label: 'Title', name: 'title', width: 180, editable: true, cellattr: function () { return 'style="background-color: #C5CAE9"'; } },
+        { label: 'Description', name: 'description', width: 150, editable: true, cellattr: function () { return 'style="background-color: #BBDEFB"'; } },
         { label: 'File Path', name: 'file_path', width: 180, editable: true, cellattr: function () { return 'style="background-color: #B3E5FC"'; } },
         { label: 'Created Date', name: 'created_at', width: 160, cellattr: function () { return 'style="background-color: #B2EBF2"'; } },
         { label: 'Updated Date', name: 'updated_at', width: 160, cellattr: function () { return 'style="background-color: #B2DFDB"'; } }
@@ -20,7 +20,7 @@ $(document).ready(function() {
         rowNum: 20,
         rowList: [20, 50, 100, 150, 200],
         pager: '#pager',
-        sortname: 'id',
+        sortname: 'document_id',
         sortorder: 'asc',
         caption: 'Document Details',
         autowidth: true,

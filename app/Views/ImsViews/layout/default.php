@@ -17,26 +17,42 @@
     <!-- Load custom CSS -->
     
     <style>
-    .navbar{
-        height: 65px;
-    }
-    .navbar-brand{
-        color: white;
-        font-size: 24px;
-        font-weight: bold;
-        margin-left: 10px;
-    }
-    .navbar-brand:hover{
-        color: red;
-    }
-    .navbar-nav .nav-link {
-        color: white;
-        font-size: 14px;
-        font-weight: bolder;
-    }
-    /* .navbar-nav .nav-link:hover{
-        color: white;
-    } */
+    /* General Navbar Styling */
+.navbar {
+    background-color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Brand Styling */
+.navbar-brand {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: black;
+}
+
+/* Nav Link Styling */
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: black;
+    background-color: #4a7375;
+    border-radius: 4px;
+}
 </style>
     <!-- Bootstrap css -->
     <?php

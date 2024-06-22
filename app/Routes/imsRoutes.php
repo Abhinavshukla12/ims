@@ -71,12 +71,12 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
 
     //warehouse management page route
     $routes->group('warehouse/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'WarehousesController::index');
-        $routes->get('create', 'WarehousesController::create');
-        $routes->post('store', 'WarehousesController::store');
-        $routes->get('edit/(:num)', 'WarehousesController::edit/$1');
-        $routes->post('update/(:num)', 'WarehousesController::update/$1');
-        $routes->get('delete/(:num)', 'WarehousesController::delete/$1');
+        $routes->get('', 'WarehousesController::jqgrid');
+        $routes->get('warehouse_data', 'WarehousesController::warehouse_data');
+        $routes->post('crud_operations', 'WarehousesController::crud_operations');
+        $routes->post('add', 'WarehousesController::add');
+        $routes->post('edit', 'WarehousesController::edit');
+        $routes->post('delete', 'WarehousesController::delete');
     });
 
     //document management page route
