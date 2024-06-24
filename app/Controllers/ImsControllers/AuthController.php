@@ -7,11 +7,10 @@ use App\Models\UserModel;
 
 class AuthController extends Controller
 {
-    protected $session; // Add this property
+    protected $session;
 
     public function __construct()
     {
-        // Load the session library
         $this->session = \Config\Services::session();
     }
 
@@ -54,8 +53,7 @@ class AuthController extends Controller
         $user = $model->getUserByUsername($username);
 
         if ($user && password_verify($password, $user['password'])) {
-            // Set session data or any other authentication logic
-            $this->session->set('user', $user); // Save user details in session
+            $this->session->set('user', $user);
             return redirect()->to(site_url('ims/home'))->with('success', 'Login successful!');
         } else {
             return redirect()->back()->withInput()->with('error', 'Invalid username or password!');
@@ -64,26 +62,57 @@ class AuthController extends Controller
 
     public function logout()
     {
-        // Destroy session or any other logout logic
         $this->session->destroy();
         return redirect()->to(site_url('ims/login'))->with('success', 'Logged out successfully!');
     }
-    
+
     public function profile()
     {
-        // Fetch user details from session or database
-        $user = $this->session->get('user'); // Assuming you store user details in session after login
+        $user = $this->session->get('user');
         if (!$user) {
-            // Redirect to login page if user is not logged in
             return redirect()->to(site_url('ims/login'))->with('error', 'Please login to view your profile.');
         }
-        
-        // Load user details from database
+
         $model = new UserModel();
-        $userData = $model->getUserByUsername($user['username']); // Assuming you have a method to get user by username
-        
-        // Pass user data to profile view
+        $userData = $model->getUserByUsername($user['username']);
         $data['user'] = $userData;
         return view('ImsViews/dashboard/profile', $data);
+    }
+
+    public function changePassword()
+    {
+        $user = $this->session->get('user');
+        if (!$user) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to change your password.');
+        }
+
+        if ($this->request->getMethod() == 'post') {
+            $currentPassword = $this->request->getPost('current_password');
+            $newPassword = $this->request->getPost('new_password');
+            $confirmPassword = $this->request->getPost('confirm_password');
+
+            if ($newPassword !== $confirmPassword) {
+                return redirect()->back()->with('error', 'New passwords do not match.');
+            }
+
+            $model = new UserModel();
+            $userData = $model->getUserByUsername($user['username']);
+
+            if (!password_verify($currentPassword, $userData['password'])) {
+                return redirect()->back()->with('error', 'Current password is incorrect.');
+            }
+
+            $data = [
+                'password' => password_hash($newPassword, PASSWORD_DEFAULT)
+            ];
+
+            if ($model->update($user['id'], $data)) {
+                return redirect()->to(site_url('ims/profile'))->with('success', 'Password changed successfully.');
+            } else {
+                return redirect()->back()->with('error', 'Failed to change password.');
+            }
+        } else {
+            return view('ImsViews/dashboard/change_password');
+        }
     }
 }

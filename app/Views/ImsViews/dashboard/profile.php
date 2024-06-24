@@ -41,7 +41,12 @@
                             <input type="text" id="dob" class="form-control" value="<?= esc($user['dob']) ?>" readonly>
                         </div>
                     </div>
-                    <!-- Add more fields as needed -->
+                    <!-- Change Password Button -->
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <a href="<?= site_url('ims/change-password') ?>" class="btn btn-warning">Change Password</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
