@@ -15,7 +15,17 @@
                     <?php if (session()->getFlashdata('success')): ?>
                         <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
                     <?php endif; ?>
+                    <?php if (session()->getFlashdata('errors')): ?>
+                        <div class="alert alert-danger">
+                            <ul>
+                                <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                                    <li><?= $error ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
                     <form action="<?= site_url('ims/change-password') ?>" method="post">
+                        <?= csrf_field() ?>
                         <div class="form-group">
                             <label for="current_password" class="font-weight-bold">Current Password:</label>
                             <input type="password" id="current_password" name="current_password" class="form-control" required>

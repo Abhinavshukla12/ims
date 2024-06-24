@@ -44,7 +44,7 @@
                     <!-- Change Password Button -->
                     <div class="row mt-3">
                         <div class="col-md-12">
-                            <a href="<?= site_url('ims/change-password') ?>" class="btn btn-warning">Change Password</a>
+                            <a href="<?= site_url('ims/change-password') ?>" class="btn btn-primary">Change Password</a>
                         </div>
                     </div>
                 </div>
