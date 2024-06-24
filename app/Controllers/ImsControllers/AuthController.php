@@ -12,7 +12,6 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->session = \Config\Services::session();
-        helper(['form', 'url']);
     }
 
     public function register()
@@ -81,66 +80,39 @@ class AuthController extends Controller
     }
 
     public function changePassword()
-{
-    $user = $this->session->get('user');
-    if (!$user) {
-        log_message('error', 'User not found in session.');
-        return redirect()->to(site_url('ims/login'))->with('error', 'Please login to change your password.');
-    }
-
-    if ($this->request->getMethod() == 'post') {
-        log_message('info', 'POST request received for password change.');
-
-        $rules = [
-            'current_password' => 'required',
-            'new_password' => 'required|min_length[6]',
-            'confirm_password' => 'required|matches[new_password]'
-        ];
-
-        if (!$this->validate($rules)) {
-            log_message('error', 'Validation failed: ' . implode(', ', $this->validator->getErrors()));
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+    {
+        $user = $this->session->get('user');
+        if (!$user) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to change your password.');
         }
 
-        $currentPassword = $this->request->getPost('current_password');
-        $newPassword = $this->request->getPost('new_password');
+        if ($this->request->getMethod() == 'post') {
+            $currentPassword = $this->request->getPost('current_password');
+            $newPassword = $this->request->getPost('new_password');
+            $confirmPassword = $this->request->getPost('confirm_password');
 
-        $model = new UserModel();
-        $userData = $model->getUserByUsername($user['username']);
+            if ($newPassword !== $confirmPassword) {
+                return redirect()->back()->with('error', 'New passwords do not match.');
+            }
 
-        if (!$userData) {
-            log_message('error', 'User not found in database.');
-            return redirect()->back()->with('error', 'User not found.');
-        }
+            $model = new UserModel();
+            $userData = $model->getUserByUsername($user['username']);
 
-        log_message('info', 'User found: ' . $user['username']);
+            if (!password_verify($currentPassword, $userData['password'])) {
+                return redirect()->back()->with('error', 'Current password is incorrect.');
+            }
 
-        if (!password_verify($currentPassword, $userData['password'])) {
-            log_message('error', 'Current password is incorrect.');
-            return redirect()->back()->with('error', 'Current password is incorrect.');
-        }
+            $data = [
+                'password' => password_hash($newPassword, PASSWORD_DEFAULT)
+            ];
 
-        log_message('info', 'Current password verified successfully.');
-
-        $data = [
-            'password' => password_hash($newPassword, PASSWORD_DEFAULT)
-        ];
-
-        if ($model->updateUser($user['id'], $data)) {
-            log_message('info', 'Password updated successfully in the database.');
-
-            // Update the session with the new password hash
-            $user['password'] = $data['password'];
-            $this->session->set('user', $user);
-
-            return redirect()->to(site_url('ims/profile'))->with('success', 'Password changed successfully.');
+            if ($model->update($user['id'], $data)) {
+                return redirect()->to(site_url('ims/profile'))->with('success', 'Password changed successfully.');
+            } else {
+                return redirect()->back()->with('error', 'Failed to change password.');
+            }
         } else {
-            log_message('error', 'Failed to update the password in the database.');
-            return redirect()->back()->with('error', 'Failed to change password.');
+            return view('ImsViews/dashboard/change_password');
         }
-    } else {
-        log_message('info', 'GET request received for password change.');
-        return view('ImsViews/dashboard/change_password');
     }
-}
 }

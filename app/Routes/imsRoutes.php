@@ -19,7 +19,6 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     $routes->get('home', 'Dashboard_controller::index');
     $routes->get('about', 'about::index');
     $routes->get('contact', 'contact::index');
-    $routes->get('settings', 'settings::index');
     
     //stock in page route
     $routes->group('stock/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {

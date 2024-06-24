@@ -32,7 +32,8 @@
     font-size: 24px;
     font-weight: bold;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.7s ease;
+    margin-left: 10px;
 }
 
 .navbar-brand:hover {
@@ -42,7 +43,7 @@
 /* Nav Link Styling */
 .navbar-nav .nav-link {
     color: white;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bolder;
     text-decoration: none;
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -110,9 +111,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('ims/warehouse')?>">Warehouse Management</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/settings')?>">Settings</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('ims/logout')?>">Logout</a>

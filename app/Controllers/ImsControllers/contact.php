@@ -10,9 +10,8 @@ class contact extends BaseController
     {
         // Check if user is logged in
         if (!session()->has('user')) {
-            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access contact page.');
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access the dashboard.');
         }
-
         return view('ImsViews/contact/index');
     }
 }
