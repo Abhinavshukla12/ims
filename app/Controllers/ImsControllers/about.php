@@ -3,16 +3,17 @@
 namespace App\Controllers\ImsControllers;
 
 use App\Controllers\BaseController;
+use App\Models\AboutPageContentModel;
 
-class about extends BaseController
+class About extends BaseController
 {
     public function index()
     {
-        // Check if user is logged in
-        if (!session()->has('user')) {
-            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access about page.');
-        }
+        // Load the model and fetch the content
+        $model = new AboutPageContentModel();
+        $aboutContent = $model->first(); // Assuming you only have one record for the about page content
 
-        return view('ImsViews/about/index');
+        // Pass the content to the view
+        return view('ImsViews/about/index', ['aboutContent' => $aboutContent]);
     }
 }
