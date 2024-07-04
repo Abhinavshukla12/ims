@@ -6,7 +6,7 @@
 <div class="container mt-3">
     <div class="row banner">
         <div class="col-md-12" id="main">
-            <h1 class="text-center">Welcome to Management System</h1>
+            <h1 class="text-center">Welcome to Factory Management System</h1>
         </div>
     </div>
     <div class="row mt-3">
