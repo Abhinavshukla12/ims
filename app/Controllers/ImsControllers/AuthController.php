@@ -16,7 +16,7 @@ class AuthController extends Controller
 
     public function register()
     {
-        return view('ImsViews/auth/register');
+        return view('ImsViews/auth/auth_index');
     }
 
     public function processRegister()
@@ -40,7 +40,7 @@ class AuthController extends Controller
 
     public function login()
     {
-        return view('ImsViews/auth/login');
+        return view('ImsViews/auth/auth_index');
     }
 
     public function processLogin()
