@@ -103,6 +103,7 @@ if (isset($css)) {
                     <a class="nav-link" href="<?=base_url('ims/suppliers')?>">Supplier Management</a>
                     <a class="nav-link" href="<?=base_url('ims/document')?>">Document Management</a>
                     <a class="nav-link" href="<?=base_url('ims/warehouse')?>">Warehouse Management</a>
+                    <a class="nav-link" href="<?=base_url('ims/employee')?>">Employees Management</a>
                 </div>
             </li>
             <!-- Your Dropdown -->

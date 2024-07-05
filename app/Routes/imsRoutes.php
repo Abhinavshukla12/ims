@@ -89,5 +89,15 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('edit', 'DocumentsController::edit');
         $routes->post('delete', 'DocumentsController::delete');
     });
+
+    //employees management page route
+    $routes->group('employee/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
+        $routes->get('', 'EmployeeController::jqgrid');
+        $routes->get('employee_data', 'EmployeeController::employee_data');
+        $routes->post('crud_operations', 'EmployeeController::crud_operations');
+        $routes->post('add', 'EmployeeController::add');
+        $routes->post('edit', 'EmployeeController::edit');
+        $routes->post('delete', 'EmployeeController::delete');
+    });
 });
 //routes end
