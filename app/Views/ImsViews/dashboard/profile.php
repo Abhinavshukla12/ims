@@ -1,6 +1,7 @@
 <?= $this->extend('ImsViews/layout/default') ?>
 
 <?= $this->section('content') ?>
+<body>
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -52,4 +53,11 @@
         </div>
     </div>
 </div>
+</body>
+<style>
+body{
+    background-color: #046169;
+    color: white;
+}
+</style>
 <?= $this->endSection() ?>

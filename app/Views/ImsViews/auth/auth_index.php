@@ -9,7 +9,8 @@
     /* Global styles */
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f0f2f5;
+        background-color: #046169;
+        color: white;
     }
 
     .main-content {
@@ -18,8 +19,8 @@
 
     /* Jumbotron styles */
     .jumbotron {
-        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-        color: white;
+        background-color: #10898d;
+        color: black;
         border-radius: 15px;
         padding: 50px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -31,13 +32,14 @@
     }
 
     /* Features Section */
-    .features .feature-icon {
+    .feature-icon {
+        color: white;
         font-size: 3rem;
         margin-bottom: 20px;
     }
 
     .features .feature-icon i {
-        color: #007bff;
+        color: white;
         transition: transform 0.3s;
     }
 
@@ -50,22 +52,23 @@
     }
 
     .features h4 {
-        margin-top: 20px;
-        color: #333;
+        margin-top: 10px;
+        color: white;
     }
 
     .features p {
-        color: #777;
+        color: white;
     }
 
     /* Testimonials Section */
     .testimonials {
-        background-color: #f8f9fa;
+        background-color: #046169;
         padding: 50px 0;
     }
 
     .testimonials blockquote {
-        background: #fff;
+        background-color: #10898d;
+        color: black;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -169,7 +172,8 @@
     }
 
     .register-container h2 {
-        color: #007bff;
+        color: black;
+        font-weight: bolder;
         margin-bottom: 20px;
     }
 
@@ -179,8 +183,14 @@
     }
 
     .login-container h2 {
-        color: #007bff;
+        color: black;
+        font-weight: bolder;
         margin-bottom: 20px;
+    }
+
+    .custom-placeholder::placeholder {
+        font-size: 18px; /* Adjust the size as needed */
+        color: black;
     }
 </style>
 
@@ -216,7 +226,7 @@
     </div>
 
     <!-- Testimonials Section -->
-    <div class="testimonials bg-light py-5">
+    <div class="testimonials py-5">
         <div class="container">
         <u><h2 class="text-center">Testimonials</h2></u><br>
             <div class="row">
@@ -249,26 +259,21 @@
                 <h2>User Registration</h2>
                 <form action="<?= site_url('ims/register') ?>" method="post">
                     <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
-                    </div>
+                        <input type="text" class="form-control custom-placeholder" id="username" name="username" placeholder="Enter your username" required>
+                    </div><br>
                     <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
-                    </div>
+                        <input type="password" class="form-control custom-placeholder" id="password" name="password" placeholder="Enter your password" required>
+                    </div><br>
                     <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
-                    </div>
+                        <input type="email" class="form-control custom-placeholder" id="email" name="email" placeholder="Enter your email" required>
+                    </div><br>
                     <div class="form-group">
-                        <label for="fullname">Full Name:</label>
-                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter your full name" required>
-                    </div>
+                        <input type="text" class="form-control custom-placeholder" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                    </div><br>
                     <div class="form-group">
-                        <label for="dob">Date of Birth:</label>
-                        <input type="date" class="form-control" id="dob" name="dob" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <input type="date" class="form-control custom-placeholder" id="dob" name="dob" required>
+                    </div><br>
+                    <button type="submit" class="btn btn-danger btn-block">Register</button>
                 </form>
             </div>
             <div class="col-md-5 login-container">
@@ -281,14 +286,12 @@
                 <?php endif; ?>
                 <form action="<?= site_url('ims/login') ?>" method="post">
                     <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
-                    </div>
+                        <input type="text" class="form-control custom-placeholder" id="username" name="username" placeholder="Enter your username" required>
+                    </div><br>
                     <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <input type="password" class="form-control custom-placeholder" id="password" name="password" placeholder="Enter your password" required>
+                    </div><br>
+                    <button type="submit" class="btn btn-danger btn-block">Login</button>
                 </form>
             </div>
         </div>

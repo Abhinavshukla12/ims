@@ -1,20 +1,20 @@
 <?= $this->extend('ImsViews/layout/default') ?>
 <?= $this->section('content') ?>
-<body style="background-color: #f2f2f2;">
+<body style="background-color: #10898d;">
 <div class="container mt-3">
     <div class="row banner">
         <div class="col-md-12" id="main">
-            <h1 class="text-center">Welcome to Factory Management System</h1>
-            <p class="text-center">Manage your factory's operations efficiently and effectively.</p>
+            <h1 style='color: black; font-weight: 18px;'>Welcome to Factory Management System</h1>
+            <p class="text-center text-black">Manage your factory's operations efficiently and effectively.</p>
         </div>
     </div>
 
-    <div class="row mt-3">
+    <div id="records">
         <div class="col-md-12">
-            <div class="card bg-info text-white mb-3">
+            <div class="card text-black mb-3">
                 <div class="card-body">
-                    <h3 class="card-title">Statistics Summary</h3>
-                    <div class="row">
+                    <u><h2>Statistics Summary</h2></u><br>
+                    <div class="row text-black">
                         <div class="col-md-3">
                             <h4>Total Stocks: <?= count($stocks ?? []) ?></h4>
                             <p>All available stock items in the factory.</p>
@@ -32,7 +32,7 @@
                             <p>All items currently listed in inventory.</p>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row mt-3 text-black">
                         <div class="col-md-3">
                             <h4>Total Suppliers: <?= count($suppliers ?? []) ?></h4>
                             <p>All suppliers associated with the factory.</p>
@@ -56,8 +56,13 @@
     </div>
 </body>
 <style>
+    #records{
+        width: 1263px;
+        margin-top: 20px;
+    }
 .card {
-    border: 1px solid #ccc;
+    background-color: #046169;
+    border: 0.3px solid white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: box-shadow 0.3s ease-in-out;

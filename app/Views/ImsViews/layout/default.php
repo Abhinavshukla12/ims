@@ -17,7 +17,7 @@
 <style>
 /* General Navbar Styling */
 .navbar {
-    background-color: #333;
+    background-color: #02474d;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     top: 0;
@@ -54,10 +54,12 @@
 }
 
 .dropdown-menu{
-    width: 200px;
+    width: 220px;
     margin-top: 20px;
     margin-left: 10px;
-    background-color: #667be3;
+    margin-right: 20px;
+    font-size: 14px;
+    background-color: #02474d;
 }
 </style>
 
@@ -74,7 +76,7 @@ if (isset($css)) {
 <body>
 
 <!-- Primary Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light ">
     <a class="navbar-brand" href="<?=base_url('ims/home')?>">Factory Management System</a> <!-- Navbar Brand -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -86,9 +88,6 @@ if (isset($css)) {
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('ims/about')?>">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('ims/contact')?>">Contact</a>
             </li>
             <!-- Services Dropdown -->
             <li class="nav-item dropdown">
@@ -107,11 +106,11 @@ if (isset($css)) {
                 </div>
             </li>
             <!-- Your Dropdown -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style='margin-right: 60px;'>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Your Profile
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style='width: 80px'>
                     <a class="nav-link" href="<?=base_url('ims/profile')?>">Profile</a>
                     <a class="nav-link" href="<?=base_url('ims/logout')?>">Logout</a>
                 </div>

@@ -28,5 +28,9 @@
 </body>
 <style>
 /* Your CSS styles */
+body{
+    background-color: #046169;
+    color: white;
+}
 </style>
 <?= $this->endSection() ?>
