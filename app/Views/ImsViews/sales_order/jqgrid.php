@@ -16,5 +16,11 @@ body{
     background-color: #046169;
     color: white;
 }
+#grid{
+    background-color: #81b1ce;
+}
+#pager{
+    background-color: #81b1ce;
+}
 </style>
 <?= $this->endSection() ?>
