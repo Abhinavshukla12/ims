@@ -396,3 +396,15 @@ in APPPATH\Views\ImsViews\auth\change_username.php on line 22.
 ERROR - 2024-07-06 15:17:17 --> User not found in getUserByUsername: abhinav1828
 ERROR - 2024-07-06 15:17:27 --> User not found in getUserByUsername: abhinav1828
 ERROR - 2024-07-06 15:17:37 --> User not found in getUserByUsername: abhinav1828
+CRITICAL - 2024-07-06 16:53:13 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "ImsViews/change_number.php"
+[Method: GET, Route: ims/change_number]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('ImsViews/change_number.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/change_number', [], true)
+ 3 APPPATH\Controllers\ImsControllers\AuthController.php(168): view('ImsViews/change_number', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\AuthController->change_number()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\AuthController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

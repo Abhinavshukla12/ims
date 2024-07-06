@@ -16,6 +16,8 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     $routes->post('change_username', 'AuthController::processChangeUsername');
     $routes->get('change_password', 'AuthController::changePassword');
     $routes->post('change_password', 'AuthController::changePassword');
+    $routes->get('change_number', 'AuthController::change_number');
+    $routes->post('updatePhoneNumber', 'AuthController::updatePhoneNumber');
 
     //home route
     $routes->get('home', 'Dashboard_controller::index');

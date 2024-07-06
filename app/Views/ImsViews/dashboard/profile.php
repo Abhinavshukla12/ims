@@ -44,10 +44,10 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-4">
-                            <label for="created_at" class="font-weight-bold">Registration Date:</label>
+                            <label for="phone" class="font-weight-bold">Phone Number:</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" id="created_at" class="form-control" value="<?= esc($user['created_at']) ?>" readonly>
+                            <input type="text" id="phone" name="phone" class="form-control" value="<?= esc($user['phone']) ?>" readonly>
                         </div>
                     </div>
                     <div class="row mt-4">

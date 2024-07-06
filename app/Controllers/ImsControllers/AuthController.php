@@ -152,4 +152,40 @@ class AuthController extends Controller
             return view('ImsViews/auth/change_password');
         }
     }
+
+    public function change_number()
+    {
+        // Fetch user data based on session or ID
+        $userId = 1; // Replace with actual user ID from session or other logic
+        $userModel = new UserModel();
+        $user = $userModel->find($userId);
+
+        // Pass user data to view, including current phone number
+        $data = [
+            'user' => $user,
+            'current_phone' => $user['phone'] // Assuming 'phone' is a field in your users table
+        ];
+
+        return view('ImsViews/auth/change_number', $data); // Create a view file for change_number form
+    }
+
+    /**
+     * Process form submission to change user phone number.
+     */
+    public function updatePhoneNumber()
+    {
+        $userId = 1; // Replace with actual user ID from session or other logic
+        $phone = $this->request->getPost('phone');
+
+        $userModel = new UserModel();
+        $success = $userModel->updatePhoneNumber($userId, $phone);
+
+        if ($success) {
+            // Redirect or show success message
+            return redirect()->to(base_url('ims/profile')); // Replace with your profile page URL
+        } else {
+            // Handle error
+            return "Failed to update phone number.";
+        }
+    }
 }

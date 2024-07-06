@@ -8,7 +8,7 @@ class UserModel extends Model
 {
     protected $table = 'users';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['username', 'password', 'email', 'fullname', 'dob'];
+    protected $allowedFields = ['username', 'password', 'email', 'fullname', 'dob', 'phone']; // Added 'phone' field
 
     /**
      * Get user by username
@@ -69,5 +69,25 @@ class UserModel extends Model
         $data = ['password' => $hashedPassword];
 
         return $this->where('username', $username)->set($data)->update();
+    }
+
+    /**
+     * Update user phone number by ID
+     * 
+     * @param int $id
+     * @param string $phone
+     * @return bool
+     */
+    public function updatePhoneNumber($id, $phone)
+    {
+        $data = ['phone' => $phone];
+
+        if ($this->update($id, $data)) {
+            log_message('info', 'User phone number updated successfully. ID: ' . $id);
+            return true;
+        } else {
+            log_message('error', 'Failed to update user phone number. ID: ' . $id);
+            return false;
+        }
     }
 }
