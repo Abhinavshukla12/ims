@@ -90,4 +90,21 @@ class UserModel extends Model
             return false;
         }
     }
+
+    /**
+     * Delete user by ID
+     * 
+     * @param int $id
+     * @return bool
+     */
+    public function deleteUserById($id)
+    {
+        if ($this->delete($id)) {
+            log_message('info', 'User deleted successfully. ID: ' . $id);
+            return true;
+        } else {
+            log_message('error', 'Failed to delete user. ID: ' . $id);
+            return false;
+        }
+    }
 }

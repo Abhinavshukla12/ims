@@ -6,25 +6,46 @@ $routes = Services::routes();
 
 //routes start
 $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
+
+    //reigster an account route
     $routes->get('register', 'AuthController::register');
     $routes->post('register', 'AuthController::processRegister');
+
+    //login user route
     $routes->get('login', 'AuthController::login');
     $routes->post('login', 'AuthController::processLogin');
+
+    //logut user route
     $routes->get('logout', 'AuthController::logout');
+
+    //profile page route
     $routes->get('profile', 'AuthController::profile');
+
+    //change username route
     $routes->get('change_username', 'AuthController::changeUsername');
     $routes->post('change_username', 'AuthController::processChangeUsername');
+
+    //change password route
     $routes->get('change_password', 'AuthController::changePassword');
     $routes->post('change_password', 'AuthController::changePassword');
+
+    //change number route
     $routes->get('change_number', 'AuthController::change_number');
     $routes->post('updatePhoneNumber', 'AuthController::updatePhoneNumber');
 
-    //home route
+    //delete account route
+    $routes->post('delete_account', 'AuthController::deleteAccount');
+
+    //home page route
     $routes->get('home', 'Dashboard_controller::index');
+
+    //about page route
     $routes->get('about', 'about::index');
+
+    //contact page route
     $routes->get('contact', 'contact::index');
     
-    //stock in page route
+    //stock page route
     $routes->group('stock/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
         $routes->get('', 'stocks::jqgrid');
         $routes->get('stock_data', 'stocks::stock_data');

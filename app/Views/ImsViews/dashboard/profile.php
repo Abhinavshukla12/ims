@@ -57,9 +57,22 @@
                             <a class="btn btn-primary mx-1 my-1" href="<?=base_url('ims/change_number')?>">Change Number</a>
                             <a class="btn btn-primary mx-1 my-1" href="<?=base_url('ims/two_factor_authentication')?>">Two-Factor Authentication</a>
                             <a class="btn btn-primary mx-1 my-1" href="<?=base_url('ims/account_recovery')?>">Account Recovery Options</a>
-                            <a class="btn btn-danger mx-1 my-1" href="<?=base_url('ims/delete_account')?>">Delete Account</a>
                         </div>
                     </div>
+                    <!-- Delete account form -->
+                    <form action="<?= base_url('ims/delete_account') ?>" method="post">
+                        <!-- CSRF Token -->
+                        <?= csrf_field() ?>
+
+                        <!-- Delete account button -->
+                        <div class="row mt-4">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-danger mx-1 my-1" onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+                                    Delete Account
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
