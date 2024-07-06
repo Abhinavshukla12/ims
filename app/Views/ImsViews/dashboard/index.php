@@ -104,17 +104,19 @@
         border: 0.3px solid white;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: box-shadow 0.3s ease-in-out;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
     .card:hover {
         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        transform: translateY(-5px);
     }
     .card-title {
-        color: #333;
-        font-size: 18px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
     }
     .card-text {
-        color: #666;
+        color: #ddd;
     }
     .btn {
         height: 45px;
@@ -133,9 +135,7 @@
         cursor: pointer;
     }
     .banner {
-        background-image: url('<?= base_url('assets/img/banner.jpg') ?>');
-        background-size: cover;
-        background-position: center;
+        background-image: linear-gradient(135deg, #006666 0%, #00cccc 100%);
         color: #fff;
         padding: 60px 0;
         text-align: center;
@@ -146,10 +146,12 @@
         margin-bottom: 0;
         font-size: 36px;
         font-family: "Arial", sans-serif;
+        animation: fadeInDown 1s ease-in-out;
     }
     .banner p {
         font-size: 18px;
         margin-top: 20px;
+        animation: fadeInUp 1s ease-in-out;
     }
     .banner .col-md-12 {
         padding: 0 20px;
@@ -159,22 +161,51 @@
         border: 0.3px solid white;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: box-shadow 0.3s ease-in-out;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
     .recent-activities:hover {
         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        transform: translateY(-5px);
     }
     .recent-activities h4 {
-        color: #fff;
-        font-size: 18px;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
     }
     .recent-activities ul {
         list-style: none;
         padding: 0;
-        color: #fff;
+        color: black;
     }
     .recent-activities ul li {
         margin-bottom: 5px;
+        padding: 10px;
+        border-bottom: 1px solid #333;
+        transition: background-color 0.3s ease;
+    }
+    .recent-activities ul li:hover {
+        background-color: #10898d;
+        color: white;
+    }
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 </style>
 <?= $this->endSection() ?>
