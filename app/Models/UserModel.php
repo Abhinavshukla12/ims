@@ -18,13 +18,7 @@ class UserModel extends Model
      */
     public function getUserByUsername($username)
     {
-        $user = $this->where('username', $username)->first();
-        if ($user) {
-            log_message('info', 'User found in getUserByUsername: ' . $username);
-        } else {
-            log_message('error', 'User not found in getUserByUsername: ' . $username);
-        }
-        return $user;
+        return $this->where('username', $username)->first();
     }
 
     /**
@@ -60,5 +54,20 @@ class UserModel extends Model
             log_message('error', 'Failed to update user. ID: ' . $id);
             return false;
         }
+    }
+
+    /**
+     * Update user password by username
+     * 
+     * @param string $username
+     * @param string $newPassword
+     * @return bool
+     */
+    public function updatePassword($username, $newPassword)
+    {
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        $data = ['password' => $hashedPassword];
+
+        return $this->where('username', $username)->set($data)->update();
     }
 }

@@ -14,7 +14,8 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     $routes->get('profile', 'AuthController::profile');
     $routes->get('change_username', 'AuthController::changeUsername');
     $routes->post('change_username', 'AuthController::processChangeUsername');
-
+    $routes->get('change_password', 'AuthController::changePassword');
+    $routes->post('change_password', 'AuthController::changePassword');
 
     //home route
     $routes->get('home', 'Dashboard_controller::index');

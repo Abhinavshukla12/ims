@@ -110,4 +110,46 @@ class AuthController extends Controller
             return redirect()->back()->withInput()->with('error', 'Failed to change username!');
         }
     }
+
+    public function changePassword()
+    {
+        $user = $this->session->get('user');
+        if (!$user) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to change your password.');
+        }
+
+        if ($this->request->getMethod() === 'post') {
+            // Handle form submission
+
+            // Validate form data
+            $validationRules = [
+                'current_password' => 'required',
+                'new_password'     => 'required|min_length[6]',
+            ];
+
+            if (!$this->validate($validationRules)) {
+                return redirect()->back()->withInput()->with('error', $this->validator->getErrors());
+            }
+
+            $model = new UserModel();
+            $userData = $model->getUserByUsername($user['username']);
+
+            // Verify current password
+            $currentPassword = $this->request->getPost('current_password');
+            if (!password_verify($currentPassword, $userData['password'])) {
+                return redirect()->back()->with('error', 'Current password is incorrect.');
+            }
+
+            // Update password
+            $newPassword = $this->request->getPost('new_password');
+            if ($model->updatePassword($user['username'], $newPassword)) {
+                return redirect()->to(site_url('ims/profile'))->with('success', 'Password changed successfully.');
+            } else {
+                return redirect()->back()->with('error', 'Failed to change password. Please try again.');
+            }
+        } else {
+            // Handle GET request to show change password form
+            return view('ImsViews/auth/change_password');
+        }
+    }
 }

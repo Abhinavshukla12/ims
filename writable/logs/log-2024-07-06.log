@@ -393,3 +393,6 @@ in APPPATH\Views\ImsViews\auth\change_username.php on line 22.
  9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-06 15:17:17 --> User not found in getUserByUsername: abhinav1828
+ERROR - 2024-07-06 15:17:27 --> User not found in getUserByUsername: abhinav1828
+ERROR - 2024-07-06 15:17:37 --> User not found in getUserByUsername: abhinav1828
