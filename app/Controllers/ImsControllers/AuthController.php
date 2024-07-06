@@ -79,40 +79,35 @@ class AuthController extends Controller
         return view('ImsViews/dashboard/profile', $data);
     }
 
-    public function changePassword()
+    public function changeUsername()
     {
         $user = $this->session->get('user');
         if (!$user) {
-            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to change your password.');
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to change your username.');
         }
 
-        if ($this->request->getMethod() == 'post') {
-            $currentPassword = $this->request->getPost('current_password');
-            $newPassword = $this->request->getPost('new_password');
-            $confirmPassword = $this->request->getPost('confirm_password');
+        $data['user'] = $user; // Pass the $user data to the view
 
-            if ($newPassword !== $confirmPassword) {
-                return redirect()->back()->with('error', 'New passwords do not match.');
-            }
+        return view('ImsViews/auth/change_username', $data);
+    }
 
-            $model = new UserModel();
-            $userData = $model->getUserByUsername($user['username']);
+    public function processChangeUsername()
+    {
+        $user = $this->session->get('user');
+        if (!$user) {
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to change your username.');
+        }
 
-            if (!password_verify($currentPassword, $userData['password'])) {
-                return redirect()->back()->with('error', 'Current password is incorrect.');
-            }
+        $newUsername = $this->request->getPost('new_username');
+        $model = new UserModel();
 
-            $data = [
-                'password' => password_hash($newPassword, PASSWORD_DEFAULT)
-            ];
-
-            if ($model->update($user['id'], $data)) {
-                return redirect()->to(site_url('ims/profile'))->with('success', 'Password changed successfully.');
-            } else {
-                return redirect()->back()->with('error', 'Failed to change password.');
-            }
+        if ($model->updateUser($user['id'], ['username' => $newUsername])) {
+            // Update session data
+            $user['username'] = $newUsername;
+            $this->session->set('user', $user);
+            return redirect()->to(site_url('ims/profile'))->with('success', 'Username changed successfully!');
         } else {
-            return view('ImsViews/dashboard/change_password');
+            return redirect()->back()->withInput()->with('error', 'Failed to change username!');
         }
     }
 }

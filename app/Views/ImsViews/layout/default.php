@@ -111,7 +111,13 @@ if (isset($css)) {
                     Your Profile
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown" style='width: 80px'>
-                    <a class="nav-link" href="<?=base_url('ims/profile')?>">Profile</a>
+                    <a class="nav-link" href="<?=base_url('ims/profile')?>">My Profile</a>
+                    <a class="nav-link" href="<?=base_url('ims/change_username')?>">Change Username</a>
+                    <a class="nav-link" href="<?=base_url('ims/change_password')?>">Change Password</a>
+                    <a class="nav-link" href="<?=base_url('ims/change_number')?>">Change Numbeer</a>
+                    <a class="nav-link" href="<?=base_url('ims/two_factor_authentication')?>">Two-Factor Authentication</a>
+                    <a class="nav-link" href="<?=base_url('ims/account_recovery')?>">Account Recovery Options</a>
+                    <a class="nav-link" href="<?=base_url('ims/delete_account')?>">Delete Account</a>
                     <a class="nav-link" href="<?=base_url('ims/logout')?>">Logout</a>
                 </div>
             </li>
