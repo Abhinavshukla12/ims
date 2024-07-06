@@ -41,6 +41,9 @@ class Dashboard_controller extends BaseController
             'documents' => $documentModel->findAll(),
             'warehouses' => $warehouseModel->findAll(),
             'employees' => $employeeModel->findAll(),
+            'recentSales' => $salesModel->orderBy('created_at', 'DESC')->findAll(5), // Fetch recent 5 sales
+            'recentPurchases' => $purchaseModel->orderBy('created_at', 'DESC')->findAll(5), // Fetch recent 5 purchases
+            'recentStocks' => $stockModel->orderBy('created_at', 'DESC')->findAll(5), // Fetch recent 5 stocks
         ];
 
         // Sample data for charts
