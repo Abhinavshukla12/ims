@@ -166,6 +166,10 @@
                     }]
                 },
                 options: {
+                    animation: {
+                        duration: 2000, // Control animation duration in milliseconds
+                        easing: 'easeInOutQuart' // Easing function for animation
+                    },
                     scales: {
                         y: {
                             beginAtZero: true
@@ -224,6 +228,7 @@
         text-align: center;
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
     .banner h1 {
         margin-bottom: 0;

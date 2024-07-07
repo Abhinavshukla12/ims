@@ -14,6 +14,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootswatch": "^5.3.3",
+    "chart.js": "^4.4.3",
     "font-awesome": "*",
     "free-jqgrid": "^4.15.5",
     "jquery": "^3.6.0",
