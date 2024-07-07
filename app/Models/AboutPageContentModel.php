@@ -8,5 +8,5 @@ class AboutPageContentModel extends Model
 {
     protected $table = 'about_page_content';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['page_title', 'introductory_paragraphs', 'key_features'];
+    protected $allowedFields = ['page_title', 'introductory_paragraphs', 'key_features', 'contact_us'];
 }

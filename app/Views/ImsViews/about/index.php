@@ -24,6 +24,21 @@
             </div>
         </div>
     </div>
+    <div class="col-md-12">
+        <h2 class="fade-in">Contact Us</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <ul>
+                    <?php 
+                    // Explode key features string by newline and display each feature as list item
+                    $contact = explode("\n", $aboutContent['contact_us']);
+                    foreach ($contact as $contacts): ?>
+                        <li><?= $contacts ?></li>
+                    <?php endforeach; ?>
+                 </ul>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 <style>
