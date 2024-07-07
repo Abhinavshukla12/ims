@@ -53,6 +53,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('add', 'stocks::add');
         $routes->post('edit', 'stocks::edit');
         $routes->post('delete', 'stocks::delete');
+        $routes->get('stock_graph', 'GraphController::stock_graph');
     });
 
     //sales order page route
@@ -63,6 +64,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('add', 'sales_order::add');
         $routes->post('edit', 'sales_order::edit');
         $routes->post('delete', 'sales_order::delete');
+        $routes->get('sales_graph', 'GraphController::sales_graph');
     });
 
     //purchase order page route
@@ -73,6 +75,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('add', 'PurchaseController::add');
         $routes->post('edit', 'PurchaseController::edit');
         $routes->post('delete', 'PurchaseController::delete');
+        $routes->get('purchase_graph', 'GraphController::purchase_graph');
     });
 
     //item management page route
@@ -83,6 +86,7 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
         $routes->post('add', 'ItemsController::add');
         $routes->post('edit', 'ItemsController::edit');
         $routes->post('delete', 'ItemsController::delete');
+        $routes->get('items_graph', 'GraphController::items_graph');
     });
 
     //supplier management page route

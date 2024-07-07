@@ -17,3 +17,98 @@ in APPPATH\Views\ImsViews\dashboard\index.php on line 182.
  9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-07 16:56:21 --> Error: Class "App\Controllers\ImsControllers\BaseController" not found
+[Method: GET, Route: ims/stock/stock_graph]
+in APPPATH\Controllers\ImsControllers\GraphController.php on line 10.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\ims\\app\\Controllers\\ImsControllers\\GraphController.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\ImsControllers\\GraphController')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\ImsControllers\\GraphController')
+ 5 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\ImsControllers\\GraphController', true)
+ 6 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-07 17:00:04 --> ErrorException: Undefined variable $stocks
+[Method: GET, Route: ims/stock/stock_graph]
+in APPPATH\Views\ImsViews\graph\stock_graph_view.php on line 20.
+ 1 APPPATH\Views\ImsViews\graph\stock_graph_view.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stocks', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\stock_graph_view.php', 20)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\stock_graph_view.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/graph/stock_graph_view', [], true)
+ 5 APPPATH\Controllers\ImsControllers\GraphController.php(16): view('ImsViews/graph/stock_graph_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\GraphController->stock_graph()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\GraphController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-07 17:00:44 --> ErrorException: Undefined variable $stocks
+[Method: GET, Route: ims/stock/stock_graph]
+in APPPATH\Views\ImsViews\graph\stock_graph_view.php on line 20.
+ 1 APPPATH\Views\ImsViews\graph\stock_graph_view.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stocks', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\stock_graph_view.php', 20)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\stock_graph_view.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/graph/stock_graph_view', [], true)
+ 5 APPPATH\Controllers\ImsControllers\GraphController.php(28): view('ImsViews/graph/stock_graph_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\GraphController->stock_graph()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\GraphController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-07 17:00:45 --> ErrorException: Undefined variable $stocks
+[Method: GET, Route: ims/stock/stock_graph]
+in APPPATH\Views\ImsViews\graph\stock_graph_view.php on line 20.
+ 1 APPPATH\Views\ImsViews\graph\stock_graph_view.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stocks', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\stock_graph_view.php', 20)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\stock_graph_view.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/graph/stock_graph_view', [], true)
+ 5 APPPATH\Controllers\ImsControllers\GraphController.php(28): view('ImsViews/graph/stock_graph_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\GraphController->stock_graph()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\GraphController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-07 17:00:49 --> ErrorException: Undefined variable $stocks
+[Method: GET, Route: ims/stock/stock_graph]
+in APPPATH\Views\ImsViews\graph\stock_graph_view.php on line 20.
+ 1 APPPATH\Views\ImsViews\graph\stock_graph_view.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stocks', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\stock_graph_view.php', 20)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\stock_graph_view.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/graph/stock_graph_view', [], true)
+ 5 APPPATH\Controllers\ImsControllers\GraphController.php(28): view('ImsViews/graph/stock_graph_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\GraphController->stock_graph()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\GraphController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-07 17:01:39 --> ErrorException: Undefined variable $stocks
+[Method: GET, Route: ims/stock/stock_graph]
+in APPPATH\Views\ImsViews\graph\stock_graph_view.php on line 20.
+ 1 APPPATH\Views\ImsViews\graph\stock_graph_view.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stocks', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\stock_graph_view.php', 20)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\stock_graph_view.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/graph/stock_graph_view', [], true)
+ 5 APPPATH\Controllers\ImsControllers\GraphController.php(28): view('ImsViews/graph/stock_graph_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\GraphController->stock_graph()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\GraphController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-07 17:37:49 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "ImsViews/graph/sales_graph_view.php"
+[Method: GET, Route: ims/sales/sales_graph]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('ImsViews/graph/sales_graph_view.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/graph/sales_graph_view', [], true)
+ 3 APPPATH\Controllers\ImsControllers\GraphController.php(45): view('ImsViews/graph/sales_graph_view', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\GraphController->sales_graph()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\GraphController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
