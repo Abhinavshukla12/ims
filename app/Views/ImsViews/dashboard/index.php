@@ -59,41 +59,49 @@
         <div class="row">
             <!-- for stock -->
             <div class="col-md-6">
-                <div class="card text-black mb-3">
-                    <div class="card-body" id="chart">
-                        <h4>Stock Overview</h4>
-                        <canvas id="stockChart"></canvas>
+                <a href="<?=base_url('ims/stock/stock_graph')?>">
+                    <div class="card text-black mb-3">
+                        <div class="card-body" id="chart">
+                            <h4>Stock Overview</h4>
+                            <canvas id="stockChart"></canvas>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <!-- for sales -->
             <div class="col-md-6">
-                <div class="card text-black mb-3">
-                    <div class="card-body" id="chart">
-                        <h4>Sales Overview</h4>
-                        <canvas id="salesChart"></canvas>
+                <a href="<?=base_url('ims/sales/sales_graph')?>">
+                    <div class="card text-black mb-3">
+                        <div class="card-body" id="chart">
+                            <h4>Sales Overview</h4>
+                            <canvas id="salesChart"></canvas>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <div class="row">
             <!-- for purchase -->
             <div class="col-md-6">
-                <div class="card text-black mb-3">
-                    <div class="card-body" id="chart">
-                        <h4>Purchases Overview</h4>
-                        <canvas id="purchasesChart"></canvas>
+                <a href="<?=base_url('ims/purchase_order/purchase_graph')?>">
+                    <div class="card text-black mb-3">
+                        <div class="card-body" id="chart">
+                            <h4>Purchases Overview</h4>
+                            <canvas id="purchasesChart"></canvas>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <!-- for items -->
             <div class="col-md-6">
-                <div class="card text-black mb-3">
-                    <div class="card-body" id="chart">
-                        <h4>Items Overview</h4>
-                        <canvas id="itemsChart"></canvas>
+                <a href="<?=base_url('ims/item_management/items_graph')?>">
+                    <div class="card text-black mb-3">
+                        <div class="card-body" id="chart">
+                            <h4>Items Overview</h4>
+                            <canvas id="itemsChart"></canvas>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -142,10 +150,10 @@
     <script>
     document.addEventListener('DOMContentLoaded', (event) => {
         const chartConfigs = [
-            { id: 'stockChart', data: <?= json_encode($stocks) ?>, label: 'Stock Quantity', bgColor: 'red', borderColor: 'rgba(75, 192, 192, 1)', keyName: 'quantity' },
-            { id: 'salesChart', data: <?= json_encode($sales) ?>, label: 'Sales Quantity', bgColor: 'blue', borderColor: 'rgba(75, 192, 192, 1)', keyName: 'quantity' },
-            { id: 'purchasesChart', data: <?= json_encode($purchases) ?>, label: 'Purchases Quantity', bgColor: 'purple', borderColor: 'rgba(255, 99, 132, 1)', keyName: 'quantity' },
-            { id: 'itemsChart', data: <?= json_encode($items) ?>, label: 'Items Quantity', bgColor: 'yellow', borderColor: 'rgba(54, 162, 235, 1)', keyName: 'quantity' }
+            { id: 'stockChart', data: <?= json_encode($stocks) ?>, label: 'Stock Quantity', bgColor: 'red', borderColor: 'black', keyName: 'quantity' },
+            { id: 'salesChart', data: <?= json_encode($sales) ?>, label: 'Sales Quantity', bgColor: 'blue', borderColor: 'red', keyName: 'quantity' },
+            { id: 'purchasesChart', data: <?= json_encode($purchases) ?>, label: 'Purchases Quantity', bgColor: 'purple', borderColor: 'green', keyName: 'quantity' },
+            { id: 'itemsChart', data: <?= json_encode($items) ?>, label: 'Items Quantity', bgColor: 'yellow', borderColor: 'blue', keyName: 'quantity' }
         ];
 
         chartConfigs.forEach(chartConfig => {
