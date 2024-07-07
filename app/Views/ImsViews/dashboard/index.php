@@ -1,94 +1,95 @@
 <?= $this->extend('ImsViews/layout/default') ?>
 <?= $this->section('content') ?>
 <body style="background-color: #10898d;">
-<div class="container mt-3">
-    <div class="row banner">
-        <div class="col-md-12" id="main">
-            <h1 style='color: black; font-weight: 18px;'>Welcome to Factory Management System</h1>
-            <p class="text-center text-black">Manage your factory's operations efficiently and effectively.</p>
+    <div class="container mt-3">
+        <div class="row banner">
+            <div class="col-md-12" id="main">
+                <h1 style='color: black; font-weight: 18px;'>Welcome to Factory Management System</h1>
+                <p class="text-center text-black">Manage your factory's operations efficiently and effectively.</p>
+            </div>
         </div>
-    </div>
 
-    <div id="records">
-        <div class="col-md-12">
-            <div class="card text-black mb-3">
-                <div class="card-body">
-                    <u><h2>Statistics Summary</h2></u><br>
-                    <div class="row text-black">
-                        <div class="col-md-3">
-                            <h4>Total Stocks: <?= count($stocks ?? []) ?></h4>
-                            <p>All available stock items in the factory.</p>
+        <div id="records">
+            <div class="col-md-12">
+                <div class="card text-black mb-3">
+                    <div class="card-body">
+                        <u><h2>Statistics Summary</h2></u><br>
+                        <div class="row text-black">
+                            <div class="col-md-3">
+                                <h4>Total Stocks: <?= count($stocks ?? []) ?></h4>
+                                <p>All available stock items in the factory.</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h4>Total Sales: <?= count($sales ?? []) ?></h4>
+                                <p>All sales orders completed to date.</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h4>Total Purchases: <?= count($purchases ?? []) ?></h4>
+                                <p>All purchase orders made to date.</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h4>Total Items: <?= count($items ?? []) ?></h4>
+                                <p>All items currently listed in inventory.</p>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <h4>Total Sales: <?= count($sales ?? []) ?></h4>
-                            <p>All sales orders completed to date.</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h4>Total Purchases: <?= count($purchases ?? []) ?></h4>
-                            <p>All purchase orders made to date.</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h4>Total Items: <?= count($items ?? []) ?></h4>
-                            <p>All items currently listed in inventory.</p>
+                        <div class="row mt-3 text-black">
+                            <div class="col-md-3">
+                                <h4>Total Suppliers: <?= count($suppliers ?? []) ?></h4>
+                                <p>All suppliers associated with the factory.</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h4>Total Documents: <?= count($documents ?? []) ?></h4>
+                                <p>All documents maintained in the system.</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h4>Total Warehouses: <?= count($warehouses ?? []) ?></h4>
+                                <p>All warehouses linked to the factory.</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h4>Total Employees: <?= count($employees ?? []) ?></h4>
+                                <p>All employees currently working in the factory.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="row mt-3 text-black">
-                        <div class="col-md-3">
-                            <h4>Total Suppliers: <?= count($suppliers ?? []) ?></h4>
-                            <p>All suppliers associated with the factory.</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h4>Total Documents: <?= count($documents ?? []) ?></h4>
-                            <p>All documents maintained in the system.</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h4>Total Warehouses: <?= count($warehouses ?? []) ?></h4>
-                            <p>All warehouses linked to the factory.</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h4>Total Employees: <?= count($employees ?? []) ?></h4>
-                            <p>All employees currently working in the factory.</p>
-                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3 text-black">
+            <div class="col-md-4">
+                <div class="card text-black mb-3 recent-activities">
+                    <div class="card-body">
+                        <h4>Recent Sales</h4>
+                        <ul>
+                            <?php foreach ($recentSales as $sale): ?>
+                                <li><?= $sale['name'] ?> - <?= $sale['quantity'] ?> units on <?= $sale['created_at'] ?></li>
+                            <?php endforeach; ?>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="row mt-3 text-black">
-        <div class="col-md-4">
-            <div class="card text-black mb-3 recent-activities">
-                <div class="card-body">
-                    <h4>Recent Sales</h4>
-                    <ul>
-                        <?php foreach ($recentSales as $sale): ?>
-                            <li><?= $sale['name'] ?> - <?= $sale['quantity'] ?> units on <?= $sale['created_at'] ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+            <div class="col-md-4">
+                <div class="card text-black mb-3 recent-activities">
+                    <div class="card-body">
+                        <h4>Recent Purchases</h4>
+                        <ul>
+                            <?php foreach ($recentPurchases as $purchase): ?>
+                                <li><?= $purchase['name'] ?> - <?= $purchase['quantity'] ?> units on <?= $purchase['created_at'] ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-black mb-3 recent-activities">
-                <div class="card-body">
-                    <h4>Recent Purchases</h4>
-                    <ul>
-                        <?php foreach ($recentPurchases as $purchase): ?>
-                            <li><?= $purchase['name'] ?> - <?= $purchase['quantity'] ?> units on <?= $purchase['created_at'] ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-black mb-3 recent-activities">
-                <div class="card-body">
-                    <h4>Recent Stocks</h4>
-                    <ul>
-                        <?php foreach ($recentStocks as $stock): ?>
-                            <li><?= $stock['name'] ?> - <?= $stock['quantity'] ?> units on <?= $stock['created_at'] ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+            <div class="col-md-4">
+                <div class="card text-black mb-3 recent-activities">
+                    <div class="card-body">
+                        <h4>Recent Stocks</h4>
+                        <ul>
+                            <?php foreach ($recentStocks as $stock): ?>
+                                <li><?= $stock['name'] ?> - <?= $stock['quantity'] ?> units on <?= $stock['created_at'] ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
