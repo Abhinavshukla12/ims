@@ -55,10 +55,9 @@
                             <a class="btn btn-primary mx-1 my-1" href="<?=base_url('ims/change_username')?>">Change Username</a>
                             <a class="btn btn-primary mx-1 my-1" href="<?=base_url('ims/change_password')?>">Change Password</a>
                             <a class="btn btn-primary mx-1 my-1" href="<?=base_url('ims/change_number')?>">Change Number</a>
-                            <a class="btn btn-primary mx-1 my-1" href="<?=base_url('ims/two_factor_authentication')?>">Two-Factor Authentication</a>
-                            <a class="btn btn-primary mx-1 my-1" href="<?=base_url('ims/account_recovery')?>">Account Recovery Options</a>
                         </div>
                     </div>
+                    
                     <!-- Delete account form -->
                     <form action="<?= base_url('ims/delete_account') ?>" method="post">
                         <!-- CSRF Token -->
