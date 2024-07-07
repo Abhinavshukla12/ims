@@ -118,7 +118,9 @@ if (isset($css)) {
                     <a class="nav-link" href="<?=base_url('ims/two_factor_authentication')?>">Two-Factor Authentication</a>
                     <a class="nav-link" href="<?=base_url('ims/account_recovery')?>">Account Recovery Options</a>
                     <a class="nav-link" href="<?=base_url('ims/delete_account')?>">Delete Account</a>
-                    <a class="nav-link" href="<?=base_url('ims/logout')?>">Logout</a>
+                    <div class="dropdown-divider"></div>
+                        <a class="nav-link" href="<?=base_url('ims/logout')?>">Logout</a>
+                    </div>
                 </div>
             </li>
         </ul>
