@@ -55,6 +55,48 @@
             </div>
         </div>
 
+        <!-- Chart Section -->
+        <div class="row">
+            <!-- for stock -->
+            <div class="col-md-6">
+                <div class="card text-black mb-3">
+                    <div class="card-body" id="chart">
+                        <h4>Stock Overview</h4>
+                        <canvas id="stockChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- for sales -->
+            <div class="col-md-6">
+                <div class="card text-black mb-3">
+                    <div class="card-body" id="chart">
+                        <h4>Sales Overview</h4>
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- for purchase -->
+            <div class="col-md-6">
+                <div class="card text-black mb-3">
+                    <div class="card-body" id="chart">
+                        <h4>Purchases Overview</h4>
+                        <canvas id="purchasesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- for items -->
+            <div class="col-md-6">
+                <div class="card text-black mb-3">
+                    <div class="card-body" id="chart">
+                        <h4>Items Overview</h4>
+                        <canvas id="itemsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row mt-3 text-black">
             <div class="col-md-4">
                 <div class="card text-black mb-3 recent-activities">
@@ -94,6 +136,46 @@
             </div>
         </div>
     </div>
+
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const chartConfigs = [
+            { id: 'stockChart', data: <?= json_encode($stocks) ?>, label: 'Stock Quantity', bgColor: 'red', borderColor: 'rgba(75, 192, 192, 1)', keyName: 'quantity' },
+            { id: 'salesChart', data: <?= json_encode($sales) ?>, label: 'Sales Quantity', bgColor: 'blue', borderColor: 'rgba(75, 192, 192, 1)', keyName: 'quantity' },
+            { id: 'purchasesChart', data: <?= json_encode($purchases) ?>, label: 'Purchases Quantity', bgColor: 'purple', borderColor: 'rgba(255, 99, 132, 1)', keyName: 'quantity' },
+            { id: 'itemsChart', data: <?= json_encode($items) ?>, label: 'Items Quantity', bgColor: 'yellow', borderColor: 'rgba(54, 162, 235, 1)', keyName: 'quantity' }
+        ];
+
+        chartConfigs.forEach(chartConfig => {
+            const ctx = document.getElementById(chartConfig.id).getContext('2d');
+            const chartData = chartConfig.data.map(item => item.name);
+            const chartValues = chartConfig.data.map(item => item[chartConfig.keyName]);
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chartData,
+                    datasets: [{
+                        label: chartConfig.label,
+                        data: chartValues,
+                        backgroundColor: chartConfig.bgColor,
+                        borderColor: chartConfig.borderColor,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>
 </body>
 <style>
     #records {
@@ -101,7 +183,7 @@
         margin-top: 20px;
     }
     .card {
-        background-color: #046169;
+        background-color: white;
         border: 0.3px solid white;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -157,8 +239,15 @@
     .banner .col-md-12 {
         padding: 0 20px;
     }
+    #chart{
+        background-color: white;
+        border: 0.3px solid white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
     .recent-activities {
-        background-color: #046169;
+        background-color: white;
         border: 0.3px solid white;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);

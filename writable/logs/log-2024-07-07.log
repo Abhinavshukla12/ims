@@ -3,3 +3,17 @@ ERROR - 2024-07-07 09:32:10 --> Invalid request method.
 ERROR - 2024-07-07 09:32:12 --> Invalid request method.
 ERROR - 2024-07-07 09:32:14 --> Invalid request method.
 ERROR - 2024-07-07 09:32:53 --> Invalid request method.
+CRITICAL - 2024-07-07 10:26:46 --> ErrorException: Undefined variable $stockLabels
+[Method: GET, Route: ims/home]
+in APPPATH\Views\ImsViews\dashboard\index.php on line 182.
+ 1 APPPATH\Views\ImsViews\dashboard\index.php(182): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stockLabels', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\dashboard\\index.php', 182)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\dashboard\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/dashboard/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\Dashboard_controller.php(69): view('ImsViews/dashboard/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\Dashboard_controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\Dashboard_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
