@@ -3,9 +3,12 @@
 <body style="background-color: #10898d;">
     <div class="container mt-3">
         <div class="row banner">
-            <div class="col-md-12" id="main">
-                <h1 style='color: black; font-weight: 18px;'>Welcome to Factory Management System</h1>
-                <p class="text-center text-black">Manage your factory's operations efficiently and effectively.</p>
+            <div class="col-md-2 logo-container">
+                <img src="<?=base_url('public/aseets/img/banner/1.png')?>" alt="Logo" class="logo">
+            </div>
+            <div class="col-md-10 text-black" id="main">
+                <h1>Welcome to Factory Management System</h1>
+                <p>Manage your factory's operations efficiently and effectively.</p>
             </div>
         </div>
 
@@ -13,7 +16,7 @@
             <div class="col-md-12">
                 <div class="card text-black mb-3">
                     <div class="card-body">
-                        <u><h2>Statistics Summary</h2></u><br>
+                        <h3>Statistics Summary</h3><br>
                         <div class="row text-black">
                             <div class="col-md-3">
                                 <h4>Total Stocks: <?= count($stocks ?? []) ?></h4>
@@ -59,7 +62,7 @@
         <div class="row">
             <!-- for stock -->
             <div class="col-md-6">
-                <a href="<?=base_url('ims/stock/stock_graph')?>">
+                <a id="graph-link" href="<?=base_url('ims/stock/stock_graph')?>">
                     <div class="card text-black mb-3">
                         <div class="card-body" id="chart">
                             <h4>Stock Overview</h4>
@@ -70,7 +73,7 @@
             </div>
             <!-- for sales -->
             <div class="col-md-6">
-                <a href="<?=base_url('ims/sales/sales_graph')?>">
+                <a id="graph-link" href="<?=base_url('ims/sales/sales_graph')?>">
                     <div class="card text-black mb-3">
                         <div class="card-body" id="chart">
                             <h4>Sales Overview</h4>
@@ -83,7 +86,7 @@
         <div class="row">
             <!-- for purchase -->
             <div class="col-md-6">
-                <a href="<?=base_url('ims/purchase_order/purchase_graph')?>">
+                <a id="graph-link" href="<?=base_url('ims/purchase_order/purchase_graph')?>">
                     <div class="card text-black mb-3">
                         <div class="card-body" id="chart">
                             <h4>Purchases Overview</h4>
@@ -94,7 +97,7 @@
             </div>
             <!-- for items -->
             <div class="col-md-6">
-                <a href="<?=base_url('ims/item_management/items_graph')?>">
+                <a id="graph-link" href="<?=base_url('ims/item_management/items_graph')?>">
                     <div class="card text-black mb-3">
                         <div class="card-body" id="chart">
                             <h4>Items Overview</h4>
@@ -258,6 +261,9 @@
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    #graph-link {
+        text-decoration: none;
     }
     .recent-activities {
         background-color: white;
