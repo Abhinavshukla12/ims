@@ -105,6 +105,18 @@ if (isset($css)) {
                     <a class="nav-link" href="<?=base_url('ims/employee')?>">Employees Management</a>
                 </div>
             </li>
+            <!-- graph Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Graphs
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="nav-link" href="<?=base_url('ims/stock/stock_graph')?>">Stocks Graph</a>
+                    <a class="nav-link" href="<?=base_url('ims/sales/sales_graph')?>">Sales Graph</a>
+                    <a class="nav-link" href="<?=base_url('ims/purchase_order/purchase_graph')?>">Purchase Graph</a>
+                    <a class="nav-link" href="<?=base_url('ims/item_management/items_graph')?>">Item Graph</a>
+                </div>
+            </li>
             <!-- Your Dropdown -->
             <li class="nav-item dropdown" style='margin-right: 60px;'>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
