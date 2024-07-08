@@ -11,7 +11,7 @@
     <div id="pager"></div>
 </div>
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 <style>
 body{
     background-color: #046169;
