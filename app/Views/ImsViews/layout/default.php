@@ -9,6 +9,7 @@
     <!-- font awesome link -->
     <link href="<?= base_url('node_modules/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet">
     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="<?= base_url('node_modules/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
     <!-- Bootswatch CSS -->
     <link href="<?= base_url('node_modules/bootswatch/dist/zephyr/bootstrap.min.css') ?>" rel="stylesheet">
