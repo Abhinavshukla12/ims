@@ -246,6 +246,9 @@
         font-size: 36px;
         font-family: "Arial", sans-serif;
         animation: fadeInDown 1s ease-in-out;
+        background: linear-gradient(100deg, #8B0000, #00008B);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
     }
     .banner p {
         font-size: 18px;

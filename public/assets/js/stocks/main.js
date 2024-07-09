@@ -16,9 +16,9 @@ $(document).ready(function() {
         datatype: "json",
         colModel: columns,
         viewrecords: true,
-        height: 500, // Fixed height for the grid container
-        rowNum: 22, // Display 22 rows per page
-        rowList: [20, 50, 100, 150, 200],
+        height: 500,
+        rowNum: 100,
+        rowList: [100, 500, 1000, 1500, 2000],
         pager: '#pager',
         sortname: 'id',
         sortorder: 'asc',
@@ -160,7 +160,7 @@ $(document).ready(function() {
     };
 
     // Loading spinner
-    $('body').append('<div class="loading-spinner" style="display:none;"><img src="spinner.gif" alt="Loading..."></div>');
+    $('body').append('<div class="loading-spinner" style="display:none;"><div class="spinner"></div></div>');
 
     // CSS Styling
     $('<style>')
@@ -173,6 +173,18 @@ $(document).ready(function() {
                 transform: translate(-50%, -50%);
                 z-index: 1000;
             }
+            .spinner {
+                border: 8px solid #f3f3f3;
+                border-top: 8px solid #3498db;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                animation: spin 2s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
             .stock-id-cell { background-color: #FFDDC1; }
             .name-cell { background-color: #FFECB3; }
             .description-cell { background-color: #D1C4E9; }
@@ -180,6 +192,17 @@ $(document).ready(function() {
             .price-cell { background-color: #B3E5FC; }
             .created-date-cell { background-color: #B2EBF2; }
             .updated-date-cell { background-color: #B2DFDB; }
+            .modal-header {
+                background-color: #032f3c;
+                color: white;
+            }
+            .modal-body{
+                background-color: #10898d;
+            }
+            .modal-footer {
+                justify-content: space-between;
+                background-color: #02474d;
+            }
         `)
         .appendTo("head");
 
@@ -199,16 +222,14 @@ $(document).ready(function() {
                             <div class="form-group">
                                 <label for="exportFormat">Select Export Format:</label>
                                 <select class="form-control" id="exportFormat">
-                                    <option value="json">JSON</option>
-                                    <option value="csv">CSV</option>
                                     <option value="excel">Excel</option>
                                 </select>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="exportDataButton">Export</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" id="exportDataButton">Export</button>
                     </div>
                 </div>
             </div>
@@ -222,58 +243,24 @@ $(document).ready(function() {
     });
 
     function exportData(format) {
-        var allData = [];
-        var totalRows = $("#grid").jqGrid('getGridParam', 'records');
-        var rowsPerPage = $("#grid").jqGrid('getGridParam', 'rowNum');
-        var totalPages = Math.ceil(totalRows / rowsPerPage);
-
-        for (var page = 1; page <= totalPages; page++) {
-            $("#grid").jqGrid('setGridParam', { page: page }).trigger('reloadGrid', [{ page: page }]);
-            var rowData = $("#grid").jqGrid('getRowData');
-            allData = allData.concat(rowData);
+        if (format === 'excel') {
+            $.ajax({
+                url: 'http://localhost/ims/public/ims/stock/export',
+                method: 'GET',
+                success: function(data) {
+                    exportToExcel(data);
+                },
+                error: function() {
+                    alert('Error exporting data');
+                }
+            });
         }
-
-        if (format === 'json') {
-            exportToJson(allData);
-        } else if (format === 'csv') {
-            exportToCsv(allData);
-        } else if (format === 'excel') {
-            exportToExcel(allData);
-        }
-    }
-
-    function exportToJson(data) {
-        var json = JSON.stringify(data, null, 2);
-        var blob = new Blob([json], { type: 'application/json' });
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.href = url;
-        a.download = 'stock_data.json';
-        a.click();
-        URL.revokeObjectURL(url);
-    }
-
-    function exportToCsv(data) {
-        var csv = '';
-        var headers = Object.keys(data[0]).join(',');
-        csv += headers + '\n';
-        data.forEach(function(row) {
-            var values = Object.values(row).join(',');
-            csv += values + '\n';
-        });
-        var blob = new Blob([csv], { type: 'text/csv' });
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.href = url;
-        a.download = 'stock_data.csv';
-        a.click();
-        URL.revokeObjectURL(url);
     }
 
     function exportToExcel(data) {
-        var ws = XLSX.utils.json_to_sheet(data);
+        var sheet = XLSX.utils.json_to_sheet(data);
         var wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Stock Data');
-        XLSX.writeFile(wb, 'stock_data.xlsx');
+        XLSX.utils.book_append_sheet(wb, sheet, 'Stocks');
+        XLSX.writeFile(wb, 'stocks_data.xlsx');
     }
 });
