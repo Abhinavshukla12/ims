@@ -4,11 +4,18 @@
     <!-- Chart Section -->
     <div class="row">
         <!-- for stock -->
-        <div class="col-md-22">
+        <div class="col-md-12">
             <div class="card text-black mb-3">
                 <div class="card-body" id="chart">
                     <h5>Stock Overview</h5>
-                    <canvas id="stockChart"></canvas>
+                    <div class="chart-container">
+                        <canvas id="stockChart"></canvas>
+                    </div>
+                    <div class="pagination-container">
+                        <button id="prevPage">Previous</button>
+                        <span id="pageInfo"></span>
+                        <button id="nextPage">Next</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -18,71 +25,95 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            const chartConfigs = [
-                { id: 'stockChart', data: <?= json_encode($stocks) ?>, label: 'Stock Quantity', bgColor: 'red', borderColor: 'black', keyName: 'quantity' },
-            ];
+            const chartConfig = {
+                id: 'stockChart',
+                data: <?= json_encode($stocks) ?>,
+                label: 'Stock Quantity',
+                bgColor: 'red',
+                borderColor: 'black',
+                keyName: 'quantity'
+            };
 
-            chartConfigs.forEach(chartConfig => {
-                const ctx = document.getElementById(chartConfig.id).getContext('2d');
-                const chartData = chartConfig.data.map(item => item.name);
-                const chartValues = chartConfig.data.map(item => item[chartConfig.keyName]);
+            const itemsPerPage = 50;
+            const ctx = document.getElementById(chartConfig.id).getContext('2d');
+            let stockChart;
+            let currentPage = 1;
+            const totalPages = Math.ceil(chartConfig.data.length / itemsPerPage);
 
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: chartData,
-                        datasets: [{
-                            label: chartConfig.label,
-                            data: chartValues,
-                            backgroundColor: chartConfig.bgColor,
-                            borderColor: chartConfig.borderColor,
-                            borderWidth: 2
-                        }]
-                    },
-                    options: {
-                        animation: {
-                            duration: 2000, // Control animation duration in milliseconds
-                            easing: 'easeInOutQuart' // Easing function for animation
+            function updateChart() {
+                const start = (currentPage - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                const currentData = chartConfig.data.slice(start, end);
+
+                const chartData = currentData.map(item => item.name);
+                const chartValues = currentData.map(item => item[chartConfig.keyName]);
+
+                if (stockChart) {
+                    stockChart.data.labels = chartData;
+                    stockChart.data.datasets[0].data = chartValues;
+                    stockChart.update();
+                } else {
+                    stockChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: chartData,
+                            datasets: [{
+                                label: chartConfig.label,
+                                data: chartValues,
+                                backgroundColor: chartConfig.bgColor,
+                                borderColor: chartConfig.borderColor,
+                                borderWidth: 2
+                            }]
                         },
-                        scales: {
-                            y: {
-                                beginAtZero: true
+                        options: {
+                            animation: {
+                                duration: 2000,
+                                easing: 'easeInOutQuart'
                             },
-                            x: {
-                                ticks: {
-                                    display: false // Hide x-axis labels (names)
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Quantity'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: false,
+                                        text: 'Product Name'
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
                                 }
                             }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false  // Hide the legend (dataset label)
-                            }
                         }
-                    }
-                });
+                    });
+                }
+
+                document.getElementById('pageInfo').innerText = `Page ${currentPage} of ${totalPages}`;
+            }
+
+            document.getElementById('prevPage').addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    updateChart();
+                }
             });
+
+            document.getElementById('nextPage').addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    updateChart();
+                }
+            });
+
+            updateChart();
         });
     </script>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .card-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        canvas {
-            width: 100%;
-            height: auto;
-        }
-    </style>
 </body>
 <?= $this->endSection() ?>

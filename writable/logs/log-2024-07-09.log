@@ -1,0 +1,10 @@
+CRITICAL - 2024-07-09 10:22:42 --> BadMethodCallException: Call to undefined method App\Models\StockModel::getMonthlyStock
+[Method: GET, Route: ims/stock/stock_graph]
+in SYSTEMPATH\Model.php on line 921.
+ 1 APPPATH\Controllers\ImsControllers\GraphController.php(23): CodeIgniter\Model->__call('getMonthlyStock', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\GraphController->stock_graph()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\GraphController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

@@ -18,7 +18,7 @@ class GraphController extends BaseController
             return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access the dashboard.');
         }
 
-        // If user is logged in, fetch dashboard data
+        // If user is logged in, fetch stock graph data
         $stockModel = new StockModel();
 
         // Fetch data for statistics
@@ -35,7 +35,7 @@ class GraphController extends BaseController
             return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access the dashboard.');
         }
 
-        // If user is logged in, fetch dashboard data
+        // If user is logged in, fetch sales graph data
         $salesModel = new SalesModel();
 
         // Fetch data for statistics
@@ -52,7 +52,7 @@ class GraphController extends BaseController
             return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access the dashboard.');
         }
 
-        // If user is logged in, fetch dashboard data
+        // If user is logged in, fetch purchase graph data
         $purchaseModel = new PurchaseOrderModel();
 
         // Fetch data for statistics
@@ -69,7 +69,7 @@ class GraphController extends BaseController
             return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access the dashboard.');
         }
 
-        // If user is logged in, fetch dashboard data
+        // If user is logged in, fetch item graph data
         $itemModel = new ItemModel();
 
         // Fetch data for statistics
