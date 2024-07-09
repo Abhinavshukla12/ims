@@ -174,12 +174,12 @@ $(document).ready(function() {
                 z-index: 1000;
             }
             .spinner {
-                border: 8px solid #f3f3f3;
-                border-top: 8px solid #3498db;
+                border: 8px solid black;
+                border-top: 8px solid red;
                 border-radius: 50%;
-                width: 60px;
-                height: 60px;
-                animation: spin 2s linear infinite;
+                width: 40px;
+                height: 40px;
+                animation: spin 4s linear infinite;
             }
             @keyframes spin {
                 0% { transform: rotate(0deg); }
@@ -223,44 +223,52 @@ $(document).ready(function() {
                                 <label for="exportFormat">Select Export Format:</label>
                                 <select class="form-control" id="exportFormat">
                                     <option value="excel">Excel</option>
+                                    <option value="pdf">PDF</option>
                                 </select>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger" id="exportDataButton">Export</button>
+                        <button type="button" class="btn btn-danger" onclick="exportData()">Export</button>
                     </div>
                 </div>
             </div>
         </div>
     `);
 
-    $('#exportDataButton').click(function() {
+    // Export Data Function
+    window.exportData = function() {
         var format = $('#exportFormat').val();
-        exportData(format);
-        $('#exportModal').modal('hide');
-    });
+        var data = $("#grid").jqGrid('getRowData');
 
-    function exportData(format) {
         if (format === 'excel') {
-            $.ajax({
-                url: 'http://localhost/ims/public/ims/stock/export',
-                method: 'GET',
-                success: function(data) {
-                    exportToExcel(data);
-                },
-                error: function() {
-                    alert('Error exporting data');
-                }
-            });
+            // Export as Excel
+            var ws = XLSX.utils.json_to_sheet(data);
+            var wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Stocks");
+            XLSX.writeFile(wb, "stocks_data.xlsx");
+        } else if (format === 'pdf') {
+            // Check if data is not empty and is an array
+            if (!Array.isArray(data) || data.length === 0) {
+                console.error('Invalid data format or empty data array.');
+                return; // Exit function if data is invalid
+            }
+        
+            try {
+                // Export as PDF
+                var doc = new jsPDF('l', 'pt', 'a4');
+                var columns = ["Stock ID", "Name", "Description", "Quantity", "Price", "Created Date", "Updated Date"];
+                var rows = data.map(function(stock) {
+                    return [stock.id, stock.name, stock.description, stock.quantity, stock.price, stock.created_at, stock.updated_at];
+                });
+                doc.autoTable(columns, rows);
+                doc.save('stocks_data.pdf');
+            } catch (error) {
+                console.error('Error exporting data to PDF:', error);
+                // Handle error gracefully, e.g., show a user-friendly message
+                // or log the error for further investigation.
+            }
         }
-    }
-
-    function exportToExcel(data) {
-        var sheet = XLSX.utils.json_to_sheet(data);
-        var wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, sheet, 'Stocks');
-        XLSX.writeFile(wb, 'stocks_data.xlsx');
-    }
+    };
 });
