@@ -88,6 +88,13 @@
                             plugins: {
                                 legend: {
                                     display: false
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return `${context.label}: ${context.raw.toLocaleString()}`; // Format tooltips
+                                        }
+                                    }
                                 }
                             }
                         }
