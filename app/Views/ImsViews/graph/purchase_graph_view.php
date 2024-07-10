@@ -1,14 +1,21 @@
 <?= $this->extend('ImsViews/layout/default') ?>
 <?= $this->section('content') ?>
 <body style="background-color: #10898d;">
-    <!-- Chart Section -->
+    <!-- Purchases Overview Section -->
     <div class="row">
-        <!-- for stock -->
-        <div class="col-md-22">
+        <!-- for purchases -->
+        <div class="col-md-12">
             <div class="card text-black mb-3">
                 <div class="card-body" id="chart">
                     <h5>Purchases Overview</h5>
-                    <canvas id="purchasesChart"></canvas>
+                    <div class="chart-container">
+                        <canvas id="purchasesChart"></canvas>
+                    </div>
+                    <div class="pagination-container">
+                        <button id="prevPage">Previous</button>
+                        <span id="pageInfo"></span>
+                        <button id="nextPage">Next</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -18,70 +25,119 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            const chartConfigs = [
-                { id: 'purchasesChart', data: <?= json_encode($purchases) ?>, label: 'Purchases Quantity', bgColor: 'purple', borderColor: 'green', keyName: 'quantity' }
-            ];
+            const chartConfig = {
+                id: 'purchasesChart',
+                data: <?= json_encode($purchases) ?>,
+                label: 'Purchases Quantity',
+                bgColor: 'purple',
+                borderColor: 'green',
+                keyName: 'quantity'
+            };
 
-            chartConfigs.forEach(chartConfig => {
-                const ctx = document.getElementById(chartConfig.id).getContext('2d');
-                const chartData = chartConfig.data.map(item => item.name);
-                const chartValues = chartConfig.data.map(item => item[chartConfig.keyName]);
+            const itemsPerPage = 50;
+            const ctx = document.getElementById(chartConfig.id).getContext('2d');
+            let purchasesChart;
+            let currentPage = 1;
+            const totalPages = Math.ceil(chartConfig.data.length / itemsPerPage);
 
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: chartData,
-                        datasets: [{
-                            label: chartConfig.label,
-                            data: chartValues,
-                            backgroundColor: chartConfig.bgColor,
-                            borderColor: chartConfig.borderColor,
-                            borderWidth: 2
-                        }]
-                    },
-                    options: {
-                        animation: {
-                            duration: 2000, // Control animation duration in milliseconds
-                            easing: 'easeInOutQuart' // Easing function for animation
+            function updateChart() {
+                const start = (currentPage - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                const currentData = chartConfig.data.slice(start, end);
+
+                const chartData = currentData.map(item => item.name);
+                const chartValues = currentData.map(item => item[chartConfig.keyName]);
+
+                if (purchasesChart) {
+                    purchasesChart.data.labels = chartData;
+                    purchasesChart.data.datasets[0].data = chartValues;
+                    purchasesChart.update();
+                } else {
+                    purchasesChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: chartData,
+                            datasets: [{
+                                label: chartConfig.label,
+                                data: chartValues,
+                                backgroundColor: chartConfig.bgColor,
+                                borderColor: chartConfig.borderColor,
+                                borderWidth: 2
+                            }]
                         },
-                        scales: {
-                            y: {
-                                beginAtZero: true
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            animation: {
+                                duration: 2000,
+                                easing: 'easeInOutQuart'
                             },
-                            x: {
-                                ticks: {
-                                    display: false // Hide x-axis labels (names)
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Quantity'
+                                    },
+                                    ticks: {
+                                        callback: function(value) {
+                                            return value.toLocaleString(); // Format Y-axis values
+                                        }
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Product Name'
+                                    },
+                                    ticks: {
+                                        autoSkip: false,
+                                        maxRotation: 45,
+                                        minRotation: 45
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return `${context.label}: ${context.raw.toLocaleString()}`; // Format tooltips
+                                        }
+                                    }
                                 }
                             }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false  // Hide the legend (dataset label)
-                            }
                         }
-                    }
-                });
+                    });
+                }
+
+                document.getElementById('pageInfo').innerText = `Page ${currentPage} of ${totalPages}`;
+            }
+
+            document.getElementById('prevPage').addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    updateChart();
+                }
             });
+
+            document.getElementById('nextPage').addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    updateChart();
+                }
+            });
+
+            updateChart();
         });
     </script>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .card-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        canvas {
+        .chart-container {
             width: 100%;
-            height: auto;
+            height: 620px; /* Adjust height as needed */
         }
     </style>
 </body>
