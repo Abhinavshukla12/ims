@@ -233,8 +233,8 @@ $(document).ready(function() {
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="exportButton">Export</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" id="exportButton">Export</button>
                     </div>
                 </div>
             </div>
@@ -258,19 +258,36 @@ $(document).ready(function() {
                 console.error('Invalid data format or empty data array.');
                 return; // Exit function if data is invalid
             }
-        
+
             try {
                 // Export as PDF
+                var { jsPDF } = window.jspdf;
                 var doc = new jsPDF('l', 'pt', 'a4');
                 var columns = ["Order ID", "Customer ID", "Name", "Address", "Order Date", "Quantity", "Price", "Created Date", "Updated Date"];
                 var rows = data.map(function(order) {
                     return [order.order_id, order.customer_id, order.name, order.address, order.order_date, order.quantity, order.price, order.created_at, order.updated_at];
                 });
-                doc.autoTable(columns, rows);
+                doc.autoTable({ head: [columns], body: rows });
                 doc.save('sales_data.pdf');
             } catch (error) {
                 console.error('Error exporting data to PDF:', error);
             }
         }
     };
+
+    // Export Button Click Event
+    $('#exportButton').click(function() {
+        exportData();
+        $("#exportModal").modal('hide');
+    });
+
+    // Ensure modal opens on button click
+    $("#grid").jqGrid('navButtonAdd', '#pager', {
+        caption: "Export",
+        buttonicon: "ui-icon-extlink",
+        onClickButton: function() {
+            $("#exportModal").modal('show');
+        },
+        position: "last"
+    });
 });
