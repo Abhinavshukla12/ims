@@ -23,7 +23,7 @@ $(document).ready(function() {
         rowNum: 100,
         rowList: [100, 500, 1000, 1500, 2000],
         pager: '#pager',
-        sortname: 'id',
+        sortname: 'order_id',
         sortorder: 'asc',
         caption: 'Sales Details',
         autowidth: true,
@@ -202,9 +202,10 @@ $(document).ready(function() {
                 color: white;
             }
             .modal-body {
-                background-color: #e0f7fa;
+                background-color: #10898d;
             }
             .modal-footer {
+                justify-content: space-between;
                 background-color: #00796b;
             }
         `).appendTo("head");
