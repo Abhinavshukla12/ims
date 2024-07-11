@@ -60,7 +60,7 @@
     margin-left: 10px;
     margin-right: 20px;
     font-size: 14px;
-    background-color: #02474d;
+    background-color: #2D9596;
 }
 </style>
 

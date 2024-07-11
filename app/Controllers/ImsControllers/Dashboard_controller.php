@@ -66,6 +66,10 @@ class Dashboard_controller extends BaseController
             "Employee 'John Doe' is on leave."
         ];
 
+        $data['css'] = [
+            'assets/css/dashboard/main.css'
+        ];
+
         return view('ImsViews/dashboard/index', $data);
     }
 }
