@@ -194,7 +194,7 @@
 </body>
 <style>
     #records {
-        width: 1263px;
+        width: 100%;
         margin-top: 20px;
     }
     .card {

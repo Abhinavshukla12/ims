@@ -244,8 +244,8 @@ $(document).ready(() => {
                 var { jsPDF } = window.jspdf;
                 var doc = new jsPDF('l', 'pt', 'a4');
                 var columns = ["Order ID", "Supplier ID", "Name", "Order Date", "Quantity", "Price", "Created Date", "Updated Date"];
-                var rows = data.map(function(order) {
-                    return [order.order_id, order.supplier_id, order.name, order.order_date, order.quantity, order.price, order.created_at, order.updated_at];
+                var rows = data.map(function(purchase) {
+                    return [purchase.order_id, purchase.supplier_id, purchase.name, purchase.order_date, purchase.quantity, purchase.price, purchase.created_at, purchase.updated_at];
                 });
                 doc.autoTable({ head: [columns], body: rows });
                 doc.save('sales_data.pdf');
