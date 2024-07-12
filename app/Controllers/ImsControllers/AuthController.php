@@ -76,7 +76,7 @@ class AuthController extends Controller
         $model = new UserModel();
         $userData = $model->getUserByUsername($user['username']);
         $data['user'] = $userData;
-        return view('ImsViews/dashboard/profile', $data);
+        return view('ImsViews/profile/profile', $data);
     }
 
     public function changeUsername()
@@ -88,7 +88,7 @@ class AuthController extends Controller
 
         $data['user'] = $user; // Pass the $user data to the view
 
-        return view('ImsViews/auth/change_username', $data);
+        return view('ImsViews/profile/change_username', $data);
     }
 
     public function processChangeUsername()
@@ -149,7 +149,7 @@ class AuthController extends Controller
             }
         } else {
             // Handle GET request to show change password form
-            return view('ImsViews/auth/change_password');
+            return view('ImsViews/profile/change_password');
         }
     }
 
@@ -166,7 +166,7 @@ class AuthController extends Controller
             'current_phone' => $user['phone'] // Assuming 'phone' is a field in your users table
         ];
 
-        return view('ImsViews/auth/change_number', $data); // Create a view file for change_number form
+        return view('ImsViews/profile/change_number', $data); // Create a view file for change_number form
     }
 
     /**
