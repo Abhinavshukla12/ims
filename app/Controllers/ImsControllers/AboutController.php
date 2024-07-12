@@ -3,9 +3,9 @@
 namespace App\Controllers\ImsControllers;
 
 use App\Controllers\BaseController;
-use App\Models\AboutPageContentModel;
+use App\Models\AboutContentModel;
 
-class About extends BaseController
+class AboutController extends BaseController
 {
     public function index()
     {
@@ -15,7 +15,7 @@ class About extends BaseController
         }
 
         // Load the model and fetch the content
-        $model = new AboutPageContentModel();
+        $model = new AboutContentModel();
         $aboutContent = $model->first(); // Assuming you only have one record for the about page content
 
         // Pass the content to the view

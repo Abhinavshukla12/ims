@@ -37,33 +37,30 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     $routes->post('delete_account', 'AuthController::deleteAccount');
 
     //home page route
-    $routes->get('home', 'Dashboard_controller::index');
+    $routes->get('home', 'DashboardController::index');
 
     //about page route
-    $routes->get('about', 'about::index');
-
-    //contact page route
-    $routes->get('contact', 'contact::index');
+    $routes->get('about', 'AboutController::index');
     
     //stock page route
     $routes->group('stock/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'stocks::jqgrid');
-        $routes->get('stock_data', 'stocks::stock_data');
-        $routes->post('crud_operations', 'stocks::crud_operations');
-        $routes->post('add', 'stocks::add');
-        $routes->post('edit', 'stocks::edit');
-        $routes->post('delete', 'stocks::delete');
+        $routes->get('', 'StockController::jqgrid');
+        $routes->get('stock_data', 'StockController::stock_data');
+        $routes->post('crud_operations', 'StockController::crud_operations');
+        $routes->post('add', 'StockController::add');
+        $routes->post('edit', 'StockController::edit');
+        $routes->post('delete', 'StockController::delete');
         $routes->get('stock_graph', 'GraphController::stock_graph');
     });
 
     //sales order page route
     $routes->group('sales/', ['namespace' => 'App\Controllers\ImsControllers'], static function ($routes) {
-        $routes->get('', 'sales_order::jqgrid');
-        $routes->get('sales_data', 'sales_order::sales_data');
-        $routes->post('crud_operations', 'sales_order::crud_operations');
-        $routes->post('add', 'sales_order::add');
-        $routes->post('edit', 'sales_order::edit');
-        $routes->post('delete', 'sales_order::delete');
+        $routes->get('', 'SalesController::jqgrid');
+        $routes->get('sales_data', 'SalesController::sales_data');
+        $routes->post('crud_operations', 'SalesController::crud_operations');
+        $routes->post('add', 'SalesController::add');
+        $routes->post('edit', 'SalesController::edit');
+        $routes->post('delete', 'SalesController::delete');
         $routes->get('sales_graph', 'GraphController::sales_graph');
     });
 

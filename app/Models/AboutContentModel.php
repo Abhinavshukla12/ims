@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AboutPageContentModel extends Model
+class AboutContentModel extends Model
 {
     protected $table = 'about_page_content';
     protected $primaryKey = 'id';

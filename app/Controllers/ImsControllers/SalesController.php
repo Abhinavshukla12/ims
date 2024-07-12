@@ -2,17 +2,17 @@
 
 namespace App\Controllers\ImsControllers;
 
-use App\Models\StockModel;
+use App\Models\SalesModel;
 use App\Controllers\BaseController;
 
-class stocks extends BaseController
+class SalesController extends BaseController
 {
     // View
     public function jqgrid()
     {
         // Check if user is logged in
         if (!session()->has('user')) {
-            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access the stocks.');
+            return redirect()->to(site_url('ims/login'))->with('error', 'Please login to access sales orders.');
         }
 
         $data['css'] = [
@@ -22,25 +22,25 @@ class stocks extends BaseController
         ];
         $data['js'] = [
             'node_modules/free-jqgrid/dist/jquery.jqgrid.min.js',
-            'assets/js/stocks/main.js'
+            'assets/js/sales_order/main.js'
         ];
-        return view('ImsViews/stocks/jqgrid', $data);
+        return view('ImsViews/sales_order/jqgrid', $data);
     }
 
     // Fetch all sales data with support for jqGrid search
-    public function stock_data()
+    public function sales_data()
     {
         // Check if user is logged in
         if (!session()->has('user')) {
-            return $this->response->setJSON(['error' => 'Please login to access the stocks.']);
+            return $this->response->setJSON(['error' => 'Please login to access sales data.']);
         }
 
-        $model = new StockModel();
+        $model = new SalesModel();
 
         // Get jqGrid parameters
         $page = $this->request->getVar('page', FILTER_VALIDATE_INT) ?: 1;
         $limit = $this->request->getVar('rows', FILTER_VALIDATE_INT) ?: 20;
-        $sidx = $this->request->getVar('sidx') ?: 'id';
+        $sidx = $this->request->getVar('sidx') ?: 'order_id';
         $sord = $this->request->getVar('sord') ?: 'asc';
         $search = $this->request->getVar('_search') == 'true';
 
@@ -83,7 +83,7 @@ class stocks extends BaseController
     {
         // Check if user is logged in
         if (!session()->has('user')) {
-            return $this->response->setJSON(['error' => 'Please login to perform CRUD operations on stocks.']);
+            return $this->response->setJSON(['error' => 'Please login to perform CRUD operations on sales orders.']);
         }
 
         $operation = $this->request->getMethod(true); // Get the request method (POST, PUT, DELETE)
@@ -102,10 +102,10 @@ class stocks extends BaseController
     {
         // Check if user is logged in
         if (!session()->has('user')) {
-            return $this->response->setJSON(['error' => 'Please login to add stocks.']);
+            return $this->response->setJSON(['error' => 'Please login to add sales orders.']);
         }
 
-        $model = new StockModel();
+        $model = new SalesModel();
         $data = $this->request->getPost();
         
         if ($model->insert($data) === false) {
@@ -120,10 +120,10 @@ class stocks extends BaseController
     {
         // Check if user is logged in
         if (!session()->has('user')) {
-            return $this->response->setJSON(['error' => 'Please login to edit stocks.']);
+            return $this->response->setJSON(['error' => 'Please login to edit sales orders.']);
         }
 
-        $model = new StockModel();
+        $model = new SalesModel();
         $id = $this->request->getVar('id');
         $data = $this->request->getPost();
         
@@ -139,10 +139,10 @@ class stocks extends BaseController
     {
         // Check if user is logged in
         if (!session()->has('user')) {
-            return $this->response->setJSON(['error' => 'Please login to delete stocks.']);
+            return $this->response->setJSON(['error' => 'Please login to delete sales orders.']);
         }
 
-        $model = new StockModel();
+        $model = new SalesModel();
         $id = $this->request->getVar('id');
         
         if ($model->delete($id) === false) {

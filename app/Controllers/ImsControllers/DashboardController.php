@@ -12,7 +12,7 @@ use App\Models\DocumentModel;
 use App\Models\WarehouseModel;
 use App\Models\EmployeeModel;
 
-class Dashboard_controller extends BaseController
+class DashboardController extends BaseController
 {
     public function index()
     {
