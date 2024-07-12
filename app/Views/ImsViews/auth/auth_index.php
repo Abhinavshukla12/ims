@@ -255,6 +255,8 @@
     <!-- Registration and Login Section -->
     <div class="container my-5">
         <div class="row justify-content-between">
+
+            <!-- Register form -->
             <div class="col-md-5 register-container">
                 <h2>User Registration</h2>
                 <form action="<?= site_url('ims/register') ?>" method="post">
@@ -276,6 +278,8 @@
                     <button type="submit" class="btn btn-danger btn-block">Register</button>
                 </form>
             </div>
+
+            <!-- Login form -->
             <div class="col-md-5 login-container">
                 <h2>User Login</h2>
                 <?php if(session()->has('error')): ?>
