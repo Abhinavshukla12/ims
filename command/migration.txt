@@ -1,0 +1,12 @@
+// DOCKER
+docker-compose run --rm web php spark make:migration create_department_table
+docker-compose run --rm web php spark migrate
+docker-compose run --rm web php spark migrate:rollback
+
+// TO MIGRATE ALL FILES
+docker-compose run --rm web php spark migrate --all
+docker-compose run --rm web php spark migrate:rollback
+docker-compose run --rm web php spark migrate:refresh
+
+// CREATE MIGRATION TO SPECIFIC FOLDER
+docker-compose run --rm web php spark make:migration folder_name/create_department_table

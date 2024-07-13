@@ -1,0 +1,8 @@
+// LOCAL
+composer install
+composer update
+
+
+// DOCKER
+docker-compose run --rm web composer update
+docker-compose run --rm web composer install

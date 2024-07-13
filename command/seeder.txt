@@ -1,0 +1,18 @@
+// LOCAL
+php spark make:seeder DepartmentsSeeder
+
+// DOCKER
+docker-compose run --rm web php spark make:seeder DepartmentsSeeder
+docker-compose run --rm web php spark db:seed
+
+docker-compose run --rm web php spark db:seed DepartmentsSeeder
+docker-compose run --rm web php spark db:seed DesignationSeeder
+docker-compose run --rm web php spark db:seed StatusSeeder
+docker-compose run --rm web php spark db:seed FromSeeder
+
+docker-compose run --rm web php spark db:seed EmployeesSeeder
+docker-compose run --rm web php spark db:seed FilesSeeder
+docker-compose run --rm web php spark db:seed FileMovementSeeder
+
+//seed all files
+docker-compose run --rm web php spark db:seed AllSeeder
