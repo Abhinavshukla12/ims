@@ -81,8 +81,8 @@ class DashboardController extends BaseController
     $interval = new \DateInterval('P1M');
     $currentDate->modify('first day of this month');
 
-    // Prepare an array of the last 4 months
-    for ($i = 0; $i < 4; $i++) {
+    // Prepare an array of the last 12 months
+    for ($i = 0; $i < 12; $i++) {
         $month = $currentDate->format('Y-m');
         $dataByMonth[$month] = 0;
         $currentDate->sub($interval);
@@ -103,6 +103,8 @@ class DashboardController extends BaseController
 
     return $dataByMonth;
 }
+
+
 
 }
 ?>

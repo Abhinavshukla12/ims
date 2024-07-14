@@ -155,16 +155,26 @@
     const itemsByMonth = <?= json_encode($itemsByMonth) ?>;
 
     const chartConfigs = [
-        { id: 'stockChart', data: stocksByMonth, label: 'Stock Quantity', bgColor: 'rgba(255, 99, 132, 0.5)', borderColor: 'rgba(255, 99, 132, 1)' },
-        { id: 'salesChart', data: salesByMonth, label: 'Sales Quantity', bgColor: 'rgba(54, 162, 235, 0.5)', borderColor: 'rgba(54, 162, 235, 1)' },
-        { id: 'purchasesChart', data: purchasesByMonth, label: 'Purchases Quantity', bgColor: 'rgba(75, 192, 192, 0.5)', borderColor: 'rgba(75, 192, 192, 1)' },
-        { id: 'itemsChart', data: itemsByMonth, label: 'Items Quantity', bgColor: 'rgba(255, 206, 86, 0.5)', borderColor: 'rgba(255, 206, 86, 1)' }
+        { id: 'stockChart', data: stocksByMonth, label: 'Stock Quantity' },
+        { id: 'salesChart', data: salesByMonth, label: 'Sales Quantity' },
+        { id: 'purchasesChart', data: purchasesByMonth, label: 'Purchases Quantity' },
+        { id: 'itemsChart', data: itemsByMonth, label: 'Items Quantity' }
     ];
 
     chartConfigs.forEach(chartConfig => {
         const ctx = document.getElementById(chartConfig.id).getContext('2d');
-        const chartData = Object.keys(chartConfig.data).slice(0, 4); // Take only the last 4 months
-        const chartValues = Object.values(chartConfig.data).slice(0, 4); // Take only the last 4 months
+        const chartData = Object.keys(chartConfig.data); // Take only the last 12 months
+        const chartValues = Object.values(chartConfig.data); // Take only the last 12 months
+
+        // Generate a list of 12 distinct colors
+        const backgroundColors = [
+            'rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 
+            'rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)', 'rgba(255, 159, 64, 0.5)',
+            'rgba(201, 203, 207, 0.5)', 'rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 
+            'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)'
+        ];
+
+        const borderColors = backgroundColors.map(color => color.replace('0.5', '1'));
 
         new Chart(ctx, {
             type: 'polarArea',
@@ -173,8 +183,8 @@
                 datasets: [{
                     label: chartConfig.label,
                     data: chartValues,
-                    backgroundColor: chartConfig.bgColor,
-                    borderColor: chartConfig.borderColor,
+                    backgroundColor: backgroundColors,
+                    borderColor: borderColors,
                     borderWidth: 2
                 }]
             },
@@ -198,6 +208,7 @@
         });
     });
 });
+
 </script>
 </body>
 <?= $this->endSection() ?>
