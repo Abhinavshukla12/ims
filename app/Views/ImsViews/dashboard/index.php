@@ -62,10 +62,9 @@
         <div class="row">
             <!-- for stock -->
             <div class="col-md-6">
-                <a id="graph-link" href="<?=base_url('ims/stock/stock_graph')?>">
                     <div class="card text-black mb-3">
                         <div class="card-body" id="chart">
-                            <h4>Stock Overview</h4>
+                            <a id="graph-link" href="<?=base_url('ims/stock/stock_graph')?>"><h4>Stock Overview</h4></a>
                             <canvas id="stockChart"></canvas>
                         </div>
                     </div>
@@ -73,10 +72,9 @@
             </div>
             <!-- for sales -->
             <div class="col-md-6">
-                <a id="graph-link" href="<?=base_url('ims/sales/sales_graph')?>">
                     <div class="card text-black mb-3">
                         <div class="card-body" id="chart">
-                            <h4>Sales Overview</h4>
+                            <a id="graph-link" href="<?=base_url('ims/sales/sales_graph')?>"><h4>Sales Overview</h4></a>
                             <canvas id="salesChart"></canvas>
                         </div>
                     </div>
@@ -86,10 +84,9 @@
         <div class="row">
             <!-- for purchase -->
             <div class="col-md-6">
-                <a id="graph-link" href="<?=base_url('ims/purchase_order/purchase_graph')?>">
                     <div class="card text-black mb-3">
                         <div class="card-body" id="chart">
-                            <h4>Purchases Overview</h4>
+                            <a id="graph-link" href="<?=base_url('ims/purchase_order/purchase_graph')?>"><h4>Purchases Overview</h4></a>
                             <canvas id="purchasesChart"></canvas>
                         </div>
                     </div>
@@ -97,10 +94,9 @@
             </div>
             <!-- for items -->
             <div class="col-md-6">
-                <a id="graph-link" href="<?=base_url('ims/item_management/items_graph')?>">
                     <div class="card text-black mb-3">
                         <div class="card-body" id="chart">
-                            <h4>Items Overview</h4>
+                            <a id="graph-link" href="<?=base_url('ims/item_management/items_graph')?>"><h4>Items Overview</h4></a>
                             <canvas id="itemsChart"></canvas>
                         </div>
                     </div>
@@ -152,49 +148,56 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', (event) => {
-        const chartConfigs = [
-            { id: 'stockChart', data: <?= json_encode($stocks) ?>, label: 'Stock Quantity', bgColor: 'red', borderColor: 'black', keyName: 'quantity' },
-            { id: 'salesChart', data: <?= json_encode($sales) ?>, label: 'Sales Quantity', bgColor: 'blue', borderColor: 'red', keyName: 'quantity' },
-            { id: 'purchasesChart', data: <?= json_encode($purchases) ?>, label: 'Purchases Quantity', bgColor: 'purple', borderColor: 'green', keyName: 'quantity' },
-            { id: 'itemsChart', data: <?= json_encode($items) ?>, label: 'Items Quantity', bgColor: 'yellow', borderColor: 'blue', keyName: 'quantity' }
-        ];
+    // Replace this with your PHP-generated data (aggregated by month)
+    const stocksByMonth = <?= json_encode($stocksByMonth) ?>;
+    const salesByMonth = <?= json_encode($salesByMonth) ?>;
+    const purchasesByMonth = <?= json_encode($purchasesByMonth) ?>;
+    const itemsByMonth = <?= json_encode($itemsByMonth) ?>;
 
-        chartConfigs.forEach(chartConfig => {
-            const ctx = document.getElementById(chartConfig.id).getContext('2d');
-            const chartData = chartConfig.data.map(item => item.name);
-            const chartValues = chartConfig.data.map(item => item[chartConfig.keyName]);
+    const chartConfigs = [
+        { id: 'stockChart', data: stocksByMonth, label: 'Stock Quantity', bgColor: 'rgba(255, 99, 132, 0.5)', borderColor: 'rgba(255, 99, 132, 1)' },
+        { id: 'salesChart', data: salesByMonth, label: 'Sales Quantity', bgColor: 'rgba(54, 162, 235, 0.5)', borderColor: 'rgba(54, 162, 235, 1)' },
+        { id: 'purchasesChart', data: purchasesByMonth, label: 'Purchases Quantity', bgColor: 'rgba(75, 192, 192, 0.5)', borderColor: 'rgba(75, 192, 192, 1)' },
+        { id: 'itemsChart', data: itemsByMonth, label: 'Items Quantity', bgColor: 'rgba(255, 206, 86, 0.5)', borderColor: 'rgba(255, 206, 86, 1)' }
+    ];
 
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: chartData,
-                    datasets: [{
-                        label: chartConfig.label,
-                        data: chartValues,
-                        backgroundColor: chartConfig.bgColor,
-                        borderColor: chartConfig.borderColor,
-                        borderWidth: 2
-                    }]
+    chartConfigs.forEach(chartConfig => {
+        const ctx = document.getElementById(chartConfig.id).getContext('2d');
+        const chartData = Object.keys(chartConfig.data).slice(0, 4); // Take only the last 4 months
+        const chartValues = Object.values(chartConfig.data).slice(0, 4); // Take only the last 4 months
+
+        new Chart(ctx, {
+            type: 'polarArea',
+            data: {
+                labels: chartData,
+                datasets: [{
+                    label: chartConfig.label,
+                    data: chartValues,
+                    backgroundColor: chartConfig.bgColor,
+                    borderColor: chartConfig.borderColor,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 2000,
+                    easing: 'easeInOutQuart'
                 },
-                options: {
-                    animation: {
-                        duration: 2000, // Control animation duration in milliseconds
-                        easing: 'easeInOutQuart' // Easing function for animation
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
+                scales: {
+                    r: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom'
                     }
                 }
-            });
+            }
         });
     });
+});
 </script>
 </body>
 <?= $this->endSection() ?>

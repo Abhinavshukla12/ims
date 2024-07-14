@@ -46,11 +46,11 @@ class DashboardController extends BaseController
             'recentStocks' => $stockModel->orderBy('created_at', 'DESC')->findAll(5), // Fetch recent 5 stocks
         ];
 
-        // Sample data for charts
-        $data['sales_labels'] = ["January", "February", "March", "April", "May", "June"];
-        $data['sales_data'] = [12, 19, 3, 5, 2, 3];
-        $data['purchase_labels'] = ["January", "February", "March", "April", "May", "June"];
-        $data['purchase_data'] = [2, 29, 5, 5, 2, 3];
+        // Prepare data for charts based on monthly aggregation for the latest year
+        $data['salesByMonth'] = $this->aggregateByMonth($salesModel, 'quantity');
+        $data['purchasesByMonth'] = $this->aggregateByMonth($purchaseModel, 'quantity');
+        $data['stocksByMonth'] = $this->aggregateByMonth($stockModel, 'quantity');
+        $data['itemsByMonth'] = $this->aggregateByMonth($itemModel, 'quantity');
 
         // Sample data for recent activities and notifications
         $data['recent_activities'] = [
@@ -72,5 +72,37 @@ class DashboardController extends BaseController
 
         return view('ImsViews/dashboard/index', $data);
     }
+
+    // Helper function to aggregate data by month for the latest year
+    private function aggregateByMonth($model, $fieldName)
+{
+    $dataByMonth = [];
+    $currentDate = new \DateTime();
+    $interval = new \DateInterval('P1M');
+    $currentDate->modify('first day of this month');
+
+    // Prepare an array of the last 4 months
+    for ($i = 0; $i < 4; $i++) {
+        $month = $currentDate->format('Y-m');
+        $dataByMonth[$month] = 0;
+        $currentDate->sub($interval);
+    }
+
+    // Fetch data grouped by month
+    $data = $model->findAll();
+
+    foreach ($data as $item) {
+        $month = date('Y-m', strtotime($item['created_at']));
+        if (isset($dataByMonth[$month])) {
+            $dataByMonth[$month] += $item[$fieldName];
+        }
+    }
+
+    // Reverse the array to get the latest months first
+    $dataByMonth = array_reverse($dataByMonth, true);
+
+    return $dataByMonth;
+}
+
 }
 ?>
