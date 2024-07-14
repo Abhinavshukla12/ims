@@ -75,36 +75,33 @@ class DashboardController extends BaseController
 
     // Helper function to aggregate data by month for the latest year
     private function aggregateByMonth($model, $fieldName)
-{
-    $dataByMonth = [];
-    $currentDate = new \DateTime();
-    $interval = new \DateInterval('P1M');
-    $currentDate->modify('first day of this month');
+    {
+        $dataByMonth = [];
+        $currentDate = new \DateTime();
+        $interval = new \DateInterval('P1M');
+        $currentDate->modify('first day of this month');
 
-    // Prepare an array of the last 12 months
-    for ($i = 0; $i < 12; $i++) {
-        $month = $currentDate->format('Y-m');
-        $dataByMonth[$month] = 0;
-        $currentDate->sub($interval);
-    }
-
-    // Fetch data grouped by month
-    $data = $model->findAll();
-
-    foreach ($data as $item) {
-        $month = date('Y-m', strtotime($item['created_at']));
-        if (isset($dataByMonth[$month])) {
-            $dataByMonth[$month] += $item[$fieldName];
+        // Prepare an array of the last 12 months
+        for ($i = 0; $i < 12; $i++) {
+            $month = $currentDate->format('Y-m');
+            $dataByMonth[$month] = 0;
+            $currentDate->sub($interval);
         }
+
+        // Fetch data grouped by month
+        $data = $model->findAll();
+
+        foreach ($data as $item) {
+            $month = date('Y-m', strtotime($item['created_at']));
+            if (isset($dataByMonth[$month])) {
+                $dataByMonth[$month] += $item[$fieldName];
+            }
+        }
+
+        // Reverse the array to get the latest months first
+        $dataByMonth = array_reverse($dataByMonth, true);
+
+        return $dataByMonth;
     }
-
-    // Reverse the array to get the latest months first
-    $dataByMonth = array_reverse($dataByMonth, true);
-
-    return $dataByMonth;
-}
-
-
-
 }
 ?>

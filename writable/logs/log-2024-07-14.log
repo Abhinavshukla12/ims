@@ -120,3 +120,77 @@ in APPPATH\Views\ImsViews\dashboard\index.php on line 159.
  9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-14 18:18:06 --> Error: Call to undefined method App\Controllers\ImsControllers\DashboardController::aggregateByMonth()
+[Method: GET, Route: ims/home]
+in APPPATH\Controllers\ImsControllers\DashboardController.php on line 50.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\DashboardController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\DashboardController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-14 18:19:30 --> ErrorException: Undefined variable $stocksByMonth
+[Method: GET, Route: ims/graphs]
+in APPPATH\Views\ImsViews\graph\index.php on line 55.
+ 1 APPPATH\Views\ImsViews\graph\index.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stocksByMonth', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\index.php', 55)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/graph/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\GraphController.php(41): view('ImsViews/graph/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\GraphController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\GraphController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-14 18:21:04 --> Error: Class "App\Controllers\ImsControllers\SupplierModel" not found
+[Method: GET, Route: ims/graphs]
+in APPPATH\Controllers\ImsControllers\GraphController.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\GraphController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\GraphController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-14 18:21:18 --> ErrorException: Undefined variable $stocksByMonth
+[Method: GET, Route: ims/graphs]
+in APPPATH\Views\ImsViews\graph\index.php on line 55.
+ 1 APPPATH\Views\ImsViews\graph\index.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stocksByMonth', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\index.php', 55)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\graph\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/graph/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\GraphController.php(56): view('ImsViews/graph/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\GraphController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\GraphController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-14 18:25:39 --> ErrorException: Undefined variable $stocksByMonth
+[Method: GET, Route: ims/home]
+in APPPATH\Views\ImsViews\dashboard\index.php on line 152.
+ 1 APPPATH\Views\ImsViews\dashboard\index.php(152): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stocksByMonth', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\dashboard\\index.php', 152)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\dashboard\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/dashboard/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\DashboardController.php(73): view('ImsViews/dashboard/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-14 18:26:53 --> ErrorException: Undefined variable $stocksByMonth
+[Method: GET, Route: ims/home]
+in APPPATH\Views\ImsViews\dashboard\index.php on line 152.
+ 1 APPPATH\Views\ImsViews\dashboard\index.php(152): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stocksByMonth', 'C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\dashboard\\index.php', 152)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ims\\app\\Views\\ImsViews\\dashboard\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ImsViews/dashboard/index', [], true)
+ 5 APPPATH\Controllers\ImsControllers\DashboardController.php(73): view('ImsViews/dashboard/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ImsControllers\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ImsControllers\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
