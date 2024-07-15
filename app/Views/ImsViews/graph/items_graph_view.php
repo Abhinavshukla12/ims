@@ -29,12 +29,12 @@
                 id: 'itemsChart',
                 data: <?= json_encode($items) ?>,
                 label: 'Items Quantity',
-                bgColor: 'yellow',
-                borderColor: 'blue',
+                bgColor: 'lime',
+                borderColor: 'black',
                 keyName: 'quantity'
             };
 
-            const itemsPerPage = 50;
+            const itemsPerPage = 12;
             const ctx = document.getElementById(chartConfig.id).getContext('2d');
             let itemsChart;
             let currentPage = 1;
@@ -45,7 +45,7 @@
                 const end = start + itemsPerPage;
                 const currentData = chartConfig.data.slice(start, end);
 
-                const chartData = currentData.map(item => item.name);
+                const chartData = currentData.map(item => item.month);
                 const chartValues = currentData.map(item => item[chartConfig.keyName]);
 
                 if (itemsChart) {
@@ -54,7 +54,7 @@
                     itemsChart.update();
                 } else {
                     itemsChart = new Chart(ctx, {
-                        type: 'bar',
+                        type: 'line',
                         data: {
                             labels: chartData,
                             datasets: [{
@@ -88,7 +88,7 @@
                                 x: {
                                     title: {
                                         display: true,
-                                        text: 'Item Name'
+                                        text: 'Month'
                                     },
                                     ticks: {
                                         autoSkip: false,

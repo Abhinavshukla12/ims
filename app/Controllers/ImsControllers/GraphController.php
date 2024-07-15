@@ -3,7 +3,6 @@
 namespace App\Controllers\ImsControllers;
 
 use App\Controllers\BaseController;
-
 use App\Models\StockModel;
 use App\Models\SalesModel;
 use App\Models\PurchaseOrderModel;
@@ -72,10 +71,34 @@ class GraphController extends BaseController
         // If user is logged in, fetch item graph data
         $itemModel = new ItemModel();
 
+        // Fetch data and group by month
+        $items = $itemModel->findAll();
+        $groupedItems = $this->groupItemsByMonth($items);
+
         // Fetch data for statistics
         $data = [
-            'items' => $itemModel->findAll()
+            'items' => $groupedItems
         ];
         return view('ImsViews/graph/items_graph_view', $data);
+    }
+
+    private function groupItemsByMonth($items)
+    {
+        $groupedItems = [];
+
+        foreach ($items as $item) {
+            $month = date('Y-m', strtotime($item['created_at']));
+            if (!isset($groupedItems[$month])) {
+                $groupedItems[$month] = 0;
+            }
+            $groupedItems[$month] += $item['quantity'];
+        }
+
+        $result = [];
+        foreach ($groupedItems as $month => $quantity) {
+            $result[] = ['month' => $month, 'quantity' => $quantity];
+        }
+
+        return $result;
     }
 }
