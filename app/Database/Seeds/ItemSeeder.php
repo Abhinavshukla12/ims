@@ -14,7 +14,7 @@ class ItemSeeder extends Seeder
 
         for ($i = 0; $i < 10000; $i++) {
             // Generate a random created_at date within the last year
-            $created_at = $faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d H:i:s');
+            $created_at = $faker->dateTimeBetween('-2 year', 'now')->format('Y-m-d H:i:s');
             // Ensure the updated_at is after the created_at date
             $updated_at = $faker->dateTimeBetween($created_at, 'now')->format('Y-m-d H:i:s');
 
