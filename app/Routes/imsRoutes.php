@@ -36,6 +36,9 @@ $routes->group('ims/', ['namespace' => 'App\Controllers\ImsControllers'], static
     //delete account route
     $routes->post('delete_account', 'AuthController::deleteAccount');
 
+    //switch account route
+    $routes->get('switch_account', 'AuthController::switchAccount');
+
     //home page route
     $routes->get('home', 'DashboardController::index');
 

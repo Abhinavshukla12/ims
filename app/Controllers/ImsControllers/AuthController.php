@@ -190,56 +190,64 @@ class AuthController extends Controller
     }
 
     public function deleteAccount()
-{
-    // Check if it's a POST request
-    if ($this->request->getMethod() === 'post') {
-        // Debug log
-        log_message('debug', 'Delete account method reached.');
+    {
+        // Check if it's a POST request
+        if ($this->request->getMethod() === 'post') {
+            // Debug log
+            log_message('debug', 'Delete account method reached.');
 
-        // Validate CSRF protection
-        if (! $this->validate(['csrf_token' => 'valid_csrf'])) {
-            log_message('error', 'CSRF Token validation failed.');
-            return redirect()->back()->withInput()->with('error', 'CSRF Token validation failed.');
-        }
+            // Validate CSRF protection
+            if (! $this->validate(['csrf_token' => 'valid_csrf'])) {
+                log_message('error', 'CSRF Token validation failed.');
+                return redirect()->back()->withInput()->with('error', 'CSRF Token validation failed.');
+            }
 
-        // Ensure user is logged in
-        if (!$this->isLoggedIn()) {
-            log_message('error', 'User is not logged in.');
-            return redirect()->to(base_url('ims/login')); // Redirect to login if not logged in
-        }
+            // Ensure user is logged in
+            if (!$this->isLoggedIn()) {
+                log_message('error', 'User is not logged in.');
+                return redirect()->to(base_url('ims/login')); // Redirect to login if not logged in
+            }
 
-        // Get user ID from session or any other secure method
-        $userId = session()->get('user_id');
-        log_message('debug', 'User ID retrieved from session: ' . $userId);
+            // Get user ID from session or any other secure method
+            $userId = session()->get('user_id');
+            log_message('debug', 'User ID retrieved from session: ' . $userId);
 
-        // Load the UserModel
-        $userModel = new UserModel();
+            // Load the UserModel
+            $userModel = new UserModel();
 
-        // Attempt to delete user
-        try {
-            // Delete user data
-            if (!$userModel->deleteUserById($userId)) {
-                log_message('error', 'Failed to delete user account.');
+            // Attempt to delete user
+            try {
+                // Delete user data
+                if (!$userModel->deleteUserById($userId)) {
+                    log_message('error', 'Failed to delete user account.');
+                    return redirect()->to(base_url('ims/profile'))->with('error', 'Failed to delete account. Please try again.');
+                }
+                
+                // Clear session data
+                session()->destroy();
+                log_message('info', 'User session destroyed.');
+
+                // Redirect to authentication page after deletion
+                return redirect()->to(base_url('ims/login'))->with('success', 'Your account has been deleted successfully.');
+            } catch (\Exception $e) {
+                // Handle deletion error
+                log_message('error', 'Exception while deleting user account: ' . $e->getMessage());
                 return redirect()->to(base_url('ims/profile'))->with('error', 'Failed to delete account. Please try again.');
             }
-            
-            // Clear session data
-            session()->destroy();
-            log_message('info', 'User session destroyed.');
-
-            // Redirect to authentication page after deletion
-            return redirect()->to(base_url('ims/login'))->with('success', 'Your account has been deleted successfully.');
-        } catch (\Exception $e) {
-            // Handle deletion error
-            log_message('error', 'Exception while deleting user account: ' . $e->getMessage());
-            return redirect()->to(base_url('ims/profile'))->with('error', 'Failed to delete account. Please try again.');
+        } else {
+            // Redirect to profile page or handle invalid request method
+            log_message('error', 'Invalid request method.');
+            return redirect()->to(base_url('ims/profile'))->with('error', 'Invalid request method.');
         }
-    } else {
-        // Redirect to profile page or handle invalid request method
-        log_message('error', 'Invalid request method.');
-        return redirect()->to(base_url('ims/profile'))->with('error', 'Invalid request method.');
     }
-}
+
+    public function switchAccount()
+    {
+        // Destroy current session
+        $this->session->destroy();
+        // Redirect to login page
+        return redirect()->to(site_url('ims/login'))->with('success', 'You have switched accounts. Please log in again.');
+    }
 
     // Helper function to check if user is logged in
     private function isLoggedIn()
