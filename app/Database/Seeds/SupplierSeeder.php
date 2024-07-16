@@ -12,7 +12,7 @@ class SupplierSeeder extends Seeder
         $faker = Factory::create();
         $data = [];
 
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 10000; $i++) {
             $data[] = [
                 'name'        => $faker->company,
                 'contact'     => $faker->phoneNumber,

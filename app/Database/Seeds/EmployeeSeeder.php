@@ -12,7 +12,7 @@ class EmployeeSeeder extends Seeder
         $faker = Factory::create();
         $data = [];
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 10000; $i++) {
             $data[] = [
                 'first_name' => $faker->firstName,
                 'last_name'  => $faker->lastName,

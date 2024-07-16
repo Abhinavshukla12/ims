@@ -10,7 +10,7 @@ class DocumentsSeeder extends Seeder
     {
         $data = [];
 
-        for ($i = 1; $i <= 5000; $i++) {
+        for ($i = 1; $i <= 10000; $i++) {
             $data[] = [
                 'name'        => 'Document ' . $i,
                 'title'       => 'Title ' . $i,

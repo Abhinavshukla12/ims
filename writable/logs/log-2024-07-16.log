@@ -1,3 +1,11 @@
 ERROR - 2024-07-16 06:06:36 --> Invalid request method.
 ERROR - 2024-07-16 06:06:39 --> Invalid request method.
 ERROR - 2024-07-16 06:08:46 --> Invalid request method.
+CRITICAL - 2024-07-16 09:36:32 --> ErrorException: Allowed memory size of 536870912 bytes exhausted (tried to allocate 16777224 bytes)
+[Method: CLI, Route: db:seed/StockSeeder]
+in APPPATH\Database\Seeds\StockSeeder.php on line 21.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-16 12:04:28 --> ErrorException: Allowed memory size of 536870912 bytes exhausted (tried to allocate 16777224 bytes)
+[Method: CLI, Route: db:seed/StockSeeder]
+in APPPATH\Database\Seeds\StockSeeder.php on line 21.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
