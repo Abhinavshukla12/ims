@@ -25,6 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
+            // Sample data format: [{month: 'January', quantity: 100}, ...]
             const chartConfig = {
                 id: 'itemsChart',
                 data: <?= json_encode($items) ?>,
@@ -33,6 +34,14 @@
                 borderColor: 'black',
                 keyName: 'quantity'
             };
+
+            // Sort data by month
+            const monthOrder = [
+                'December', 'November', 'October', 'September', 'August', 'July',
+                'June', 'May', 'April', 'March', 'February', 'January'
+            ];
+
+            chartConfig.data.sort((a, b) => monthOrder.indexOf(a.month) - monthOrder.indexOf(b.month));
 
             const itemsPerPage = 12;
             const ctx = document.getElementById(chartConfig.id).getContext('2d');
@@ -92,8 +101,8 @@
                                     },
                                     ticks: {
                                         autoSkip: false,
-                                        maxRotation: 45,
-                                        minRotation: 45
+                                        maxRotation: 0, // Set max rotation to 0 for line-wise display
+                                        minRotation: 0  // Set min rotation to 0 for line-wise display
                                     }
                                 }
                             },

@@ -163,8 +163,12 @@
 
     chartConfigs.forEach(chartConfig => {
         const ctx = document.getElementById(chartConfig.id).getContext('2d');
-        const chartData = Object.keys(chartConfig.data); // Take only the last 12 months
-        const chartValues = Object.values(chartConfig.data); // Take only the last 12 months
+        const chartDataKeys = Object.keys(chartConfig.data);
+        const chartDataValues = Object.values(chartConfig.data);
+
+        // Take only the last 12 months
+        const recent12MonthsKeys = chartDataKeys.slice(-12);
+        const recent12MonthsValues = chartDataValues.slice(-12);
 
         // Generate a list of 12 distinct colors
         const backgroundColors = [
@@ -179,10 +183,10 @@
         new Chart(ctx, {
             type: 'polarArea',
             data: {
-                labels: chartData,
+                labels: recent12MonthsKeys,
                 datasets: [{
                     label: chartConfig.label,
-                    data: chartValues,
+                    data: recent12MonthsValues,
                     backgroundColor: backgroundColors,
                     borderColor: borderColors,
                     borderWidth: 2
