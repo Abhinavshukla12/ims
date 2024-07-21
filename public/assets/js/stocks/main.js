@@ -206,6 +206,37 @@ $(document).ready(function() {
         `)
         .appendTo("head");
 
+        // Export Modal HTML
+    $('body').append(`
+        <div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="exportModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exportModalLabel">Export Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="exportForm">
+                            <div class="form-group">
+                                <label for="exportFormat">Select Export Format:</label>
+                                <select class="form-control" id="exportFormat">
+                                    <option value="excel">Excel</option>
+                                    <option value="pdf">PDF</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" id="exportButton">Export</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
+
     // Export Data Function
     window.exportData = function() {
         var format = $('#exportFormat').val();
@@ -215,7 +246,7 @@ $(document).ready(function() {
             // Export as Excel
             var ws = XLSX.utils.json_to_sheet(data);
             var wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, "Sales");
+            XLSX.utils.book_append_sheet(wb, ws, "Stock");
             XLSX.writeFile(wb, "stock_data.xlsx");
         } else if (format === 'pdf') {
             // Check if data is not empty and is an array
@@ -233,7 +264,7 @@ $(document).ready(function() {
                     return [stock.id, stock.name, stock.description, stock.quantity, stock.price, stock.created_at, stock.updated_at];
                 });
                 doc.autoTable({ head: [columns], body: rows });
-                doc.save('sales_data.pdf');
+                doc.save('stock_data.pdf');
             } catch (error) {
                 console.error('Error exporting data to PDF:', error);
             }
