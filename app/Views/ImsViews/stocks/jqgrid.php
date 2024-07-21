@@ -1,5 +1,5 @@
 <!-- app/Views/stock/index.php -->
-
+stock page fully not working based on sales
 <?= $this->extend('ImsViews/layout/default') ?>
 
 <?= $this->section('content') ?>
