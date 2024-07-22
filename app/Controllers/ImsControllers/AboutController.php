@@ -16,7 +16,7 @@ class AboutController extends BaseController
 
         // Load the model and fetch the content
         $model = new AboutContentModel();
-        $aboutContent = $model->first(); // Assuming you only have one record for the about page content
+        $aboutContent = $model->findAll(); // Assuming you only have one record for the about page content
 
         // Pass the content to the view
         return view('ImsViews/about/index', ['aboutContent' => $aboutContent]);
