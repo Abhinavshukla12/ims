@@ -60,7 +60,7 @@
     margin-left: 10px;
     margin-right: 20px;
     font-size: 14px;
-    background-color: #2D9596;
+    background-color: #ADBBDA;
 }
 </style>
 
@@ -96,14 +96,14 @@ if (isset($css)) {
                     Services
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="nav-link" href="<?=base_url('ims/stock')?>">Stocks Management</a>
-                    <a class="nav-link" href="<?=base_url('ims/sales')?>">Sales Management</a>
-                    <a class="nav-link" href="<?=base_url('ims/purchase_order')?>">Purchase Management</a>
-                    <a class="nav-link" href="<?=base_url('ims/item_management')?>">Item Management</a>
-                    <a class="nav-link" href="<?=base_url('ims/suppliers')?>">Supplier Management</a>
-                    <a class="nav-link" href="<?=base_url('ims/document')?>">Document Management</a>
-                    <a class="nav-link" href="<?=base_url('ims/warehouse')?>">Warehouse Management</a>
-                    <a class="nav-link" href="<?=base_url('ims/employee')?>">Employees Management</a>
+                    <a class="nav-link" href="<?=base_url('ims/stock')?>" style= "color: black;">Stocks Management</a>
+                    <a class="nav-link" href="<?=base_url('ims/sales')?>" style= "color: black;">Sales Management</a>
+                    <a class="nav-link" href="<?=base_url('ims/purchase_order')?>" style= "color: black;">Purchase Management</a>
+                    <a class="nav-link" href="<?=base_url('ims/item_management')?>" style= "color: black;">Item Management</a>
+                    <a class="nav-link" href="<?=base_url('ims/suppliers')?>" style= "color: black;">Supplier Management</a>
+                    <a class="nav-link" href="<?=base_url('ims/document')?>" style= "color: black;">Document Management</a>
+                    <a class="nav-link" href="<?=base_url('ims/warehouse')?>" style= "color: black;">Warehouse Management</a>
+                    <a class="nav-link" href="<?=base_url('ims/employee')?>" style= "color: black;">Employees Management</a>
                 </div>
             </li>
             <!-- graph Dropdown -->
@@ -112,10 +112,10 @@ if (isset($css)) {
                     Graphs
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="nav-link" href="<?=base_url('ims/stock/stock_graph')?>">Stocks Graph</a>
-                    <a class="nav-link" href="<?=base_url('ims/sales/sales_graph')?>">Sales Graph</a>
-                    <a class="nav-link" href="<?=base_url('ims/purchase_order/purchase_graph')?>">Purchase Graph</a>
-                    <a class="nav-link" href="<?=base_url('ims/item_management/items_graph')?>">Item Graph</a>
+                    <a class="nav-link" href="<?=base_url('ims/stock/stock_graph')?>" style= "color: black;">Stocks Graph</a>
+                    <a class="nav-link" href="<?=base_url('ims/sales/sales_graph')?>" style= "color: black;">Sales Graph</a>
+                    <a class="nav-link" href="<?=base_url('ims/purchase_order/purchase_graph')?>" style= "color: black;">Purchase Graph</a>
+                    <a class="nav-link" href="<?=base_url('ims/item_management/items_graph')?>" style= "color: black;">Item Graph</a>
                 </div>
             </li>
             <!-- Your Dropdown -->
@@ -124,13 +124,13 @@ if (isset($css)) {
                     Your Profile
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown" style='width: 80px'>
-                    <a class="nav-link" href="<?=base_url('ims/profile')?>">My Profile</a>
-                    <a class="nav-link" href="<?=base_url('ims/two_factor_authentication')?>">Two-Factor Authentication</a>
-                    <a class="nav-link" href="<?=base_url('ims/account_recovery')?>">Account Recovery Options</a>
-                    <a class="nav-link" href="<?=base_url('ims/delete_account')?>">Delete Account</a>
-                    <a class="nav-link" href="<?=base_url('ims/switch_account')?>">Switch Account</a>
+                    <a class="nav-link" href="<?=base_url('ims/profile')?>" style= "color: black;">My Profile</a>
+                    <a class="nav-link" href="<?=base_url('ims/two_factor_authentication')?>" style= "color: black;">Two-Factor Authentication</a>
+                    <a class="nav-link" href="<?=base_url('ims/account_recovery')?>" style= "color: black;">Account Recovery Options</a>
+                    <a class="nav-link" href="<?=base_url('ims/delete_account')?>" style= "color: black;">Delete Account</a>
+                    <a class="nav-link" href="<?=base_url('ims/switch_account')?>" style= "color: black;">Switch Account</a>
                     <div class="dropdown-divider"></div>
-                        <a class="nav-link" href="<?=base_url('ims/logout')?>">Logout</a>
+                        <a class="nav-link" href="<?=base_url('ims/logout')?>" style= "color: black;">Logout</a>
                     </div>
                 </div>
             </li>
