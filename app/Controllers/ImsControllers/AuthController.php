@@ -7,8 +7,10 @@ use App\Models\UserModel;
 
 class AuthController extends Controller
 {
+    //session
     protected $session;
 
+    //making session
     public function __construct()
     {
         $this->session = \Config\Services::session();
