@@ -7,7 +7,7 @@
                 <img src="<?=base_url('public/aseets/img/banner/1.png')?>" alt="Logo" class="logo">
             </div>
             <div class="col-md-10 text-black" id="main">
-                <h1>Welcome to Factory Management System</h1>
+                <h1>Welcome to Factory Management Software</h1>
                 <p>Manage your factory's operations efficiently and effectively.</p>
             </div>
         </div>
